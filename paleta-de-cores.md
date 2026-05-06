@@ -31,3 +31,31 @@ A paleta foi desenhada para operar com uma regra de proporção: aproximadamente
 Nenhuma cor quente (laranja, vermelho, amarelo) foi incluída no sistema. Essa decisão é coerente com o posicionamento da marca: a ausência de cor quente reforça a sensação de controle térmico, precisão técnica e ambiente climatizado que o Grupo ImperAR entrega como serviço. Qualquer adição futura de cor de alerta ou sucesso (para formulários, notificações) deve usar tons de verde frio ou âmbar dessaturado, nunca vermelho vivo, para preservar a temperatura emocional do sistema.
 
 # Tipografia: Quanto à escolha tipográfica, a recomendação é o par Barlow (títulos) + Inter (corpo), conforme o painel acima. O Barlow tem geometria industrial e amplitude generosa que ecoa o estilo bold da logo, enquanto o Inter garante máxima legibilidade em interfaces web. Ambas são gratuitas no Google Fonts.
+
+
+## Análise das 2 versões da logo:
+
+**Versão 1 (fundo branco/claro):**
+
+Logo com fundo branco/neutro
+"GRUPO" em cinza claro, "imper" em cinza, "AR" em azul celeste (#3AAEDC)
+Tagline "Climatização & Refrigeração" em cinza escuro
+Ícone do Coliseu em preto
+
+
+**Versão 2 (fundo azul):**
+
+Logo com fundo azul celeste (#3AAEDC) - cor primária da marca
+"GRUPO" em branco, "imper" em branco, "AR" em branco
+Tagline "Climatização & Refrigeração" em branco
+Ícone do Coliseu em preto/azul escuro
+
+## Entendimento:
+
+Para consistência:
+A versão 1 (fundo branco/claro) é mais adequada porque:
+
+Permite flexibilidade de uso em diferentes contextos (hero section com fundo azul, header branco, footer azul escuro)
+Mantém o contraste do "AR" em azul celeste, reforçando a identidade
+Funciona melhor em fundos variados sem conflito visual
+A versão com fundo azul seria redundante quando colocada sobre o hero section azul
