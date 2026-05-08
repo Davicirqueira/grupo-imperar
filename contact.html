@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contato | Grupo ImperAR</title>
+    <meta
+      name="description"
+      content="Entre em contato com o Grupo ImperAR para solicitar orçamento ou tirar dúvidas. Resposta rápida e atendimento transparente."
+    />
+
+    <meta property="og:title" content="Contato | Grupo ImperAR" />
+    <meta property="og:description" content="Solicite orçamento e tire dúvidas com o Grupo ImperAR." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/imagem4.jpeg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700;800&family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="index.html" aria-label="Ir para a página inicial">
+          <img src="logos/ImperAR - logo.svg" alt="Grupo ImperAR" />
+          <span class="brand-text">
+            <span class="brand-name">Grupo ImperAR</span>
+            <span class="brand-tagline">Climatização & Refrigeração</span>
+          </span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks" data-nav-toggle>
+          <span aria-hidden="true"></span>
+          <span class="sr-only" style="position: absolute; left: -9999px">Abrir menu</span>
+        </button>
+
+        <nav class="nav-links" id="navLinks" data-nav-links aria-label="Navegação principal">
+          <a href="index.html">Início</a>
+          <a href="services.html">Serviços</a>
+          <a href="about.html">Sobre</a>
+          <a href="contact.html">Contato</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h1>Contato</h1>
+              <p class="lead">
+                Envie uma mensagem e retornamos o quanto antes. Se preferir, use telefone ou e-mail direto.
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-wrap">
+            <form class="form" data-contact-form novalidate>
+              <div class="field" data-field>
+                <label for="name">Nome</label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+                <div class="error" data-error aria-live="polite"></div>
+              </div>
+
+              <div class="field" data-field>
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required />
+                <div class="error" data-error aria-live="polite"></div>
+              </div>
+
+              <div class="field" data-field>
+                <label for="phone">Telefone</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required />
+                <div class="error" data-error aria-live="polite"></div>
+              </div>
+
+              <div class="field" data-field>
+                <label for="message">Mensagem</label>
+                <textarea id="message" name="message" required minlength="10"></textarea>
+                <div class="error" data-error aria-live="polite"></div>
+              </div>
+
+              <button class="btn btn-primary" type="submit">Enviar</button>
+              <div class="form-status" data-form-status role="status" aria-live="polite"></div>
+            </form>
+
+            <aside>
+              <div class="card" style="margin-bottom: 24px">
+                <h2 style="margin-bottom: 12px">Contato direto</h2>
+                <p style="margin-bottom: 8px">
+                  <strong>Telefone:</strong> <a href="tel:+550000000000">(00) 00000-0000</a>
+                </p>
+                <p style="margin-bottom: 8px">
+                  <strong>E-mail:</strong> <a href="mailto:contato@seu-dominio.com">contato@seu-dominio.com</a>
+                </p>
+                <p style="margin-bottom: 0"><strong>Atendimento:</strong> sua cidade/região</p>
+              </div>
+
+              <div class="card">
+                <h2 style="margin-bottom: 12px">Dicas rápidas</h2>
+                <ul class="bullets">
+                  <li>Informe o tipo de ambiente (residencial/empresa).</li>
+                  <li>Se souber, mencione marca e modelo do equipamento.</li>
+                  <li>Descreva o problema (ruído, vazamento, baixa refrigeração etc.).</li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand" href="index.html" aria-label="Ir para a página inicial">
+            <img src="logos/ImperAR - logo.svg" alt="Grupo ImperAR" />
+            <span class="brand-text">
+              <span class="brand-name" style="color: #ffffff">Grupo ImperAR</span>
+              <span class="brand-tagline" style="color: rgba(232, 247, 253, 0.88)">Climatização & Refrigeração</span>
+            </span>
+          </a>
+          <p class="muted" style="margin-top: 12px">
+            Instalação, manutenção e suporte técnico com foco em conforto, eficiência e credibilidade.
+          </p>
+          <p class="muted">© <span data-year></span> Grupo ImperAR. Todos os direitos reservados.</p>
+        </div>
+
+        <div>
+          <h3 style="color: #ffffff; margin-bottom: 12px">Links</h3>
+          <p class="muted"><a href="services.html">Serviços</a></p>
+          <p class="muted"><a href="about.html">Sobre</a></p>
+          <p class="muted"><a href="contact.html">Contato</a></p>
+        </div>
+
+        <div>
+          <h3 style="color: #ffffff; margin-bottom: 12px">Contato</h3>
+          <p class="muted"><a href="tel:+550000000000">Telefone: (00) 00000-0000</a></p>
+          <p class="muted"><a href="mailto:contato@seu-dominio.com">E-mail: contato@seu-dominio.com</a></p>
+          <p class="muted">Atendimento: sua cidade/região</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/contact.js" defer></script>
+  </body>
+</html>
+
