@@ -26,3 +26,9 @@ Sistema de espaçamento baseado em múltiplos de 8px (8px, 16px, 24px, 32px, 48p
 Design responsivo com breakpoints: mobile (<768px), tablet (768px-1024px), desktop (≥1024px)
 Arquitetura de arquivos separados: HTML, CSS e JS em arquivos distintos
 A abordagem é sem frameworks, priorizando código nativo e performance.
+
+
+
+
+## CMS Headless (Recomendada para este caso)
+## Solução: Decap CMS (antigo Netlify CMS)
