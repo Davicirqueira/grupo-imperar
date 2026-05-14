@@ -1,0 +1,19 @@
+{
+  "name": "grupo-imperar-website",
+  "version": "1.0.0",
+  "description": "Site institucional do Grupo ImperAR - Climatização & Refrigeração",
+  "scripts": {
+    "optimize-images": "node scripts/optimize-images.js"
+  },
+  "keywords": [
+    "climatização",
+    "refrigeração",
+    "ar-condicionado"
+  ],
+  "author": "Grupo ImperAR",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "sharp": "^0.33.0"
+  }
+}

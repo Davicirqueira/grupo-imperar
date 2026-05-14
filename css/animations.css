@@ -1,0 +1,63 @@
+/* Scroll Animations */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respeita preferência de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Animações específicas por tipo */
+[data-animate="fade"] {
+  transform: none;
+}
+
+[data-animate="slide-left"] {
+  transform: translateX(-30px);
+}
+
+[data-animate="slide-right"] {
+  transform: translateX(30px);
+}
+
+[data-animate="scale"] {
+  transform: scale(0.95);
+}
+
+/* Estados visíveis */
+[data-animate="fade"].is-visible,
+[data-animate="slide-left"].is-visible,
+[data-animate="slide-right"].is-visible,
+[data-animate="scale"].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Delays escalonados para sequências */
+[data-animate-delay="100"] {
+  transition-delay: 100ms;
+}
+
+[data-animate-delay="200"] {
+  transition-delay: 200ms;
+}
+
+[data-animate-delay="300"] {
+  transition-delay: 300ms;
+}
+
+[data-animate-delay="400"] {
+  transition-delay: 400ms;
+}

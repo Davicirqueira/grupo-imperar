@@ -312,10 +312,14 @@ p {
 
 .hero-inner {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 0.9fr 1.1fr;
   align-items: center;
   gap: var(--space-5);
   padding-block: var(--space-6);
+}
+
+.hero-content {
+  max-width: 540px;
 }
 
 .hero h1 {
@@ -333,6 +337,10 @@ p {
   margin-top: var(--space-3);
 }
 
+.hero-visual {
+  position: relative;
+}
+
 .hero-card {
   background: rgba(255, 255, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.22);
@@ -344,12 +352,8 @@ p {
 .hero-card img {
   aspect-ratio: 4 / 3;
   object-fit: cover;
-}
-
-.hero-card .hero-card-caption {
-  padding: var(--space-2);
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  height: auto;
 }
 
 /* Cards / Grid */
@@ -395,6 +399,152 @@ p {
 .card .icon svg {
   width: 24px;
   height: 24px;
+}
+
+/* Visual Cards */
+.card-visual {
+  padding: 0;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.card-visual:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: var(--space-3);
+}
+
+.card-content h3 {
+  margin-bottom: var(--space-1);
+}
+
+.card-content p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Process Timeline */
+.process-timeline {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.process-step {
+  display: grid;
+  grid-template-columns: 60px 1fr 400px;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.process-number {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--c-sky);
+  color: var(--c-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.process-content h3 {
+  margin-bottom: var(--space-1);
+}
+
+.process-content p {
+  margin: 0;
+  color: var(--c-text);
+  line-height: 1.6;
+}
+
+.process-image {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.process-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.portfolio-item {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+}
+
+.portfolio-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26, 43, 92, 0.9), rgba(26, 43, 92, 0.3));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-3);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.05);
+}
+
+.portfolio-overlay h3 {
+  color: var(--c-white);
+  margin: 0 0 var(--space-1);
+}
+
+.portfolio-overlay p {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-size: 14px;
 }
 
 /* Feature list */
@@ -524,11 +674,28 @@ textarea:focus {
   .hero-inner {
     grid-template-columns: 1fr;
   }
+  .hero-content {
+    max-width: 100%;
+  }
   .contact-wrap {
     grid-template-columns: 1fr;
   }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+  }
+  .process-step {
+    grid-template-columns: 60px 1fr;
+  }
+  .process-image {
+    grid-column: 2;
+    margin-top: var(--space-2);
+  }
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .portfolio-large {
+    grid-column: span 1;
+    grid-row: span 1;
   }
 }
 
@@ -564,5 +731,24 @@ textarea:focus {
   }
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+  .process-step {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+  .process-number {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+  .process-image {
+    margin-top: 0;
+  }
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+  .portfolio-large {
+    grid-column: span 1;
+    grid-row: span 1;
   }
 }
