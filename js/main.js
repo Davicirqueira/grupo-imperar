@@ -61,6 +61,19 @@ function setupMobileNav() {
   links.querySelectorAll("a").forEach((a) => a.addEventListener("click", close));
 }
 
+function setupFloatingWhatsApp() {
+  const btn = document.querySelector('[data-whatsapp-float]');
+  if (!btn) return;
+
+  const onScroll = () => {
+    const shouldShow = window.scrollY > 300;
+    btn.classList.toggle('is-visible', shouldShow);
+  };
+
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+
 function setYear() {
   const el = document.querySelector("[data-year]");
   if (el) el.textContent = String(new Date().getFullYear());
@@ -70,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setActiveNav();
   setupStickyHeader();
   setupMobileNav();
+  setupFloatingWhatsApp();
   setYear();
 
   // Helpful hook for analytics later (no-op by default)
