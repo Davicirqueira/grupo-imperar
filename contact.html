@@ -66,28 +66,61 @@
               <div class="field" data-field>
                 <label for="name">Nome completo</label>
                 <input id="name" name="name" type="text" autocomplete="name" placeholder="Ex.: João Silva" required />
+                <svg class="field-icon success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <svg class="field-icon error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
                 <div class="error" data-error aria-live="polite"></div>
               </div>
 
               <div class="field" data-field>
                 <label for="email">E-mail</label>
                 <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="seu@email.com.br" required />
+                <svg class="field-icon success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <svg class="field-icon error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
                 <div class="error" data-error aria-live="polite"></div>
               </div>
 
               <div class="field" data-field>
                 <label for="phone">Telefone / WhatsApp</label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(11) 90000-0000" required />
+                <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(11) 90000-0000" required data-phone-mask />
+                <svg class="field-icon success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <svg class="field-icon error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
                 <div class="error" data-error aria-live="polite"></div>
               </div>
 
               <div class="field" data-field>
                 <label for="message">Mensagem</label>
-                <textarea id="message" name="message" placeholder="Descreva brevemente sua necessidade..." required minlength="10"></textarea>
+                <textarea id="message" name="message" placeholder="Descreva brevemente sua necessidade..." required minlength="10" maxlength="500" data-char-counter></textarea>
+                <svg class="field-icon success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <svg class="field-icon error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <div class="char-counter" data-counter>0/500 caracteres</div>
                 <div class="error" data-error aria-live="polite"></div>
               </div>
 
-              <button class="btn btn-primary" type="submit">Enviar</button>
+              <button class="btn btn-primary" type="submit" data-submit-btn>Enviar</button>
               <div class="form-status" data-form-status role="status" aria-live="polite"></div>
             </form>
 

@@ -79,11 +79,53 @@ function setYear() {
   if (el) el.textContent = String(new Date().getFullYear());
 }
 
+function setupSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      if (!href || href === "#") return;
+
+      const target = document.querySelector(href);
+      if (!target) return;
+
+      e.preventDefault();
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  });
+}
+
+function setupRippleEffect() {
+  document.querySelectorAll(".btn").forEach((button) => {
+    button.addEventListener("click", function (e) {
+      const ripple = document.createElement("span");
+      ripple.classList.add("ripple");
+
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+
+      ripple.style.width = ripple.style.height = size + "px";
+      ripple.style.left = x + "px";
+      ripple.style.top = y + "px";
+
+      this.appendChild(ripple);
+
+      setTimeout(() => ripple.remove(), 400);
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   setActiveNav();
   setupStickyHeader();
   setupMobileNav();
   setupFloatingWhatsApp();
+  setupSmoothScroll();
+  setupRippleEffect();
   setYear();
 
   // Helpful hook for analytics later (no-op by default)
