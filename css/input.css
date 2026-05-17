@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-gray-text leading-relaxed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold text-deep;
+  }
+}
+
+@layer components {
+  /* Animation initial states */
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition: opacity 600ms cubic-bezier(0.4, 0.0, 0.2, 1),
+                transform 600ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+
+  [data-animate].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hero image animation (longer duration, fade only) */
+  [data-animate][data-animate-delay="300"] {
+    transform: none;
+    transition: opacity 800ms cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+
+  /* Typewriter cursor blink */
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  .typewriter-cursor {
+    animation: blink 800ms infinite;
+    font-weight: 300;
+    margin-left: 2px;
+  }
+
+  .typewriter-text {
+    border-right: none;
+  }
+
+  /* Navigation link hover underline animation */
+  .nav-link {
+    @apply relative text-deep font-semibold text-sm transition-colors duration-200;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-200;
+    transform-origin: left;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .nav-link:hover {
+    @apply text-primary;
+  }
+
+  .nav-link:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary rounded-sm;
+  }
+
+  .nav-link[aria-current="page"] {
+    @apply text-primary;
+  }
+
+  .nav-link[aria-current="page"]::after {
+    @apply w-full;
+  }
+
+  /* Mobile menu hamburger-to-X animation */
+  [data-nav-toggle].is-open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  [data-nav-toggle].is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  [data-nav-toggle].is-open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Mobile menu open state */
+  .mobile-menu.is-open {
+    transform: translateX(0);
+  }
+
+  .mobile-menu-overlay.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Mobile nav link focus state */
+  .mobile-nav-link:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary rounded-sm;
+  }
+
+  /* Button base for ripple effect compatibility */
+  .btn {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .btn:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+
+  /* Ripple effect animation */
+  @keyframes ripple {
+    0% {
+      transform: scale(0);
+      opacity: 0.3;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  .ripple {
+    position: absolute;
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+    pointer-events: none;
+    animation: ripple 400ms ease-out forwards;
+  }
+}
+
+@layer utilities {
+  /* Tailwind provides sr-only and not-sr-only utilities natively */
+
+  /* Skeleton loader shimmer animation (Task 22.2) */
+  .skeleton {
+    @apply relative overflow-hidden rounded-2xl bg-gray-light;
+  }
+
+  .skeleton::after {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(90deg, transparent, theme('colors.ice'), transparent);
+    animation: shimmer 1500ms infinite;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  /* CSS containment for card components (Task 25.5) */
+  .contain-card {
+    contain: layout style paint;
+  }
+}
+
+/* Backdrop-filter fallback for unsupported browsers (Task 24.1) */
+@supports not (backdrop-filter: blur(12px)) {
+  [data-header] {
+    background-color: rgba(255, 255, 255, 0.97);
+  }
+}
+
+/* Header scrolled state - reduced padding (Task 22.3) */
+[data-header].is-scrolled .header-inner {
+  @apply py-2.5 lg:py-3.5;
+}

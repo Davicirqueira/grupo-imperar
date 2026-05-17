@@ -20,155 +20,269 @@
       href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Inter:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/output.css" />
   </head>
   <body>
-    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-deep focus:text-white focus:rounded-lg focus:text-sm" href="#conteudo">Pular para o conteúdo</a>
 
-    <header class="site-header">
-      <div class="container nav">
-        <a class="brand" href="index.html" aria-label="Ir para a página inicial">
-          <img src="logos/ImperAR - logo.svg" alt="Grupo ImperAR" />
-          <span class="brand-text">
-            <span class="brand-name">Grupo ImperAR</span>
-            <span class="brand-tagline">Climatização & Refrigeração</span>
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-deep/8 transition-shadow duration-200" data-header>
+      <div class="header-inner container mx-auto px-4 py-3.5 lg:py-5 flex items-center justify-between gap-4 min-h-[64px] lg:min-h-[80px] transition-all duration-200">
+        <a class="flex items-center gap-2" href="index.html" aria-label="Ir para a página inicial">
+          <img src="logos/ImperAR - logo.svg" alt="Grupo ImperAR" class="h-8 lg:h-10 w-auto" />
+          <span class="flex flex-col">
+            <span class="font-heading font-bold text-deep text-sm lg:text-base leading-tight">Grupo ImperAR</span>
+            <span class="text-gray-text text-xs leading-tight">Climatização & Refrigeração</span>
           </span>
         </a>
 
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks" data-nav-toggle>
-          <span aria-hidden="true"></span>
-          <span class="sr-only" style="position: absolute; left: -9999px">Abrir menu</span>
+        <button class="lg:hidden relative flex flex-col justify-center items-center w-10 h-10 gap-1.5" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menu" data-nav-toggle>
+          <span class="block w-6 h-0.5 bg-deep transition-all duration-300 origin-center" aria-hidden="true"></span>
+          <span class="block w-6 h-0.5 bg-deep transition-all duration-300 origin-center" aria-hidden="true"></span>
+          <span class="block w-6 h-0.5 bg-deep transition-all duration-300 origin-center" aria-hidden="true"></span>
         </button>
 
-        <nav class="nav-links" id="navLinks" data-nav-links aria-label="Navegação principal">
-          <a href="index.html">Início</a>
-          <a href="services.html">Serviços</a>
-          <a href="about.html">Sobre</a>
-          <a href="contact.html">Contato</a>
+        <nav class="hidden lg:flex items-center gap-6" id="navLinks" data-nav-links aria-label="Navegação principal">
+          <a href="index.html" class="nav-link">Início</a>
+          <a href="services.html" class="nav-link">Serviços</a>
+          <a href="about.html" class="nav-link" aria-current="page">Sobre</a>
+          <a href="contact.html" class="nav-link">Contato</a>
         </nav>
       </div>
     </header>
 
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-menu-overlay fixed inset-0 z-40 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden" data-mobile-overlay aria-hidden="true"></div>
+    <aside class="mobile-menu fixed top-0 right-0 z-50 h-full w-4/5 max-w-[320px] bg-white shadow-[-4px_0_24px_rgba(26,43,92,0.15)] translate-x-full transition-transform duration-300 ease-in-out lg:hidden" id="mobileMenu" data-mobile-menu role="dialog" aria-label="Menu de navegação" aria-hidden="true">
+      <nav class="flex flex-col gap-4 p-6 pt-24" aria-label="Navegação mobile">
+        <a href="index.html" class="mobile-nav-link text-deep font-semibold text-lg py-2 transition-colors duration-200 hover:text-primary">Início</a>
+        <a href="services.html" class="mobile-nav-link text-deep font-semibold text-lg py-2 transition-colors duration-200 hover:text-primary">Serviços</a>
+        <a href="about.html" class="mobile-nav-link text-deep font-semibold text-lg py-2 transition-colors duration-200 hover:text-primary">Sobre</a>
+        <a href="contact.html" class="mobile-nav-link text-deep font-semibold text-lg py-2 transition-colors duration-200 hover:text-primary">Contato</a>
+      </nav>
+    </aside>
+
     <main id="conteudo">
-      <section class="section">
-        <div class="container">
-          <div class="section-header">
-            <div>
-              <h1>Sobre</h1>
-              <p class="lead">
-                O Grupo ImperAR atua com soluções em climatização, prezando por qualidade, agilidade e satisfação do
-                cliente — com foco tanto no público residencial quanto empresarial.
-              </p>
-            </div>
-            <a class="btn btn-primary" href="contact.html">Falar com a equipe</a>
-          </div>
+      <!-- Section 1: Page Header -->
+      <section class="pt-28 lg:pt-32 pb-16 lg:pb-20">
+        <div class="container mx-auto px-4 text-center max-w-3xl">
+          <h1 class="text-4xl lg:text-5xl font-bold text-deep font-heading mb-4" data-animate>
+            Sobre
+          </h1>
+          <p class="text-lg lg:text-xl text-gray-text leading-relaxed mb-8" data-animate data-animate-delay="100">
+            O Grupo ImperAR atua com soluções em climatização, prezando por qualidade, agilidade e satisfação do cliente — com foco tanto no público residencial quanto empresarial.
+          </p>
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-8 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="contact.html" data-animate data-animate-delay="200">
+            Falar com a equipe
+          </a>
+        </div>
+      </section>
 
-          <div class="grid cols-3">
-            <article class="card">
-              <div class="icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      <!-- Section 2: Missão / Visão / Valores -->
+      <section class="py-16 lg:py-24">
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+            <!-- Missão -->
+            <article class="bg-white rounded-2xl border border-deep/8 border-l-4 border-l-primary shadow-sm p-8 transition-all duration-200 hover:border-deep/12 hover:shadow-md" data-animate data-animate-delay="100">
+              <div class="w-14 h-14 rounded-full bg-ice flex items-center justify-center mb-6" aria-hidden="true">
+                <svg class="text-primary w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
               </div>
-              <h3>Missão</h3>
-              <p>
-                Oferecer soluções confiáveis em climatização, promovendo conforto, bem-estar e eficiência para cada
-                necessidade.
+              <h2 class="text-xl font-semibold text-deep font-heading mb-3">Missão</h2>
+              <p class="text-gray-text leading-relaxed">
+                Oferecer soluções confiáveis em climatização, promovendo conforto, bem-estar e eficiência para cada necessidade.
               </p>
             </article>
 
-            <article class="card">
-              <div class="icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            <!-- Visão -->
+            <article class="bg-white rounded-2xl border border-deep/8 border-l-4 border-l-primary shadow-sm p-8 transition-all duration-200 hover:border-deep/12 hover:shadow-md" data-animate data-animate-delay="200">
+              <div class="w-14 h-14 rounded-full bg-ice flex items-center justify-center mb-6" aria-hidden="true">
+                <svg class="text-primary w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
               </div>
-              <h3>Visão</h3>
-              <p>Consolidar-se como referência no mercado, tanto na prestação de serviços quanto na formação profissional.</p>
+              <h2 class="text-xl font-semibold text-deep font-heading mb-3">Visão</h2>
+              <p class="text-gray-text leading-relaxed">
+                Consolidar-se como referência no mercado, tanto na prestação de serviços quanto na formação profissional.
+              </p>
             </article>
 
-            <article class="card">
-              <div class="icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+            <!-- Valores -->
+            <article class="bg-white rounded-2xl border border-deep/8 border-l-4 border-l-primary shadow-sm p-8 transition-all duration-200 hover:border-deep/12 hover:shadow-md" data-animate data-animate-delay="300">
+              <div class="w-14 h-14 rounded-full bg-ice flex items-center justify-center mb-6" aria-hidden="true">
+                <svg class="text-primary w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
               </div>
-              <h3>Valores</h3>
-              <ul class="bullets" style="margin-top: 6px">
-                <li>Responsabilidade</li>
-                <li>Transparência</li>
-                <li>Excelência</li>
-                <li>Compromisso com resultados</li>
+              <h2 class="text-xl font-semibold text-deep font-heading mb-3">Valores</h2>
+              <ul class="space-y-2 text-gray-text leading-relaxed">
+                <li class="flex items-start gap-2">
+                  <span class="text-primary mt-1">•</span>
+                  <span>Responsabilidade</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-primary mt-1">•</span>
+                  <span>Transparência</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-primary mt-1">•</span>
+                  <span>Excelência</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-primary mt-1">•</span>
+                  <span>Compromisso com resultados</span>
+                </li>
               </ul>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section alt">
-        <div class="container">
-          <div class="section-header">
-            <div>
-              <h2>O que você pode esperar</h2>
-              <p class="lead">Um padrão consistente de atendimento e execução, em qualquer serviço.</p>
+      <!-- Section 3: O que você pode esperar -->
+      <section class="py-16 lg:py-24 bg-gray-light">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl lg:text-4xl font-bold text-deep text-center mb-4" data-animate>
+            O que você pode esperar
+          </h2>
+          <p class="text-lg text-gray-text text-center mb-12 max-w-2xl mx-auto" data-animate data-animate-delay="100">
+            Um padrão consistente de atendimento e execução, em qualquer serviço.
+          </p>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Qualidade -->
+            <div class="flex flex-col items-center text-center" data-animate data-animate-delay="100">
+              <div class="w-14 h-14 rounded-full bg-ice flex items-center justify-center mb-4" aria-hidden="true">
+                <svg class="text-primary w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+              <h3 class="text-xl font-semibold text-deep font-heading mb-2">Qualidade</h3>
+              <p class="text-gray-text leading-relaxed">Boas práticas e atenção aos detalhes para entregar um resultado sólido e duradouro.</p>
+            </div>
+
+            <!-- Agilidade -->
+            <div class="flex flex-col items-center text-center" data-animate data-animate-delay="200">
+              <div class="w-14 h-14 rounded-full bg-ice flex items-center justify-center mb-4" aria-hidden="true">
+                <svg class="text-primary w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
+              </div>
+              <h3 class="text-xl font-semibold text-deep font-heading mb-2">Agilidade</h3>
+              <p class="text-gray-text leading-relaxed">Resposta rápida e organização para reduzir o tempo entre o pedido e a solução.</p>
+            </div>
+
+            <!-- Transparência -->
+            <div class="flex flex-col items-center text-center" data-animate data-animate-delay="300">
+              <div class="w-14 h-14 rounded-full bg-ice flex items-center justify-center mb-4" aria-hidden="true">
+                <svg class="text-primary w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </div>
+              <h3 class="text-xl font-semibold text-deep font-heading mb-2">Transparência</h3>
+              <p class="text-gray-text leading-relaxed">Diagnóstico claro, escopo alinhado e acompanhamento do que está sendo feito.</p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div class="grid cols-3">
-            <article class="card">
-              <div class="icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-              </div>
-              <h3>Qualidade</h3>
-              <p>Boas práticas e atenção aos detalhes para entregar um resultado sólido e duradouro.</p>
-            </article>
-            <article class="card">
-              <div class="icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
-              </div>
-              <h3>Agilidade</h3>
-              <p>Resposta rápida e organização para reduzir o tempo entre o pedido e a solução.</p>
-            </article>
-            <article class="card">
-              <div class="icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-              </div>
-              <h3>Transparência</h3>
-              <p>Diagnóstico claro, escopo alinhado e acompanhamento do que está sendo feito.</p>
-            </article>
-          </div>
+      <!-- Section 4: CTA -->
+      <section class="py-16 lg:py-24 bg-ice">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-3xl lg:text-4xl font-bold text-deep mb-4" data-animate>
+            Pronto para conversar?
+          </h2>
+          <p class="text-lg text-gray-text mb-8 max-w-2xl mx-auto" data-animate data-animate-delay="100">
+            Fale com a equipe e receba orientação rápida para o seu caso.
+          </p>
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-8 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="contact.html" data-animate data-animate-delay="200">
+            Entrar em contato
+          </a>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container footer-grid">
+    <!-- Footer -->
+    <footer class="bg-deep p-8 lg:p-16">
+      <div class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
         <div>
-          <a class="brand" href="index.html" aria-label="Ir para a página inicial">
-            <img src="logos/ImperAR - logo.svg" alt="Grupo ImperAR" />
-            <span class="brand-text">
-              <span class="brand-name" style="color: #ffffff">Grupo ImperAR</span>
-              <span class="brand-tagline" style="color: rgba(232, 247, 253, 0.88)">Climatização & Refrigeração</span>
+          <a class="flex items-center gap-2 mb-4" href="index.html" aria-label="Ir para a página inicial">
+            <img src="logos/ImperAR - logo.svg" alt="Grupo ImperAR" class="h-8 w-auto" />
+            <span class="flex flex-col">
+              <span class="font-heading font-bold text-white text-sm leading-tight">Grupo ImperAR</span>
+              <span class="text-white/60 text-xs leading-tight">Climatização & Refrigeração</span>
             </span>
           </a>
-          <p class="muted" style="margin-top: 12px">
+          <p class="text-white/80 text-sm leading-relaxed mb-3">
             Instalação, manutenção e suporte técnico com foco em conforto, eficiência e credibilidade.
           </p>
-          <p class="muted">© <span data-year></span> Grupo ImperAR. Todos os direitos reservados.</p>
+          <!-- Social Media -->
+          <div class="flex gap-3 mt-4">
+            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+          </div>
         </div>
 
         <div>
-          <h3 style="color: #ffffff; margin-bottom: 12px">Links</h3>
-          <p class="muted"><a href="services.html">Serviços</a></p>
-          <p class="muted"><a href="about.html">Sobre</a></p>
-          <p class="muted"><a href="contact.html">Contato</a></p>
+          <h3 class="text-white font-heading font-semibold mb-3">Links</h3>
+          <ul class="space-y-2">
+            <li><a href="services.html" class="text-white/80 text-sm transition-colors duration-200 hover:text-primary">Serviços</a></li>
+            <li><a href="about.html" class="text-white/80 text-sm transition-colors duration-200 hover:text-primary">Sobre</a></li>
+            <li><a href="contact.html" class="text-white/80 text-sm transition-colors duration-200 hover:text-primary">Contato</a></li>
+          </ul>
         </div>
 
         <div>
-          <h3 style="color: #ffffff; margin-bottom: 12px">Contato</h3>
-          <p class="muted"><a href="https://wa.me/5511980979915">WhatsApp: (11) 98097-9915</a></p>
-          <p class="muted"><a href="tel:+551156692090">Comercial: (11) 5669-2090</a></p>
-          <p class="muted"><a href="mailto:contato@grupoimperar.com.br">E-mail: contato@grupoimperar.com.br</a></p>
-          <p class="muted">Atendimento: São Paulo, SP</p>
+          <h3 class="text-white font-heading font-semibold mb-3">Contato</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="https://wa.me/5511980979915" class="text-white/80 text-sm transition-colors duration-200 hover:text-primary flex items-center gap-2">
+                <svg class="w-4 h-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                WhatsApp: (11) 98097-9915
+              </a>
+            </li>
+            <li>
+              <a href="tel:+551156692090" class="text-white/80 text-sm transition-colors duration-200 hover:text-primary flex items-center gap-2">
+                <svg class="w-4 h-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                Comercial: (11) 5669-2090
+              </a>
+            </li>
+            <li>
+              <a href="mailto:contato@grupoimperar.com.br" class="text-white/80 text-sm transition-colors duration-200 hover:text-primary flex items-center gap-2">
+                <svg class="w-4 h-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                contato@grupoimperar.com.br
+              </a>
+            </li>
+            <li>
+              <span class="text-white/80 text-sm flex items-center gap-2">
+                <svg class="w-4 h-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Atendimento: São Paulo, SP
+              </span>
+            </li>
+          </ul>
         </div>
+      </div>
+
+      <!-- Copyright separator -->
+      <div class="container mx-auto mt-8 pt-6 border-t border-white/10">
+        <p class="text-white/60 text-sm text-center">© <span data-year></span> Grupo ImperAR. Todos os direitos reservados.</p>
       </div>
     </footer>
 
+    <!-- WhatsApp Floating Button -->
+    <a 
+      href="https://wa.me/5511980979915" 
+      class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-whatsapp flex items-center justify-center transition-all duration-300 shadow-[0_4px_12px_rgba(37,211,102,0.3)] hover:scale-110 hover:shadow-[0_8px_24px_rgba(37,211,102,0.5)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-whatsapp"
+      data-whatsapp-float
+      aria-label="Fale conosco pelo WhatsApp"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg class="w-7 h-7 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+    </a>
+
     <script src="js/main.js" defer></script>
+    <script src="js/animations.js" defer></script>
   </body>
 </html>
-

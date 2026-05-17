@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Site institucional do Grupo ImperAR - Climatização & Refrigeração",
   "scripts": {
+    "build": "npx tailwindcss -i ./css/input.css -o ./css/output.css",
+    "watch": "npx tailwindcss -i ./css/input.css -o ./css/output.css --watch",
+    "production": "npx tailwindcss -i ./css/input.css -o ./css/output.css --minify",
     "optimize-images": "node scripts/optimize-images.js"
   },
   "keywords": [
@@ -13,7 +16,17 @@
   "author": "Grupo ImperAR",
   "license": "UNLICENSED",
   "private": true,
+  "browserslist": [
+    "Chrome >= 90",
+    "Firefox >= 88",
+    "Safari >= 14",
+    "Edge >= 90"
+  ],
   "devDependencies": {
-    "sharp": "^0.33.0"
+    "autoprefixer": "^10.5.0",
+    "cssnano": "^6.1.2",
+    "postcss": "^8.5.14",
+    "sharp": "^0.33.0",
+    "tailwindcss": "^3.4.19"
   }
 }

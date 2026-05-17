@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -20,131 +20,184 @@
       href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Inter:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/output.css" />
   </head>
   <body>
-    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-deep focus:text-white focus:rounded-lg focus:text-sm" href="#conteudo">Pular para o conteúdo</a>
 
-    <header class="site-header">
-      <div class="container nav">
-        <a class="brand" href="index.html" aria-label="Ir para a página inicial">
-          <img src="logos/ImperAR - logo.svg" alt="Grupo ImperAR" />
-          <span class="brand-text">
-            <span class="brand-name">Grupo ImperAR</span>
-            <span class="brand-tagline">Climatização & Refrigeração</span>
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-deep/8 transition-shadow duration-200" data-header>
+      <div class="header-inner container mx-auto px-4 py-3.5 lg:py-5 flex items-center justify-between gap-4 min-h-[64px] lg:min-h-[80px] transition-all duration-200">
+        <a class="flex items-center gap-2" href="index.html" aria-label="Ir para a página inicial">
+          <img src="logos/ImperAR - logo.svg" alt="Grupo ImperAR" class="h-8 lg:h-10 w-auto" />
+          <span class="flex flex-col">
+            <span class="font-heading font-bold text-deep text-sm lg:text-base leading-tight">Grupo ImperAR</span>
+            <span class="text-gray-text text-xs leading-tight">Climatização & Refrigeração</span>
           </span>
         </a>
 
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks" data-nav-toggle>
-          <span aria-hidden="true"></span>
-          <span class="sr-only" style="position: absolute; left: -9999px">Abrir menu</span>
+        <button class="lg:hidden relative flex flex-col justify-center items-center w-10 h-10 gap-1.5" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menu" data-nav-toggle>
+          <span class="block w-6 h-0.5 bg-deep transition-all duration-300 origin-center" aria-hidden="true"></span>
+          <span class="block w-6 h-0.5 bg-deep transition-all duration-300 origin-center" aria-hidden="true"></span>
+          <span class="block w-6 h-0.5 bg-deep transition-all duration-300 origin-center" aria-hidden="true"></span>
         </button>
 
-        <nav class="nav-links" id="navLinks" data-nav-links aria-label="Navegação principal">
-          <a href="index.html">Início</a>
-          <a href="services.html">Serviços</a>
-          <a href="about.html">Sobre</a>
-          <a href="contact.html">Contato</a>
+        <nav class="hidden lg:flex items-center gap-6" id="navLinks" data-nav-links aria-label="Navegação principal">
+          <a href="index.html" class="nav-link">Início</a>
+          <a href="services.html" class="nav-link">Serviços</a>
+          <a href="about.html" class="nav-link">Sobre</a>
+          <a href="contact.html" class="nav-link" aria-current="page">Contato</a>
         </nav>
       </div>
     </header>
 
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-menu-overlay fixed inset-0 z-40 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden" data-mobile-overlay aria-hidden="true"></div>
+    <aside class="mobile-menu fixed top-0 right-0 z-50 h-full w-4/5 max-w-[320px] bg-white shadow-[-4px_0_24px_rgba(26,43,92,0.15)] translate-x-full transition-transform duration-300 ease-in-out lg:hidden" id="mobileMenu" data-mobile-menu role="dialog" aria-label="Menu de navegação" aria-hidden="true">
+      <nav class="flex flex-col gap-4 p-6 pt-24" aria-label="Navegação mobile">
+        <a href="index.html" class="mobile-nav-link text-deep font-semibold text-lg py-2 transition-colors duration-200 hover:text-primary">Início</a>
+        <a href="services.html" class="mobile-nav-link text-deep font-semibold text-lg py-2 transition-colors duration-200 hover:text-primary">Serviços</a>
+        <a href="about.html" class="mobile-nav-link text-deep font-semibold text-lg py-2 transition-colors duration-200 hover:text-primary">Sobre</a>
+        <a href="contact.html" class="mobile-nav-link text-deep font-semibold text-lg py-2 transition-colors duration-200 hover:text-primary">Contato</a>
+      </nav>
+    </aside>
+
     <main id="conteudo">
-      <section class="section">
-        <div class="container">
-          <div class="section-header">
-            <div>
-              <h1>Contato</h1>
-              <p class="lead">
-                Envie uma mensagem e retornamos o quanto antes. Se preferir, use telefone ou e-mail direto.
-              </p>
-            </div>
+      <section class="py-16 lg:py-24 pt-28 lg:pt-32">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12" data-animate>
+            <h1 class="text-3xl lg:text-4xl font-bold text-deep font-heading mb-4">Contato</h1>
+            <p class="text-lg text-gray-text max-w-2xl mx-auto">
+              Envie uma mensagem e retornamos o quanto antes. Se preferir, use telefone ou e-mail direto.
+            </p>
           </div>
 
-          <div class="contact-wrap">
-            <form class="form" data-contact-form novalidate>
-              <div class="field" data-field>
-                <label for="name">Nome completo</label>
-                <input id="name" name="name" type="text" autocomplete="name" placeholder="Ex.: João Silva" required />
-                <svg class="field-icon success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <svg class="field-icon error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="12" y1="8" x2="12" y2="12"></line>
-                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                </svg>
-                <div class="error" data-error aria-live="polite"></div>
+          <div class="grid lg:grid-cols-[1fr_380px] gap-12 max-w-5xl mx-auto">
+            <!-- Contact Form -->
+            <form class="space-y-6" data-contact-form novalidate>
+              <!-- Name Field -->
+              <div class="flex flex-col gap-1.5" data-field>
+                <label for="name" class="text-sm font-semibold text-deep">Nome completo</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  autocomplete="name"
+                  placeholder="Ex.: João Silva"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-text placeholder:text-gray-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary"
+                />
+                <div class="text-red-600 text-sm mt-1 opacity-0 transition-opacity duration-200" data-error aria-live="polite"></div>
               </div>
 
-              <div class="field" data-field>
-                <label for="email">E-mail</label>
-                <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="seu@email.com.br" required />
-                <svg class="field-icon success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <svg class="field-icon error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="12" y1="8" x2="12" y2="12"></line>
-                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                </svg>
-                <div class="error" data-error aria-live="polite"></div>
+              <!-- Email Field -->
+              <div class="flex flex-col gap-1.5" data-field>
+                <label for="email" class="text-sm font-semibold text-deep">E-mail</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  inputmode="email"
+                  placeholder="seu@email.com.br"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-text placeholder:text-gray-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary"
+                />
+                <div class="text-red-600 text-sm mt-1 opacity-0 transition-opacity duration-200" data-error aria-live="polite"></div>
               </div>
 
-              <div class="field" data-field>
-                <label for="phone">Telefone / WhatsApp</label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(11) 90000-0000" required data-phone-mask />
-                <svg class="field-icon success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <svg class="field-icon error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="12" y1="8" x2="12" y2="12"></line>
-                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                </svg>
-                <div class="error" data-error aria-live="polite"></div>
+              <!-- Phone Field -->
+              <div class="flex flex-col gap-1.5" data-field>
+                <label for="phone" class="text-sm font-semibold text-deep">Telefone / WhatsApp</label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  autocomplete="tel"
+                  inputmode="tel"
+                  placeholder="(11) 90000-0000"
+                  required
+                  data-phone-mask
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-text placeholder:text-gray-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary"
+                />
+                <div class="text-red-600 text-sm mt-1 opacity-0 transition-opacity duration-200" data-error aria-live="polite"></div>
               </div>
 
-              <div class="field" data-field>
-                <label for="message">Mensagem</label>
-                <textarea id="message" name="message" placeholder="Descreva brevemente sua necessidade..." required minlength="10" maxlength="500" data-char-counter></textarea>
-                <svg class="field-icon success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <svg class="field-icon error" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="12" y1="8" x2="12" y2="12"></line>
-                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                </svg>
-                <div class="char-counter" data-counter>0/500 caracteres</div>
-                <div class="error" data-error aria-live="polite"></div>
+              <!-- Message Field -->
+              <div class="flex flex-col gap-1.5" data-field>
+                <label for="message" class="text-sm font-semibold text-deep">Mensagem</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Descreva brevemente sua necessidade..."
+                  required
+                  minlength="10"
+                  maxlength="500"
+                  rows="5"
+                  data-char-counter
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-text placeholder:text-gray-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary resize-y min-h-[120px]"
+                ></textarea>
+                <div class="flex justify-between items-center">
+                  <div class="text-red-600 text-sm opacity-0 transition-opacity duration-200" data-error aria-live="polite"></div>
+                  <span class="text-xs text-gray-400" data-counter>0/500 caracteres</span>
+                </div>
               </div>
 
-              <button class="btn btn-primary" type="submit" data-submit-btn>Enviar</button>
-              <div class="form-status" data-form-status role="status" aria-live="polite"></div>
+              <!-- Submit Button -->
+              <button
+                class="btn inline-flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] px-8 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98 disabled:opacity-50 disabled:pointer-events-none disabled:cursor-not-allowed"
+                type="submit"
+                data-submit-btn
+              >
+                <span data-btn-text>Enviar mensagem</span>
+                <svg class="hidden w-5 h-5 animate-spin" data-btn-spinner xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+              </button>
+
+              <!-- Form Status Message -->
+              <div class="hidden rounded-xl p-4 border" data-form-status role="status" aria-live="polite"></div>
             </form>
 
-            <aside>
-              <div class="card" style="margin-bottom: 24px">
-                <h2 style="margin-bottom: 12px">Contato direto</h2>
-                <p style="margin-bottom: 8px">
-                  <strong>WhatsApp:</strong> <a href="https://wa.me/5511980979915">(11) 98097-9915</a>
-                </p>
-                <p style="margin-bottom: 8px">
-                  <strong>Comercial:</strong> <a href="tel:+551156692090">(11) 5669-2090</a>
-                </p>
-                <p style="margin-bottom: 8px">
-                  <strong>E-mail:</strong> <a href="mailto:contato@grupoimperar.com.br">contato@grupoimperar.com.br</a>
-                </p>
-                <p style="margin-bottom: 0"><strong>Atendimento:</strong> São Paulo, SP</p>
+            <!-- Sidebar -->
+            <aside class="flex flex-col gap-6">
+              <div class="bg-white rounded-2xl border border-deep/8 p-6 shadow-sm">
+                <h2 class="text-xl font-bold text-deep font-heading mb-4">Contato direto</h2>
+                <ul class="space-y-3">
+                  <li class="flex items-start gap-2">
+                    <span class="font-semibold text-deep text-sm">WhatsApp:</span>
+                    <a href="https://wa.me/5511980979915" class="text-sm text-primary hover:text-primary-dark transition-colors duration-200">(11) 98097-9915</a>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="font-semibold text-deep text-sm">Comercial:</span>
+                    <a href="tel:+551156692090" class="text-sm text-primary hover:text-primary-dark transition-colors duration-200">(11) 5669-2090</a>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="font-semibold text-deep text-sm">E-mail:</span>
+                    <a href="mailto:contato@grupoimperar.com.br" class="text-sm text-primary hover:text-primary-dark transition-colors duration-200">contato@grupoimperar.com.br</a>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="font-semibold text-deep text-sm">Atendimento:</span>
+                    <span class="text-sm text-gray-text">São Paulo, SP</span>
+                  </li>
+                </ul>
               </div>
 
-              <div class="card">
-                <h2 style="margin-bottom: 12px">Dicas rápidas</h2>
-                <ul class="bullets">
-                  <li>Informe o tipo de ambiente (residencial/empresa).</li>
-                  <li>Se souber, mencione marca e modelo do equipamento.</li>
-                  <li>Descreva o problema (ruído, vazamento, baixa refrigeração etc.).</li>
+              <div class="bg-white rounded-2xl border border-deep/8 p-6 shadow-sm">
+                <h2 class="text-xl font-bold text-deep font-heading mb-4">Dicas rápidas</h2>
+                <ul class="space-y-2 text-sm text-gray-text">
+                  <li class="flex items-start gap-2">
+                    <span class="text-primary mt-1" aria-hidden="true">•</span>
+                    <span>Informe o tipo de ambiente (residencial/empresa).</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-primary mt-1" aria-hidden="true">•</span>
+                    <span>Se souber, mencione marca e modelo do equipamento.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-primary mt-1" aria-hidden="true">•</span>
+                    <span>Descreva o problema (ruído, vazamento, baixa refrigeração etc.).</span>
+                  </li>
                 </ul>
               </div>
             </aside>
@@ -153,41 +206,100 @@
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container footer-grid">
+    <footer class="bg-deep p-8 lg:p-16">
+      <div class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
         <div>
-          <a class="brand" href="index.html" aria-label="Ir para a página inicial">
-            <img src="logos/ImperAR - logo.svg" alt="Grupo ImperAR" />
-            <span class="brand-text">
-              <span class="brand-name" style="color: #ffffff">Grupo ImperAR</span>
-              <span class="brand-tagline" style="color: rgba(232, 247, 253, 0.88)">Climatização & Refrigeração</span>
+          <a class="flex items-center gap-2 mb-4" href="index.html" aria-label="Ir para a página inicial">
+            <img src="logos/ImperAR - logo.svg" alt="Grupo ImperAR" class="h-8 w-auto" />
+            <span class="flex flex-col">
+              <span class="font-heading font-bold text-white text-sm leading-tight">Grupo ImperAR</span>
+              <span class="text-white/60 text-xs leading-tight">Climatização & Refrigeração</span>
             </span>
           </a>
-          <p class="muted" style="margin-top: 12px">
+          <p class="text-white/80 text-sm leading-relaxed mb-3">
             Instalação, manutenção e suporte técnico com foco em conforto, eficiência e credibilidade.
           </p>
-          <p class="muted">© <span data-year></span> Grupo ImperAR. Todos os direitos reservados.</p>
+          <!-- Social Media -->
+          <div class="flex gap-3 mt-4">
+            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+          </div>
         </div>
 
         <div>
-          <h3 style="color: #ffffff; margin-bottom: 12px">Links</h3>
-          <p class="muted"><a href="services.html">Serviços</a></p>
-          <p class="muted"><a href="about.html">Sobre</a></p>
-          <p class="muted"><a href="contact.html">Contato</a></p>
+          <h3 class="text-white font-heading font-semibold mb-3">Links</h3>
+          <ul class="space-y-2">
+            <li><a href="services.html" class="text-white/80 text-sm transition-colors duration-200 hover:text-primary">Serviços</a></li>
+            <li><a href="about.html" class="text-white/80 text-sm transition-colors duration-200 hover:text-primary">Sobre</a></li>
+            <li><a href="contact.html" class="text-white/80 text-sm transition-colors duration-200 hover:text-primary">Contato</a></li>
+          </ul>
         </div>
 
         <div>
-          <h3 style="color: #ffffff; margin-bottom: 12px">Contato</h3>
-          <p class="muted"><a href="https://wa.me/5511980979915">WhatsApp: (11) 98097-9915</a></p>
-          <p class="muted"><a href="tel:+551156692090">Comercial: (11) 5669-2090</a></p>
-          <p class="muted"><a href="mailto:contato@grupoimperar.com.br">E-mail: contato@grupoimperar.com.br</a></p>
-          <p class="muted">Atendimento: São Paulo, SP</p>
+          <h3 class="text-white font-heading font-semibold mb-3">Contato</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="https://wa.me/5511980979915" class="text-white/80 text-sm transition-colors duration-200 hover:text-primary flex items-center gap-2">
+                <svg class="w-4 h-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                WhatsApp: (11) 98097-9915
+              </a>
+            </li>
+            <li>
+              <a href="tel:+551156692090" class="text-white/80 text-sm transition-colors duration-200 hover:text-primary flex items-center gap-2">
+                <svg class="w-4 h-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                Comercial: (11) 5669-2090
+              </a>
+            </li>
+            <li>
+              <a href="mailto:contato@grupoimperar.com.br" class="text-white/80 text-sm transition-colors duration-200 hover:text-primary flex items-center gap-2">
+                <svg class="w-4 h-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                contato@grupoimperar.com.br
+              </a>
+            </li>
+            <li>
+              <span class="text-white/80 text-sm flex items-center gap-2">
+                <svg class="w-4 h-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Atendimento: São Paulo, SP
+              </span>
+            </li>
+          </ul>
         </div>
+      </div>
+
+      <!-- Copyright separator -->
+      <div class="container mx-auto mt-8 pt-6 border-t border-white/10">
+        <p class="text-white/60 text-sm text-center">© <span data-year></span> Grupo ImperAR. Todos os direitos reservados.</p>
       </div>
     </footer>
 
+    <!-- WhatsApp Floating Button -->
+    <a 
+      href="https://wa.me/5511980979915" 
+      class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-whatsapp flex items-center justify-center transition-all duration-300 shadow-[0_4px_12px_rgba(37,211,102,0.3)] hover:scale-110 hover:shadow-[0_8px_24px_rgba(37,211,102,0.5)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-whatsapp"
+      data-whatsapp-float
+      aria-label="Fale conosco pelo WhatsApp"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg class="w-7 h-7 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+    </a>
+
     <script src="js/main.js" defer></script>
     <script src="js/contact.js" defer></script>
+    <script src="js/animations.js" defer></script>
   </body>
 </html>
-
