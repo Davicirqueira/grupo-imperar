@@ -63,7 +63,7 @@
 
     <main id="conteudo">
       <!-- Section 1: Page Header -->
-      <section class="pt-28 lg:pt-32 pb-16 lg:pb-20">
+      <section class="pt-28 lg:pt-32 pb-16 lg:pb-20 bg-gradient-to-b from-white to-ice/20">
         <div class="container mx-auto px-4 text-center max-w-3xl">
           <h1 class="text-4xl lg:text-5xl font-bold text-deep font-heading mb-4" data-animate>
             Serviços
@@ -78,83 +78,85 @@
       </section>
 
       <!-- Section 2: Services Grid -->
-      <section class="py-16 lg:py-24">
+      <section class="py-16 lg:py-24 bg-gradient-to-b from-white to-ice/30">
         <div class="container mx-auto px-4">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-            <!-- Instalação -->
-            <article class="bg-white rounded-2xl border border-deep/8 shadow-sm p-8 transition-all duration-200 hover:border-deep/12 hover:shadow-md" data-animate data-animate-delay="100">
-              <div class="w-14 h-14 rounded-full bg-ice flex items-center justify-center mb-6" aria-hidden="true">
-                <svg class="text-primary w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Apartamentos na planta -->
+            <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="100">
+              <img src="images/servico-apartamentos.jpeg" alt="Climatização para apartamentos na planta" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-deep/90 via-deep/40 to-transparent"></div>
+              <div class="absolute top-4 left-4 w-11 h-11 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
+                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
               </div>
-              <h2 class="text-xl font-semibold text-deep font-heading mb-3">Instalação</h2>
-              <p class="text-gray-text leading-relaxed mb-4">Instalação de ar-condicionado com dimensionamento, fixação, dreno, elétrica e acabamento.</p>
-              <ul class="space-y-2 text-sm text-gray-text">
-                <li class="flex items-start gap-2">
-                  <span class="text-primary mt-1">•</span>
-                  <span>Visita técnica (quando necessário)</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-primary mt-1">•</span>
-                  <span>Melhor rota de tubulação e dreno</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-primary mt-1">•</span>
-                  <span>Teste e orientação de uso</span>
-                </li>
-              </ul>
+              <div class="absolute bottom-0 left-0 right-0 p-6">
+                <h2 class="text-white text-xl font-bold font-heading mb-1">Apartamentos na planta</h2>
+                <p class="text-white/80 text-sm leading-relaxed">Conforto térmico desde o projeto para o seu futuro lar.</p>
+              </div>
             </article>
 
-            <!-- Manutenção preventiva -->
-            <article class="bg-white rounded-2xl border border-deep/8 shadow-sm p-8 transition-all duration-200 hover:border-deep/12 hover:shadow-md" data-animate data-animate-delay="200">
-              <div class="w-14 h-14 rounded-full bg-ice flex items-center justify-center mb-6" aria-hidden="true">
-                <svg class="text-primary w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <!-- Condomínios residenciais -->
+            <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="200">
+              <img src="images/servico-condominios.jpeg" alt="Climatização para condomínios residenciais" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-deep/90 via-deep/40 to-transparent"></div>
+              <div class="absolute top-4 left-4 w-11 h-11 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
+                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
               </div>
-              <h2 class="text-xl font-semibold text-deep font-heading mb-3">Manutenção preventiva</h2>
-              <p class="text-gray-text leading-relaxed mb-4">Higienização e inspeção para reduzir falhas e melhorar qualidade do ar.</p>
-              <ul class="space-y-2 text-sm text-gray-text">
-                <li class="flex items-start gap-2">
-                  <span class="text-primary mt-1">•</span>
-                  <span>Limpeza de filtros e serpentinas</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-primary mt-1">•</span>
-                  <span>Verificação de drenagem</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-primary mt-1">•</span>
-                  <span>Checagem de ruídos e vibrações</span>
-                </li>
-              </ul>
+              <div class="absolute bottom-0 left-0 right-0 p-6">
+                <h2 class="text-white text-xl font-bold font-heading mb-1">Condomínios residenciais</h2>
+                <p class="text-white/80 text-sm leading-relaxed">Soluções completas de climatização para áreas comuns e privativas.</p>
+              </div>
             </article>
 
-            <!-- Suporte técnico -->
-            <article class="bg-white rounded-2xl border border-deep/8 shadow-sm p-8 transition-all duration-200 hover:border-deep/12 hover:shadow-md" data-animate data-animate-delay="300">
-              <div class="w-14 h-14 rounded-full bg-ice flex items-center justify-center mb-6" aria-hidden="true">
-                <svg class="text-primary w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+            <!-- Obras de alto padrão -->
+            <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="300">
+              <img src="images/servico-residencia.jpeg" alt="Climatização para obras de alto padrão" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-deep/90 via-deep/40 to-transparent"></div>
+              <div class="absolute top-4 left-4 w-11 h-11 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
+                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
               </div>
-              <h2 class="text-xl font-semibold text-deep font-heading mb-3">Suporte técnico</h2>
-              <p class="text-gray-text leading-relaxed mb-4">Diagnóstico e correções para restauração de desempenho e estabilidade.</p>
-              <ul class="space-y-2 text-sm text-gray-text">
-                <li class="flex items-start gap-2">
-                  <span class="text-primary mt-1">•</span>
-                  <span>Identificação de falhas e causas</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-primary mt-1">•</span>
-                  <span>Ajustes e testes funcionais</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-primary mt-1">•</span>
-                  <span>Relato claro do que foi feito</span>
-                </li>
-              </ul>
+              <div class="absolute bottom-0 left-0 right-0 p-6">
+                <h2 class="text-white text-xl font-bold font-heading mb-1">Obras de alto padrão</h2>
+                <p class="text-white/80 text-sm leading-relaxed">Climatização sob medida para projetos exclusivos e exigentes.</p>
+              </div>
             </article>
+
+          </div>
+
+          <!-- Bottom row: 2 cards centered -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mt-6">
+
+            <!-- Infraestrutura de climatização -->
+            <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="400">
+              <img src="images/servico-infra.jpeg" alt="Infraestrutura de climatização" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-deep/90 via-deep/40 to-transparent"></div>
+              <div class="absolute top-4 left-4 w-11 h-11 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
+                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68 1.65 1.65 0 0 0 9 3.17V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-6">
+                <h2 class="text-white text-xl font-bold font-heading mb-1">Infraestrutura de climatização</h2>
+                <p class="text-white/80 text-sm leading-relaxed">Projetos técnicos completos para sistemas eficientes e de alto desempenho.</p>
+              </div>
+            </article>
+
+            <!-- Projetos VRF -->
+            <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="500">
+              <img src="images/servico-vrf.jpeg" alt="Projetos VRF para empreendimentos" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-deep/90 via-deep/40 to-transparent"></div>
+              <div class="absolute top-4 left-4 w-11 h-11 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
+                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-6">
+                <h2 class="text-white text-xl font-bold font-heading mb-1">Projetos VRF para empreendimentos</h2>
+                <p class="text-white/80 text-sm leading-relaxed">Tecnologia VRF com eficiência, economia e controle individualizado.</p>
+              </div>
+            </article>
+
           </div>
         </div>
       </section>
 
-      <!-- Section 3: Process Steps -->
-      <section class="py-16 lg:py-24 bg-gray-light">
+      <section class="py-16 lg:py-24 bg-gradient-to-b from-gray-light to-ice/20">
         <div class="container mx-auto px-4">
           <h2 class="text-3xl lg:text-4xl font-bold text-deep text-center mb-4" data-animate>
             Como trabalhamos
@@ -194,8 +196,7 @@
         </div>
       </section>
 
-      <!-- Section 4: CTA -->
-      <section class="py-16 lg:py-24 bg-ice">
+      <section class="py-16 lg:py-24 bg-gradient-to-b from-ice to-primary/5">
         <div class="container mx-auto px-4 text-center">
           <h2 class="text-3xl lg:text-4xl font-bold text-deep mb-4" data-animate>
             Precisa de um orçamento?
@@ -226,18 +227,16 @@
           </p>
           <!-- Social Media -->
           <div class="flex gap-3 mt-4">
-            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/grupoimperar/" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
               <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
               </svg>
             </a>
-            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
               <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
               </svg>
             </a>
           </div>

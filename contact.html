@@ -62,7 +62,7 @@
     </aside>
 
     <main id="conteudo">
-      <section class="py-16 lg:py-24 pt-28 lg:pt-32">
+      <section class="py-16 lg:py-24 pt-28 lg:pt-32 bg-gradient-to-b from-white via-ice/30 to-white">
         <div class="container mx-auto px-4">
           <div class="text-center mb-12" data-animate>
             <h1 class="text-3xl lg:text-4xl font-bold text-deep font-heading mb-4">Contato</h1>
@@ -76,7 +76,10 @@
             <form class="space-y-6" data-contact-form novalidate>
               <!-- Name Field -->
               <div class="flex flex-col gap-1.5" data-field>
-                <label for="name" class="text-sm font-semibold text-deep">Nome completo</label>
+                <label for="name" class="flex items-center gap-2 text-sm font-semibold text-deep">
+                  <svg class="w-4 h-4 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  Nome completo
+                </label>
                 <input
                   id="name"
                   name="name"
@@ -91,7 +94,10 @@
 
               <!-- Email Field -->
               <div class="flex flex-col gap-1.5" data-field>
-                <label for="email" class="text-sm font-semibold text-deep">E-mail</label>
+                <label for="email" class="flex items-center gap-2 text-sm font-semibold text-deep">
+                  <svg class="w-4 h-4 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  E-mail
+                </label>
                 <input
                   id="email"
                   name="email"
@@ -107,7 +113,10 @@
 
               <!-- Phone Field -->
               <div class="flex flex-col gap-1.5" data-field>
-                <label for="phone" class="text-sm font-semibold text-deep">Telefone / WhatsApp</label>
+                <label for="phone" class="flex items-center gap-2 text-sm font-semibold text-deep">
+                  <svg class="w-4 h-4 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  Telefone / WhatsApp
+                </label>
                 <input
                   id="phone"
                   name="phone"
@@ -124,7 +133,10 @@
 
               <!-- Message Field -->
               <div class="flex flex-col gap-1.5" data-field>
-                <label for="message" class="text-sm font-semibold text-deep">Mensagem</label>
+                <label for="message" class="flex items-center gap-2 text-sm font-semibold text-deep">
+                  <svg class="w-4 h-4 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                  Mensagem
+                </label>
                 <textarea
                   id="message"
                   name="message"
@@ -161,41 +173,59 @@
 
             <!-- Sidebar -->
             <aside class="flex flex-col gap-6">
-              <div class="bg-white rounded-2xl border border-deep/8 p-6 shadow-sm">
+              <div class="bg-gradient-to-br from-primary/5 to-ice rounded-2xl border border-deep/8 border-l-4 border-l-primary p-6 shadow-sm hover:shadow-md transition-all duration-200">
                 <h2 class="text-xl font-bold text-deep font-heading mb-4">Contato direto</h2>
                 <ul class="space-y-3">
-                  <li class="flex items-start gap-2">
-                    <span class="font-semibold text-deep text-sm">WhatsApp:</span>
-                    <a href="https://wa.me/5511980979915" class="text-sm text-primary hover:text-primary-dark transition-colors duration-200">(11) 98097-9915</a>
+                  <li class="flex items-start gap-3">
+                    <svg class="w-4 h-4 text-primary mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <div>
+                      <span class="font-semibold text-deep text-sm block">WhatsApp</span>
+                      <a href="https://wa.me/5511980979915" class="text-sm text-primary hover:text-primary-dark transition-colors duration-200">(11) 98097-9915</a>
+                    </div>
                   </li>
-                  <li class="flex items-start gap-2">
-                    <span class="font-semibold text-deep text-sm">Comercial:</span>
-                    <a href="tel:+551156692090" class="text-sm text-primary hover:text-primary-dark transition-colors duration-200">(11) 5669-2090</a>
+                  <li class="flex items-start gap-3">
+                    <svg class="w-4 h-4 text-primary mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5l-3-3z"></path><line x1="3" y1="5" x2="21" y2="5"></line><line x1="12" y1="9" x2="12" y2="9.01"></line></svg>
+                    <div>
+                      <span class="font-semibold text-deep text-sm block">Comercial</span>
+                      <a href="tel:+551156692090" class="text-sm text-primary hover:text-primary-dark transition-colors duration-200">(11) 5669-2090</a>
+                    </div>
                   </li>
-                  <li class="flex items-start gap-2">
-                    <span class="font-semibold text-deep text-sm">E-mail:</span>
-                    <a href="mailto:contato@grupoimperar.com.br" class="text-sm text-primary hover:text-primary-dark transition-colors duration-200">contato@grupoimperar.com.br</a>
+                  <li class="flex items-start gap-3">
+                    <svg class="w-4 h-4 text-primary mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <div>
+                      <span class="font-semibold text-deep text-sm block">E-mail</span>
+                      <a href="mailto:contato@grupoimperar.com.br" class="text-sm text-primary hover:text-primary-dark transition-colors duration-200">contato@grupoimperar.com.br</a>
+                    </div>
                   </li>
-                  <li class="flex items-start gap-2">
-                    <span class="font-semibold text-deep text-sm">Atendimento:</span>
-                    <span class="text-sm text-gray-text">São Paulo, SP</span>
+                  <li class="flex items-start gap-3">
+                    <svg class="w-4 h-4 text-primary mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <div>
+                      <span class="font-semibold text-deep text-sm block">Atendimento</span>
+                      <span class="text-sm text-gray-text">São Paulo, SP</span>
+                    </div>
                   </li>
                 </ul>
               </div>
 
-              <div class="bg-white rounded-2xl border border-deep/8 p-6 shadow-sm">
+              <div class="bg-gradient-to-br from-ice to-white rounded-2xl border border-deep/8 border-l-4 border-l-accent p-6 shadow-sm hover:shadow-md transition-all duration-200">
                 <h2 class="text-xl font-bold text-deep font-heading mb-4">Dicas rápidas</h2>
-                <ul class="space-y-2 text-sm text-gray-text">
-                  <li class="flex items-start gap-2">
-                    <span class="text-primary mt-1" aria-hidden="true">•</span>
+                <ul class="space-y-3 text-sm text-gray-text">
+                  <li class="flex items-start gap-3">
+                    <span class="w-5 h-5 rounded-full bg-accent/10 text-accent flex items-center justify-center shrink-0 text-xs font-bold mt-0.5" aria-hidden="true">
+                      <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
                     <span>Informe o tipo de ambiente (residencial/empresa).</span>
                   </li>
-                  <li class="flex items-start gap-2">
-                    <span class="text-primary mt-1" aria-hidden="true">•</span>
+                  <li class="flex items-start gap-3">
+                    <span class="w-5 h-5 rounded-full bg-accent/10 text-accent flex items-center justify-center shrink-0 text-xs font-bold mt-0.5" aria-hidden="true">
+                      <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
                     <span>Se souber, mencione marca e modelo do equipamento.</span>
                   </li>
-                  <li class="flex items-start gap-2">
-                    <span class="text-primary mt-1" aria-hidden="true">•</span>
+                  <li class="flex items-start gap-3">
+                    <span class="w-5 h-5 rounded-full bg-accent/10 text-accent flex items-center justify-center shrink-0 text-xs font-bold mt-0.5" aria-hidden="true">
+                      <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
                     <span>Descreva o problema (ruído, vazamento, baixa refrigeração etc.).</span>
                   </li>
                 </ul>
@@ -205,8 +235,7 @@
         </div>
       </section>
 
-      <!-- Onde nos encontrar -->
-      <section class="py-16 lg:py-24 bg-gray-light">
+      <section class="py-16 lg:py-24 bg-gradient-to-b from-gray-light to-ice/20">
         <div class="container mx-auto px-4">
           <h2 class="text-3xl lg:text-4xl font-bold text-deep text-center mb-4" data-animate>
             Onde nos encontrar?
@@ -258,18 +287,16 @@
           </p>
           <!-- Social Media -->
           <div class="flex gap-3 mt-4">
-            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/grupoimperar/" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
               <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
               </svg>
             </a>
-            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
               <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
               </svg>
             </a>
           </div>
