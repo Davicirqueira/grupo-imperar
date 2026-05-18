@@ -286,24 +286,40 @@ document.addEventListener("DOMContentLoaded", () => {
     // Loading state
     setLoadingState(submitBtn, true);
 
-    // Simulate EmailJS submission (2 seconds)
-    setTimeout(() => {
-      setLoadingState(submitBtn, false);
+    // EmailJS submission
+    const templateParams = {
+      from_name: form.querySelector("#name").value.trim(),
+      from_email: form.querySelector("#email").value.trim(),
+      phone: form.querySelector("#phone").value.trim(),
+      message: form.querySelector("#message").value.trim(),
+    };
 
-      // Show success
-      showFormStatus(
-        statusEl,
-        "success",
-        "Mensagem enviada com sucesso! Em breve entraremos em contato. Se preferir, use telefone ou e-mail abaixo."
-      );
+    emailjs
+      .send("service_e9ei6vb", "template_5hsnors", templateParams, "SfnXswHudot3-bhKs")
+      .then(() => {
+        setLoadingState(submitBtn, false);
 
-      // Reset form
-      form.reset();
-      clearAllFields(form);
+        showFormStatus(
+          statusEl,
+          "success",
+          "Mensagem enviada com sucesso! Em breve entraremos em contato."
+        );
 
-      // Reset counter
-      const counter = document.querySelector("[data-counter]");
-      if (counter) counter.textContent = "0/500 caracteres";
-    }, 2000);
+        form.reset();
+        clearAllFields(form);
+
+        const counter = document.querySelector("[data-counter]");
+        if (counter) counter.textContent = "0/500 caracteres";
+      })
+      .catch((error) => {
+        setLoadingState(submitBtn, false);
+        console.error("EmailJS error:", error);
+
+        showFormStatus(
+          statusEl,
+          "error",
+          "Erro ao enviar mensagem. Tente novamente ou entre em contato por telefone."
+        );
+      });
   });
 });
