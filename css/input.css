@@ -9,6 +9,9 @@
 
   body {
     @apply font-sans text-gray-text leading-relaxed;
+    background: linear-gradient(to bottom right, #ffffff 0%, #e8f7fd 55%, rgba(58, 174, 220, 0.15) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {

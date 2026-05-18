@@ -6,8 +6,8 @@ Implementação das melhorias visuais em seções específicas do site Grupo Imp
 
 ## Tasks
 
-- [ ] 1. Apply global diagonal gradient and remove section backgrounds
-  - [ ] 1.1 Add global gradient and min-height to body in css/styles.css
+- [x] 1. Apply global diagonal gradient and remove section backgrounds
+  - [x] 1.1 Add global gradient and min-height to body in css/styles.css
     - Modify the existing `body` rule in `css/styles.css` to replace `background: var(--c-white)` with `background: linear-gradient(to bottom right, #ffffff 0%, #e8f7fd 60%, rgba(58, 174, 220, 0.03) 100%)`
     - Add `min-height: 100vh` to the body rule
     - _Requirements: 3.1, 3.7_
