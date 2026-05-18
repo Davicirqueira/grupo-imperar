@@ -59,7 +59,8 @@ body {
   margin: 0;
   font-family: var(--font-body);
   color: var(--c-text);
-  background: var(--c-white);
+  background: linear-gradient(to bottom right, #ffffff 0%, #e8f7fd 50%, rgba(58, 174, 220, 0.12) 100%);
+  min-height: 100vh;
   line-height: 1.55;
 }
 
