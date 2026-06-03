@@ -43,24 +43,30 @@
     root.className = "modal-root";
     root.setAttribute("data-modal-root", "");
     root.setAttribute("aria-hidden", "true");
+    // Critical inline styles as fallback (CSS classes enhance transitions)
+    root.style.cssText = "position:fixed;inset:0;z-index:100;pointer-events:none;visibility:hidden;";
 
     overlay = document.createElement("div");
     overlay.className = "modal-overlay";
     overlay.setAttribute("data-modal-overlay", "");
+    overlay.style.cssText = "position:absolute;inset:0;background:rgba(26,43,92,0.7);opacity:0;transition:opacity 250ms ease-out;";
 
     const container = document.createElement("div");
     container.className = "modal-container";
+    container.style.cssText = "position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:center;padding:1rem;overflow-y:auto;-webkit-overflow-scrolling:touch;";
 
     panel = document.createElement("div");
     panel.className = "modal-panel";
     panel.setAttribute("role", "dialog");
     panel.setAttribute("aria-modal", "true");
     panel.tabIndex = -1;
+    panel.style.cssText = "position:relative;width:100%;max-width:720px;margin:auto;background:#fff;border-radius:1.25rem;overflow:hidden;box-shadow:0 24px 64px rgba(26,43,92,0.32);opacity:0;transform:scale(0.96) translateY(8px);transition:opacity 250ms ease-out,transform 280ms cubic-bezier(0.4,0,0.2,1);";
 
     closeBtn = document.createElement("button");
     closeBtn.type = "button";
     closeBtn.className = "modal-close";
     closeBtn.setAttribute("aria-label", "Fechar");
+    closeBtn.style.cssText = "position:absolute;top:0.875rem;right:0.875rem;z-index:2;width:2.5rem;height:2.5rem;display:inline-flex;align-items:center;justify-content:center;border-radius:9999px;background:rgba(255,255,255,0.92);color:#1A2B5C;border:1px solid rgba(26,43,92,0.08);cursor:pointer;transition:background 200ms ease,transform 200ms ease;";
     closeBtn.innerHTML =
       '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
 
@@ -77,20 +83,13 @@
 
   function lockScroll() {
     savedScrollY = window.scrollY;
-    document.body.style.position = "fixed";
-    document.body.style.top = "-" + savedScrollY + "px";
-    document.body.style.left = "0";
-    document.body.style.right = "0";
-    document.body.style.width = "100%";
+    document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = (window.innerWidth - document.documentElement.clientWidth) + "px";
   }
 
   function unlockScroll() {
-    document.body.style.position = "";
-    document.body.style.top = "";
-    document.body.style.left = "";
-    document.body.style.right = "";
-    document.body.style.width = "";
-    window.scrollTo(0, savedScrollY);
+    document.body.style.overflow = "";
+    document.body.style.paddingRight = "";
   }
 
   function trapFocus(e) {
@@ -163,6 +162,12 @@
 
     root.classList.add("is-open");
     root.setAttribute("aria-hidden", "false");
+    // Apply visibility inline to guarantee the modal is shown
+    root.style.pointerEvents = "auto";
+    root.style.visibility = "visible";
+    overlay.style.opacity = "1";
+    panel.style.opacity = "1";
+    panel.style.transform = "scale(1) translateY(0)";
     isOpen = true;
 
     // Move focus into modal after the open transition starts
@@ -182,6 +187,12 @@
     isOpen = false;
     root.classList.remove("is-open");
     root.setAttribute("aria-hidden", "true");
+    // Reset inline styles to hidden state
+    root.style.pointerEvents = "none";
+    root.style.visibility = "hidden";
+    overlay.style.opacity = "0";
+    panel.style.opacity = "0";
+    panel.style.transform = "scale(0.96) translateY(8px)";
 
     document.removeEventListener("keydown", onKeydown);
     unlockScroll();
