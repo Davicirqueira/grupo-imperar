@@ -144,6 +144,238 @@
     pointer-events: none;
     animation: ripple 400ms ease-out forwards;
   }
+
+  /* ---------- Modal ---------- */
+  .modal-root {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    visibility: hidden;
+    transition: visibility 0s linear 300ms;
+  }
+
+  .modal-root.is-open {
+    pointer-events: auto;
+    visibility: visible;
+    transition: visibility 0s linear 0s;
+  }
+
+  .modal-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(26, 43, 92, 0.7);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity 250ms ease-out;
+  }
+
+  .modal-root.is-open .modal-overlay {
+    opacity: 1;
+  }
+
+  .modal-container {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  @media (min-width: 768px) {
+    .modal-container {
+      padding: 2rem;
+    }
+  }
+
+  .modal-panel {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    margin: auto;
+    background-color: #ffffff;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 24px 64px rgba(26, 43, 92, 0.32);
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+    transition: opacity 250ms ease-out, transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .modal-root.is-open .modal-panel {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .modal-overlay,
+    .modal-panel {
+      transition: opacity 150ms ease-out;
+      transform: none !important;
+    }
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 0.875rem;
+    right: 0.875rem;
+    z-index: 2;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.92);
+    color: #1A2B5C;
+    border: 1px solid rgba(26, 43, 92, 0.08);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  }
+
+  .modal-close:hover {
+    background-color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(26, 43, 92, 0.18);
+  }
+
+  .modal-close:focus-visible {
+    outline: 2px solid #3AAEDC;
+    outline-offset: 2px;
+  }
+
+  /* Modal content sections (used by templates injected into the panel) */
+  .modal-media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background-color: #1A2B5C;
+    overflow: hidden;
+  }
+
+  .modal-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .modal-media-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26, 43, 92, 0.85) 0%, rgba(26, 43, 92, 0.3) 55%, transparent 100%);
+  }
+
+  .modal-media-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1.25rem 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .modal-media-caption {
+      padding: 1.75rem 2rem;
+    }
+  }
+
+  .modal-badge {
+    display: inline-block;
+    background-color: #3AAEDC;
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-body {
+    padding: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .modal-body {
+      padding: 2rem;
+    }
+  }
+
+  .modal-body > * + * {
+    margin-top: 1.25rem;
+  }
+
+  .modal-list {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .modal-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: #4A4A4A;
+    line-height: 1.55;
+  }
+
+  .modal-list svg {
+    flex-shrink: 0;
+    width: 1.125rem;
+    height: 1.125rem;
+    color: #3AAEDC;
+    margin-top: 0.25rem;
+  }
+
+  .modal-meta {
+    background-color: #F4F6F8;
+    border-radius: 0.875rem;
+    padding: 1rem 1.125rem;
+    display: grid;
+    gap: 0.625rem;
+  }
+
+  .modal-meta-item {
+    display: grid;
+    grid-template-columns: minmax(0, 8.5rem) 1fr;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .modal-meta-item dt {
+    color: #1A2B5C;
+    font-weight: 600;
+  }
+
+  .modal-meta-item dd {
+    color: #4A4A4A;
+    margin: 0;
+  }
+
+  .modal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(26, 43, 92, 0.08);
+  }
+
+  .modal-actions .btn {
+    flex: 1 1 12rem;
+  }
+
+  /* Card trigger affordance — keyboard focus visible state */
+  [data-modal-trigger]:focus-visible {
+    outline: 2px solid #3AAEDC;
+    outline-offset: 4px;
+    border-radius: 1.25rem;
+  }
 }
 
 @layer utilities {

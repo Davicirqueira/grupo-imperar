@@ -105,7 +105,7 @@
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             <!-- Apartamentos na planta -->
-            <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="100">
+            <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="100" data-modal-trigger="serv-apartamentos" aria-label="Ver detalhes do serviço Apartamentos na planta">
               <img src="images/servico-apartamentos.jpeg" alt="Climatização para apartamentos na planta" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
               <div class="absolute inset-0 bg-gradient-to-t from-deep/90 via-deep/40 to-transparent"></div>
               <div class="absolute top-4 left-4 w-12 h-12 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
@@ -118,7 +118,7 @@
             </article>
 
             <!-- Condomínios residenciais -->
-            <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="200">
+            <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="200" data-modal-trigger="serv-condominios" aria-label="Ver detalhes do serviço Condomínios residenciais">
               <img src="images/servico-condominios.jpeg" alt="Climatização para condomínios residenciais" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
               <div class="absolute inset-0 bg-gradient-to-t from-deep/90 via-deep/40 to-transparent"></div>
               <div class="absolute top-4 left-4 w-12 h-12 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
@@ -131,7 +131,7 @@
             </article>
 
             <!-- Obras de alto padrão -->
-            <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="300">
+            <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="300" data-modal-trigger="serv-altopadrao" aria-label="Ver detalhes do serviço Obras de alto padrão">
               <img src="images/servico-residencia.jpeg" alt="Climatização para obras de alto padrão" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
               <div class="absolute inset-0 bg-gradient-to-t from-deep/90 via-deep/40 to-transparent"></div>
               <div class="absolute top-4 left-4 w-12 h-12 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
@@ -149,7 +149,7 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mt-6">
 
             <!-- Infraestrutura de climatização -->
-            <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="400">
+            <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="400" data-modal-trigger="serv-infra" aria-label="Ver detalhes do serviço Infraestrutura de climatização">
               <img src="images/servico-infra.jpeg" alt="Infraestrutura de climatização" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
               <div class="absolute inset-0 bg-gradient-to-t from-deep/90 via-deep/40 to-transparent"></div>
               <div class="absolute top-4 left-4 w-12 h-12 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
@@ -162,7 +162,7 @@
             </article>
 
             <!-- Projetos VRF -->
-            <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="500">
+            <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="500" data-modal-trigger="serv-vrf" aria-label="Ver detalhes do serviço Projetos VRF para empreendimentos">
               <img src="images/servico-vrf.jpeg" alt="Projetos VRF para empreendimentos" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
               <div class="absolute inset-0 bg-gradient-to-t from-deep/90 via-deep/40 to-transparent"></div>
               <div class="absolute top-4 left-4 w-12 h-12 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
@@ -259,6 +259,250 @@
       </section>
     </main>
 
+    <!-- ============================ -->
+    <!-- Modal templates — Serviços    -->
+    <!-- ============================ -->
+
+    <template data-modal-content="serv-apartamentos">
+      <div class="modal-media">
+        <img src="images/servico-apartamentos.jpeg" alt="Climatização para apartamentos na planta" />
+        <div class="modal-media-overlay"></div>
+        <div class="modal-media-caption">
+          <span class="modal-badge">Apartamentos</span>
+          <h2 class="text-white text-2xl md:text-3xl font-bold font-heading leading-tight">Apartamentos na planta</h2>
+          <p class="text-white/85 text-sm md:text-base mt-1">Conforto térmico desde o projeto para o seu futuro lar.</p>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="text-gray-text leading-relaxed">
+          Planejamento e execução da climatização ainda na fase da obra, integrando o sistema à infraestrutura do imóvel. Resultado: tubulações embutidas, acabamento limpo e o conforto pronto desde o dia da entrega das chaves.
+        </p>
+        <ul class="modal-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Infraestrutura embutida durante a obra, sem intervenções no acabamento.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Dimensionamento técnico de cada ambiente para o uso real do morador.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Compatibilização com o projeto arquitetônico e os pontos elétricos.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Acompanhamento desde o projeto até a entrega do equipamento.</span>
+          </li>
+        </ul>
+        <dl class="modal-meta">
+          <div class="modal-meta-item"><dt>Ideal para</dt><dd>Imóveis em construção</dd></div>
+          <div class="modal-meta-item"><dt>Tipo de sistema</dt><dd>Multi-Split inverter</dd></div>
+          <div class="modal-meta-item"><dt>Etapa</dt><dd>Pré-entrega das chaves</dd></div>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20climatiza%C3%A7%C3%A3o%20para%20apartamento%20na%20planta." target="_blank" rel="noopener noreferrer">
+            Solicitar orçamento
+          </a>
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
+            Falar com a equipe
+          </a>
+        </div>
+      </div>
+    </template>
+
+    <template data-modal-content="serv-condominios">
+      <div class="modal-media">
+        <img src="images/servico-condominios.jpeg" alt="Climatização para condomínios residenciais" />
+        <div class="modal-media-overlay"></div>
+        <div class="modal-media-caption">
+          <span class="modal-badge">Condomínios</span>
+          <h2 class="text-white text-2xl md:text-3xl font-bold font-heading leading-tight">Condomínios residenciais</h2>
+          <p class="text-white/85 text-sm md:text-base mt-1">Soluções completas de climatização para áreas comuns e privativas.</p>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="text-gray-text leading-relaxed">
+          Atuação completa em condomínios, da especificação técnica das áreas comuns ao atendimento individual nas unidades. Tudo coordenado para minimizar impactos na rotina dos moradores e respeitar as normas internas.
+        </p>
+        <ul class="modal-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Atendimento estruturado, alinhado à administração do condomínio.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Especificação adequada para áreas comuns: salões, academias e coworkings.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Plano de manutenção preventiva consolidado para todo o empreendimento.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Documentação técnica e relatórios para a administração predial.</span>
+          </li>
+        </ul>
+        <dl class="modal-meta">
+          <div class="modal-meta-item"><dt>Ideal para</dt><dd>Condomínios verticais</dd></div>
+          <div class="modal-meta-item"><dt>Escopo</dt><dd>Áreas comuns e privativas</dd></div>
+          <div class="modal-meta-item"><dt>Suporte</dt><dd>Instalação e manutenção</dd></div>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20climatiza%C3%A7%C3%A3o%20para%20condom%C3%ADnio." target="_blank" rel="noopener noreferrer">
+            Solicitar orçamento
+          </a>
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
+            Falar com a equipe
+          </a>
+        </div>
+      </div>
+    </template>
+
+    <template data-modal-content="serv-altopadrao">
+      <div class="modal-media">
+        <img src="images/servico-residencia.jpeg" alt="Climatização para obras de alto padrão" />
+        <div class="modal-media-overlay"></div>
+        <div class="modal-media-caption">
+          <span class="modal-badge">Alto padrão</span>
+          <h2 class="text-white text-2xl md:text-3xl font-bold font-heading leading-tight">Obras de alto padrão</h2>
+          <p class="text-white/85 text-sm md:text-base mt-1">Climatização sob medida para projetos exclusivos e exigentes.</p>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="text-gray-text leading-relaxed">
+          Soluções dedicadas a residências e empreendimentos de alto padrão, com atenção máxima ao acabamento, ao silêncio e à integração com o projeto arquitetônico. Trabalho próximo a arquitetos e construtoras desde a concepção.
+        </p>
+        <ul class="modal-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Equipamentos premium com baixa emissão de ruído e alta eficiência.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Integração com automação residencial e controle individualizado.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Trabalho conjunto com arquitetos para preservar a estética dos ambientes.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Atendimento personalizado, com profissionais dedicados ao projeto.</span>
+          </li>
+        </ul>
+        <dl class="modal-meta">
+          <div class="modal-meta-item"><dt>Ideal para</dt><dd>Residências e empreendimentos exclusivos</dd></div>
+          <div class="modal-meta-item"><dt>Tipo de sistema</dt><dd>VRF / Cassete / Embutido</dd></div>
+          <div class="modal-meta-item"><dt>Diferencial</dt><dd>Acabamento e baixo ruído</dd></div>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20obra%20de%20alto%20padr%C3%A3o." target="_blank" rel="noopener noreferrer">
+            Solicitar orçamento
+          </a>
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
+            Falar com a equipe
+          </a>
+        </div>
+      </div>
+    </template>
+
+    <template data-modal-content="serv-infra">
+      <div class="modal-media">
+        <img src="images/servico-infra.jpeg" alt="Infraestrutura de climatização" />
+        <div class="modal-media-overlay"></div>
+        <div class="modal-media-caption">
+          <span class="modal-badge">Infraestrutura</span>
+          <h2 class="text-white text-2xl md:text-3xl font-bold font-heading leading-tight">Infraestrutura de climatização</h2>
+          <p class="text-white/85 text-sm md:text-base mt-1">Projetos técnicos completos para sistemas eficientes e de alto desempenho.</p>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="text-gray-text leading-relaxed">
+          Projetos técnicos detalhados de toda a infraestrutura necessária para o funcionamento estável do sistema de climatização: tubulações, drenagem, alimentação elétrica e suportes. A base que garante eficiência e durabilidade no longo prazo.
+        </p>
+        <ul class="modal-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Memorial técnico, plantas e detalhamento de pontos.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Especificação de materiais com foco em durabilidade e eficiência.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Compatibilização com elétrica, hidráulica e estrutural.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Suporte ao construtor durante a execução da obra.</span>
+          </li>
+        </ul>
+        <dl class="modal-meta">
+          <div class="modal-meta-item"><dt>Ideal para</dt><dd>Obras novas e reformas</dd></div>
+          <div class="modal-meta-item"><dt>Entregáveis</dt><dd>Projeto técnico e memorial</dd></div>
+          <div class="modal-meta-item"><dt>Etapa</dt><dd>Pré-execução</dd></div>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20infraestrutura%20de%20climatiza%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">
+            Solicitar orçamento
+          </a>
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
+            Falar com a equipe
+          </a>
+        </div>
+      </div>
+    </template>
+
+    <template data-modal-content="serv-vrf">
+      <div class="modal-media">
+        <img src="images/servico-vrf.jpeg" alt="Projetos VRF para empreendimentos" />
+        <div class="modal-media-overlay"></div>
+        <div class="modal-media-caption">
+          <span class="modal-badge">VRF</span>
+          <h2 class="text-white text-2xl md:text-3xl font-bold font-heading leading-tight">Projetos VRF para empreendimentos</h2>
+          <p class="text-white/85 text-sm md:text-base mt-1">Tecnologia VRF com eficiência, economia e controle individualizado.</p>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="text-gray-text leading-relaxed">
+          Sistemas VRF (Variable Refrigerant Flow) para empreendimentos que demandam alta eficiência e controle independente de cada ambiente. Solução ideal para hotéis, escritórios corporativos e residências com múltiplos espaços climatizados.
+        </p>
+        <ul class="modal-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Controle individual por ambiente, com economia de energia.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Uma unidade externa para múltiplas internas — menos espaço, menos ruído.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Tecnologia inverter com modulação contínua de capacidade.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Integração possível com BMS e sistemas de automação.</span>
+          </li>
+        </ul>
+        <dl class="modal-meta">
+          <div class="modal-meta-item"><dt>Ideal para</dt><dd>Empreendimentos médios e grandes</dd></div>
+          <div class="modal-meta-item"><dt>Tipo de sistema</dt><dd>VRF inverter</dd></div>
+          <div class="modal-meta-item"><dt>Diferencial</dt><dd>Eficiência energética</dd></div>
+        </dl>
+        <div class="modal-actions">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20projeto%20VRF." target="_blank" rel="noopener noreferrer">
+            Solicitar orçamento
+          </a>
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
+            Falar com a equipe
+          </a>
+        </div>
+      </div>
+    </template>
+
     <!-- Footer -->
     <footer class="bg-deep p-8 lg:p-16">
       <div class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
@@ -353,5 +597,6 @@
     <script src="js/main.js" defer></script>
     <script src="js/animations.js" defer></script>
     <script src="js/wind.js" defer></script>
+    <script src="js/modal.js" defer></script>
   </body>
 </html>
