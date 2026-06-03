@@ -226,3 +226,5 @@ O site será desenvolvido com HTML, CSS e JavaScript puro (sem frameworks), prio
 6. THE Site SHALL include descriptive and keyword-relevant content in headings and body text
 7. THE Site SHALL include Open Graph meta tags for social media sharing (og:title, og:description, og:image)
 
+--
+quase
