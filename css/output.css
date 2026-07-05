@@ -1600,6 +1600,10 @@ h1, h2, h3, h4, h5, h6 {
   background-color: rgb(255 255 255 / 0.9);
 }
 
+.bg-\[radial-gradient\(circle_at_30\%_107\%\2c \#fdf497_0\%\2c \#fdf497_5\%\2c \#fd5949_45\%\2c \#d6249f_60\%\2c \#285AEB_90\%\)\] {
+  background-image: radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
@@ -1891,6 +1895,12 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-\[0_4px_12px_rgba\(214\2c 36\2c 159\2c 0\.3\)\] {
+  --tw-shadow: 0 4px 12px rgba(214,36,159,0.3);
+  --tw-shadow-colored: 0 4px 12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .shadow-\[0_4px_12px_rgba\(37\2c 211\2c 102\2c 0\.3\)\] {
   --tw-shadow: 0 4px 12px rgba(37,211,102,0.3);
   --tw-shadow-colored: 0 4px 12px var(--tw-shadow-color);
@@ -2086,6 +2096,12 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.hover\:shadow-\[0_8px_24px_rgba\(214\2c 36\2c 159\2c 0\.5\)\]:hover {
+  --tw-shadow: 0 8px 24px rgba(214,36,159,0.5);
+  --tw-shadow-colored: 0 8px 24px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .hover\:shadow-\[0_8px_24px_rgba\(37\2c 211\2c 102\2c 0\.5\)\]:hover {
   --tw-shadow: 0 8px 24px rgba(37,211,102,0.5);
   --tw-shadow-colored: 0 8px 24px var(--tw-shadow-color);
@@ -2180,6 +2196,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .focus-visible\:outline-offset-2:focus-visible {
   outline-offset: 2px;
+}
+
+.focus-visible\:outline-\[\#d6249f\]:focus-visible {
+  outline-color: #d6249f;
 }
 
 .focus-visible\:outline-whatsapp:focus-visible {
