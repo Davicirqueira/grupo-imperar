@@ -404,14 +404,76 @@
   }
 }
 
-/* Backdrop-filter fallback for unsupported browsers (Task 24.1) */
+/* ============================================================
+   Header — single shared component, visual-only variants.
+   The layout (container width, inner padding, height, flex alignment,
+   gaps, logo position, button sizes and responsive behavior) is defined
+   ONCE on the shared markup utilities and is rigorously identical across
+   every page and every state. The variants below change ONLY the visual
+   skin: background, border, shadow and content colors. A future change to
+   the header layout therefore reflects in all states automatically.
+   ============================================================ */
+
+/* Shared base: smooth transition between the two visual states (<=300ms). */
+[data-header] {
+  transition: background-color 300ms ease, border-color 300ms ease,
+    box-shadow 300ms ease, backdrop-filter 300ms ease;
+}
+
+/* SOLID variant — default skin used on every page. Values mirror the previous
+   inline utilities exactly: bg-white/90, backdrop-blur-md, border-deep/8,
+   shadow-sm (theme boxShadow.sm). Written as plain CSS so the rule is a single
+   source of truth independent of @apply/opacity-modifier resolution. */
+[data-header].header-solid {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(26, 43, 92, 0.08);
+}
+[data-header].header-solid.is-scrolled {
+  box-shadow: 0 6px 22px rgba(26, 43, 92, 0.12);
+}
+
+/* TRANSPARENT variant — floats over the home hero while scrolled to the top. */
+[data-header].header-transparent {
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* Transparent variant content colors: white logo, nav and hamburger for a
+   >=4.5:1 contrast ratio over the dark hero gradient. The solid variant keeps
+   the default dark colors already declared on the shared markup, so there is
+   no duplicated color rule between the two states. */
+[data-header].header-transparent a[aria-label="Ir para a página inicial"] span {
+  color: #ffffff;
+}
+[data-header].header-transparent .nav-link {
+  color: #ffffff;
+}
+[data-header].header-transparent .nav-link:hover,
+[data-header].header-transparent .nav-link[aria-current="page"] {
+  color: rgba(255, 255, 255, 0.8);
+}
+[data-header].header-transparent .nav-link::after {
+  background-color: #ffffff;
+}
+[data-header].header-transparent [data-nav-toggle] span {
+  background-color: #ffffff;
+}
+
+/* Backdrop-filter fallback for unsupported browsers (Task 24.1).
+   Scoped to the solid variant so the transparent state stays see-through. */
 @supports not (backdrop-filter: blur(12px)) {
-  [data-header] {
+  [data-header].header-solid {
     background-color: rgba(255, 255, 255, 0.97);
   }
 }
 
-/* Header scrolled state - reduced padding (Task 22.3) */
+/* Header scrolled state - reduced padding (Task 22.3). Shared by both variants
+   so the compact-on-scroll layout is identical regardless of skin. */
 [data-header].is-scrolled .header-inner {
   @apply py-2.5 lg:py-3.5;
 }

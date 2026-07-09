@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Grupo ImperAR | Hero Carousel (standalone)</title>
+    <meta
+      name="description"
+      content="Instalação, manutenção e suporte técnico em climatização e refrigeração para residências e empresas, com transparência e excelência do início ao fim."
+    />
+
+    <link rel="icon" type="image/png" href="logos/imperar-simbolo.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main id="conteudo">
+      <section
+        class="hero-carousel"
+        role="region"
+        aria-label="Carrossel de destaques"
+        data-hero-carousel
+      >
+        <!-- Background Slides -->
+        <div class="hero-slides" aria-hidden="true">
+          <img
+            class="hero-slide is-active"
+            src="hero-section/a-contemporary-high-end-apartment-located-on-a-hig.png"
+            alt=""
+            loading="eager"
+          />
+          <img
+            class="hero-slide"
+            src="hero-section/a-contemporary-high-end-apartment-located-on-a-hig%20%281%29.png"
+            alt=""
+            loading="lazy"
+          />
+          <img
+            class="hero-slide"
+            src="hero-section/interior-of-a-modern--sophisticated-living-room-in.png"
+            alt=""
+            loading="lazy"
+          />
+          <img
+            class="hero-slide"
+            src="hero-section/interior-of-a-modern--sophisticated-living-room-in%20%281%29.png"
+            alt=""
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Gradient Overlay -->
+        <div class="hero-overlay" aria-hidden="true"></div>
+
+        <!-- Text Content (fixed during transitions) -->
+        <div class="hero-body">
+          <div class="hero-content">
+            <h1 class="hero-heading">
+              Instalação, Vendas e Projetos de Alto Padrão em São Paulo
+            </h1>
+            <p class="hero-subtitle">
+              Instalação, manutenção e suporte técnico em climatização e
+              refrigeração para residências e empresas, com transparência e
+              excelência do início ao fim.
+            </p>
+            <div class="hero-actions">
+              <a href="contact.html" class="btn hero-btn-primary"
+                >Solicite um Orçamento</a
+              >
+              <a href="#projetos" class="btn hero-btn-secondary"
+                >Conheça nossos serviços</a
+              >
+            </div>
+
+            <!-- Indicator Dots (aligned to content, near the CTAs) -->
+            <div class="hero-dots" role="tablist" aria-label="Navegação de slides">
+              <button
+                class="hero-dot is-active"
+                role="tab"
+                aria-label="Ir para slide 1"
+                aria-current="true"
+                type="button"
+              ></button>
+              <button
+                class="hero-dot"
+                role="tab"
+                aria-label="Ir para slide 2"
+                type="button"
+              ></button>
+              <button
+                class="hero-dot"
+                role="tab"
+                aria-label="Ir para slide 3"
+                type="button"
+              ></button>
+              <button
+                class="hero-dot"
+                role="tab"
+                aria-label="Ir para slide 4"
+                type="button"
+              ></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Arrows: anchored to the hero section (viewport edges) -->
+        <button
+          class="hero-arrow hero-arrow-prev"
+          aria-label="Slide anterior"
+          type="button"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button
+          class="hero-arrow hero-arrow-next"
+          aria-label="Próximo slide"
+          type="button"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+
+        <!-- Aria Live Region (visually hidden) -->
+        <div
+          class="sr-only"
+          aria-live="polite"
+          aria-atomic="true"
+          data-hero-live
+        ></div>
+      </section>
+    </main>
+
+    <script src="js/hero.js" defer></script>
+  </body>
+</html>

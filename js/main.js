@@ -24,6 +24,8 @@ function setupStickyHeader() {
   const header = document.querySelector("[data-header]");
   if (!header) return;
 
+  const heroPresent = !!document.querySelector("[data-hero-carousel]");
+
   let ticking = false;
 
   const onScroll = () => {
@@ -31,10 +33,19 @@ function setupStickyHeader() {
     ticking = true;
 
     requestAnimationFrame(() => {
+      const atTop = window.scrollY <= 0;
       const scrolled = window.scrollY > 50;
       const compacted = window.scrollY > 100;
+
+      // Single shared header, two mutually exclusive visual variants:
+      // transparent only over the hero at the very top, solid everywhere else.
+      // The header always carries exactly one skin variant.
+      const transparent = heroPresent && atTop;
+      header.classList.toggle("header-transparent", transparent);
+      header.classList.toggle("header-solid", !transparent);
+
+      // Compact padding + shadow once scrolled (both handled in CSS variants).
       header.classList.toggle("is-scrolled", scrolled || compacted);
-      header.classList.toggle("shadow-sm", scrolled);
       ticking = false;
     });
   };
@@ -139,32 +150,6 @@ function setupMobileNav() {
 
 function setupFloatingWhatsApp() {
   // WhatsApp button is always visible — no scroll logic needed
-}
-
-function setupTypewriter() {
-  const el = document.querySelector('[data-typewriter] .typewriter-text');
-  const cursor = document.querySelector('[data-typewriter] .typewriter-cursor');
-  if (!el) return;
-
-  const text = el.getAttribute('aria-label') || '';
-  let index = 0;
-  const speed = 45; // ms per character
-
-  function type() {
-    if (index < text.length) {
-      el.textContent += text.charAt(index);
-      index++;
-      setTimeout(type, speed);
-    } else {
-      // Hide cursor after typing completes (after a pause)
-      setTimeout(() => {
-        if (cursor) cursor.style.opacity = '0';
-      }, 1500);
-    }
-  }
-
-  // Start typing after a brief delay (let other animations settle)
-  setTimeout(type, 400);
 }
 
 function setYear() {
@@ -273,7 +258,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupFloatingWhatsApp();
   setupSmoothScroll();
   setupRippleEffect();
-  setupTypewriter();
   setYear();
 
   // Helpful hook for analytics later (no-op by default)

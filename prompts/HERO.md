@@ -21,6 +21,8 @@ Características:
 • menu transparente
 • elementos flutuando sobre a imagem
 
+[Carrossel/slider]
+
 ## 3 Tratamento da imagem
 A imagem não deve competir com o conteúdo.
 
