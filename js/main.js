@@ -24,7 +24,12 @@ function setupStickyHeader() {
   const header = document.querySelector("[data-header]");
   if (!header) return;
 
-  const heroPresent = !!document.querySelector("[data-hero-carousel]");
+  // The home header is integrated into the hero: it is absolute (not fixed) and
+  // simply scrolls away with the hero, so it needs no scroll-driven state. Its
+  // transparent skin is defined entirely in CSS via [data-page="home"]. Only the
+  // fixed/solid header on internal pages reacts to scroll (elevation + compact
+  // padding), toggled through the single `is-scrolled` state class.
+  if (document.body.dataset.page === "home") return;
 
   let ticking = false;
 
@@ -33,19 +38,7 @@ function setupStickyHeader() {
     ticking = true;
 
     requestAnimationFrame(() => {
-      const atTop = window.scrollY <= 0;
-      const scrolled = window.scrollY > 50;
-      const compacted = window.scrollY > 100;
-
-      // Single shared header, two mutually exclusive visual variants:
-      // transparent only over the hero at the very top, solid everywhere else.
-      // The header always carries exactly one skin variant.
-      const transparent = heroPresent && atTop;
-      header.classList.toggle("header-transparent", transparent);
-      header.classList.toggle("header-solid", !transparent);
-
-      // Compact padding + shadow once scrolled (both handled in CSS variants).
-      header.classList.toggle("is-scrolled", scrolled || compacted);
+      header.classList.toggle("is-scrolled", window.scrollY > 50);
       ticking = false;
     });
   };

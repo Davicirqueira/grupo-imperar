@@ -1814,12 +1814,6 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0.75;
 }
 
-.shadow {
-  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .shadow-\[-4px_0_24px_rgba\(26\2c 43\2c 92\2c 0\.15\)\] {
   --tw-shadow: -4px 0 24px rgba(26,43,92,0.15);
   --tw-shadow-colored: -4px 0 24px var(--tw-shadow-color);
@@ -1943,7 +1937,16 @@ h1, h2, h3, h4, h5, h6 {
    the header layout therefore reflects in all states automatically.
    ============================================================ */
 
-/* Shared base: smooth transition between the two visual states (<=300ms). */
+/* Behavior + appearance are driven exclusively by the page identifier on
+   <body data-page="…">. There is a single set of header markup shared by every
+   page; only two things change between the home page and the internal pages:
+     • BEHAVIOR  — internal pages stay fixed at the top; the home page rides on
+                   top of the hero (absolute) and scrolls away with it.
+     • APPEARANCE — internal pages use a solid, blurred skin; the home page is
+                   fully transparent.
+   Adding a new page requires no header changes: it inherits the fixed/solid
+   default automatically. Only `data-page="home"` opts into the hero treatment.
+   Shared transition keeps any skin change smooth (<=300ms). */
 
 [data-header] {
   transition: background-color 300ms ease, border-color 300ms ease,
@@ -1954,69 +1957,83 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow 300ms ease, backdrop-filter 300ms ease, -webkit-backdrop-filter 300ms ease;
 }
 
-/* SOLID variant — default skin used on every page. Values mirror the previous
-   inline utilities exactly: bg-white/90, backdrop-blur-md, border-deep/8,
-   shadow-sm (theme boxShadow.sm). Written as plain CSS so the rule is a single
-   source of truth independent of @apply/opacity-modifier resolution. */
+/* DEFAULT behavior + skin (internal pages): fixed to the top of the viewport
+   with a solid, blurred background. Values mirror the previous inline utilities
+   exactly: fixed inset-x-0 top-0 z-50, bg-white/90, backdrop-blur-md,
+   border-deep/8. */
 
-[data-header].header-solid {
+[data-header] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
   background-color: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(26, 43, 92, 0.08);
 }
 
-[data-header].header-solid.is-scrolled {
+/* Elevation appears once the solid header has been scrolled past the top. */
+
+[data-header].is-scrolled {
   box-shadow: 0 6px 22px rgba(26, 43, 92, 0.12);
 }
 
-/* TRANSPARENT variant — floats over the home hero while scrolled to the top. */
+/* HOME behavior + skin: the header is integrated into the hero. It is NOT fixed
+   nor sticky — it participates in the document over the hero via position:
+   absolute, so it scrolls away together with the hero. Fully transparent skin
+   (no background, border, shadow or blur). */
 
-[data-header].header-transparent {
+[data-page="home"] [data-header] {
+  position: absolute;
   background-color: transparent;
-  border-bottom: 1px solid transparent;
+  border-bottom-color: transparent;
   box-shadow: none;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
 
-/* Transparent variant content colors: white logo, nav and hamburger for a
-   >=4.5:1 contrast ratio over the dark hero gradient. The solid variant keeps
-   the default dark colors already declared on the shared markup, so there is
-   no duplicated color rule between the two states. */
+/* Home content colors: white logo, nav and hamburger for a >=4.5:1 contrast
+   ratio over the dark hero gradient. Internal pages keep the default dark
+   colors declared on the shared markup, so there is no duplicated color rule. */
 
-[data-header].header-transparent a[aria-label="Ir para a página inicial"] span {
+[data-page="home"] [data-header] a[aria-label="Ir para a página inicial"] span {
   color: #ffffff;
 }
 
-[data-header].header-transparent .nav-link {
+[data-page="home"] [data-header] .nav-link {
   color: #ffffff;
 }
 
-[data-header].header-transparent .nav-link:hover,
-[data-header].header-transparent .nav-link[aria-current="page"] {
+[data-page="home"] [data-header] .nav-link:hover,
+[data-page="home"] [data-header] .nav-link[aria-current="page"] {
   color: rgba(255, 255, 255, 0.8);
 }
 
-[data-header].header-transparent .nav-link::after {
+[data-page="home"] [data-header] .nav-link::after {
   background-color: #ffffff;
 }
 
-[data-header].header-transparent [data-nav-toggle] span {
+[data-page="home"] [data-header] [data-nav-toggle] span {
   background-color: #ffffff;
 }
 
-/* Backdrop-filter fallback for unsupported browsers (Task 24.1).
-   Scoped to the solid variant so the transparent state stays see-through. */
+/* Backdrop-filter fallback for unsupported browsers (Task 24.1). Applies to the
+   solid (internal) header only; the transparent home header stays see-through. */
 
 @supports not ((-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))) {
-  [data-header].header-solid {
+  [data-header] {
     background-color: rgba(255, 255, 255, 0.97);
+  }
+
+  [data-page="home"] [data-header] {
+    background-color: transparent;
   }
 }
 
-/* Header scrolled state - reduced padding (Task 22.3). Shared by both variants
-   so the compact-on-scroll layout is identical regardless of skin. */
+/* Header scrolled state - reduced padding (Task 22.3). Applies to the fixed
+   internal header; the home header scrolls away so it never reaches this state. */
 
 [data-header].is-scrolled .header-inner {
   padding-top: 0.625rem;
