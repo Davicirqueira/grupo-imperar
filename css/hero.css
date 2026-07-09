@@ -1,0 +1,357 @@
+/*
+ * hero.css — Hero Section Carousel (scoped component)
+ *
+ * This file holds ONLY the hero carousel styles so it can be loaded on the
+ * home page (index.html) alongside the Tailwind build (output.css) WITHOUT
+ * pulling in the legacy global stylesheet (styles.css). Loading the full
+ * legacy styles.css on a single page caused divergence from the other pages
+ * (e.g. a legacy `.container` rule and a different `body` background leaked
+ * onto index.html only, shifting the header nav). Keeping the carousel here,
+ * self-contained, guarantees index.html renders like every other page except
+ * for this scoped component.
+ *
+ * All selectors are scoped under `.hero-carousel` (no global side effects).
+ */
+
+/* Design tokens consumed by the carousel (self-contained copy so this file
+   does not depend on the legacy styles.css). */
+:root {
+  --c-sky: #3aaedc;
+  --c-deep: #1a2b5c;
+  --c-hover: #2490ba;
+  --c-white: #ffffff;
+
+  --radius-sm: 12px;
+
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+
+  --z-base: 1;
+
+  --container: 1120px;
+
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-heading: "Barlow", var(--font-body);
+}
+
+/* Minimal reset so the carousel renders correctly in the standalone hero.html
+   (which does not load the Tailwind Preflight). On index.html these are already
+   provided by output.css and simply re-assert the same values. */
+.hero-carousel *,
+.hero-carousel *::before,
+.hero-carousel *::after {
+  box-sizing: border-box;
+}
+
+/* Visually-hidden helper for the aria-live region (standalone hero.html).
+   index.html also gets `.sr-only` from Tailwind; this is a harmless duplicate. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ====== Hero Carousel ====== */
+/*
+ * Self-contained, single contiguous block (Req 11.4, 15.3).
+ * All selectors are scoped under `.hero-carousel` to avoid any side effects.
+ * Mobile-first: base rules target < 768px, media queries layer tablet/desktop.
+ */
+
+/* Container: full-viewport, layered stacking context, overflow clipped.
+   Base color doubles as fallback background if slide images fail (Req 13.5). */
+.hero-carousel {
+  position: relative;
+  min-height: 100dvh; /* mobile default (Req 8.2) */
+  overflow: hidden;
+  isolation: isolate;
+  background-color: var(--c-deep);
+}
+
+/* Slides layer: absolute-fill images, GPU-accelerated opacity fade (Req 13.3) */
+.hero-carousel .hero-slides {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-base);
+}
+
+.hero-carousel .hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* cover without distortion (Req 10.2) */
+  object-position: center; /* keep architectural subject visible (Req 10.3) */
+  opacity: 0;
+  will-change: opacity; /* GPU hint (Req 13.3) */
+  transform: translateZ(0); /* force GPU layer (Req 13.3) */
+  transition: opacity 800ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-carousel .hero-slide.is-active {
+  opacity: 1;
+}
+
+/* Overlay: left-to-right brand gradient, no pure black (Req 7.1).
+   Left 50% alpha >= 0.75 (deep), tapering to <= 0.3 (sky) at the right edge
+   (Req 7.2, 7.3). color-mix produces translucent brand colors; smooth stops
+   avoid banding (Req 7.5). */
+.hero-carousel .hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: calc(var(--z-base) + 1);
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--c-deep) 90%, transparent) 0%,
+    color-mix(in srgb, var(--c-deep) 82%, transparent) 50%,
+    color-mix(in srgb, var(--c-sky) 42%, transparent) 80%,
+    color-mix(in srgb, var(--c-sky) 22%, transparent) 100%
+  );
+}
+
+/* Body: relative layer above overlay, holds text + controls (Req 5.3).
+   Vertically centered content; top padding clears the overlaying header
+   (Req 8.5). box-sizing:border-box (global reset) keeps padding inside. */
+.hero-carousel .hero-body {
+  position: relative;
+  z-index: calc(var(--z-base) + 2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100dvh;
+  width: 100%;
+  padding-block: calc(var(--space-6) + var(--space-3)) var(--space-5); /* ~88px top clears 64px header */
+  padding-inline: var(--space-2); /* 16px each side -> full width minus 32px (Req 5.4, 14.3) */
+}
+
+/* Text content: left-aligned, responsive max-width (Req 14.1, 14.2, 14.3) */
+.hero-carousel .hero-content {
+  max-width: 100%;
+  text-align: left;
+}
+
+/* Heading: Barlow 700, clamp 32->48px, white (Req 5.1, 5.5, 5.6, 14.4) */
+.hero-carousel .hero-heading {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--c-white);
+}
+
+/* Subtitle: Inter 400, clamp 16->20px, white at 90% opacity (Req 5.2, 5.6, 14.5) */
+.hero-carousel .hero-subtitle {
+  margin: 0 0 var(--space-4);
+  max-width: 54ch;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.6;
+  color: var(--c-white);
+  opacity: 0.9;
+}
+
+/* Actions: stacked on mobile, becomes a row at >= 768px (Req 6.8) */
+.hero-carousel .hero-actions {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+/* CTA buttons: self-contained (do not depend on global `.btn`).
+   Both meet the 44x44 minimum touch target (Req 6.5). */
+.hero-carousel .hero-btn-primary,
+.hero-carousel .hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+/* Primary CTA: --c-sky fill, white text, --c-hover on hover/focus (Req 6.3, 6.6) */
+.hero-carousel .hero-btn-primary {
+  border: 2px solid var(--c-sky);
+  background-color: var(--c-sky);
+  color: var(--c-white);
+}
+.hero-carousel .hero-btn-primary:hover,
+.hero-carousel .hero-btn-primary:focus-visible {
+  background-color: var(--c-hover);
+  border-color: var(--c-hover);
+}
+
+/* Secondary CTA: ghost with white/30% border, white/10% fill on hover (Req 6.4, 6.7) */
+.hero-carousel .hero-btn-secondary {
+  border: 2px solid color-mix(in srgb, var(--c-white) 30%, transparent);
+  background-color: transparent;
+  color: var(--c-white);
+}
+.hero-carousel .hero-btn-secondary:hover,
+.hero-carousel .hero-btn-secondary:focus-visible {
+  background-color: color-mix(in srgb, var(--c-white) 10%, transparent);
+}
+
+/* Control architecture — independent alignment references (premium layout):
+   - Slides: full-bleed image layer (viewport reference).
+   - Content (heading/subtitle/CTAs/dots): constrained, left-aligned column.
+   - Arrows: anchored to the hero section (viewport edges), NOT the content
+     column, so they hug the lateral extremes for a sense of amplitude.
+   The arrows are direct children of `.hero-carousel` in the markup, so their
+   containing block is the full-viewport section rather than the narrower,
+   centered `.hero-body`. */
+
+/* Arrows: absolute against the hero section, vertically centered on the full
+   viewport height, opacity 0.7 -> 1.0 in 200ms (Req 2.1, 2.5). Hidden by
+   default on mobile, revealed at >= 768px (Req 2.2). */
+.hero-carousel .hero-arrow {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: calc(var(--z-base) + 3);
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--c-white) 30%, transparent);
+  border-radius: 50%;
+  background-color: color-mix(in srgb, var(--c-deep) 45%, transparent);
+  color: var(--c-white);
+  opacity: 0.7;
+  cursor: pointer;
+  transition: opacity 200ms ease, background-color 200ms ease;
+}
+.hero-carousel .hero-arrow:hover,
+.hero-carousel .hero-arrow:focus-visible {
+  opacity: 1;
+  background-color: color-mix(in srgb, var(--c-deep) 65%, transparent);
+}
+/* Lateral offset uses clamp() so the arrows stay near the screen edges with
+   responsive breathing room: ~16px on small screens up to ~64px on large ones,
+   independent of the content column width. (Req 2.1) */
+.hero-carousel .hero-arrow-prev {
+  left: clamp(var(--space-2), 3.5vw, var(--space-6));
+}
+.hero-carousel .hero-arrow-next {
+  right: clamp(var(--space-2), 3.5vw, var(--space-6));
+}
+.hero-carousel .hero-arrow svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Dots: in the content flow just below the CTAs, aligned to the text column
+   (an independent reference from the viewport-anchored arrows). The negative
+   inline-start margin cancels the dot's internal padding so the first marker
+   lines up flush with the heading/subtitle text, and margin-top pulls the row
+   close to the CTAs to reinforce the visual hierarchy. (Req 3.2) */
+.hero-carousel .hero-dots {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: var(--space-3);
+  margin-left: calc(-1 * var(--space-2));
+}
+
+/* Each dot is a 44x44 touch target; the visible pill is drawn via ::before
+   so the interactive area stays large while the marker stays small (Req 3.2). */
+.hero-carousel .hero-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.hero-carousel .hero-dot::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background-color: var(--c-white);
+  opacity: 0.55;
+  transition: width 300ms ease, opacity 300ms ease; /* 200-400ms range (Req 3.3) */
+}
+/* Active dot: pill shape (extended width) + full opacity (Req 3.3) */
+.hero-carousel .hero-dot.is-active::before {
+  width: 32px;
+  opacity: 1;
+}
+
+/* Reduced motion: disable all hero transitions (Req 12.6 companion, a11y) */
+@media (prefers-reduced-motion: reduce) {
+  .hero-carousel .hero-slide,
+  .hero-carousel .hero-dot::before,
+  .hero-carousel .hero-arrow,
+  .hero-carousel .hero-btn-primary,
+  .hero-carousel .hero-btn-secondary {
+    transition: none;
+  }
+}
+
+/* Tablet and up (>= 768px): 100vh height, arrows visible, row CTAs,
+   content max-width 500px, wider gutters (Req 8.1, 2.1, 6.8, 14.2) */
+@media (min-width: 768px) {
+  .hero-carousel {
+    min-height: 100vh;
+  }
+  .hero-carousel .hero-body {
+    min-height: 100vh;
+    width: min(var(--container), 100%);
+    margin-inline: auto;
+    padding-inline: var(--space-4); /* 32px */
+  }
+  .hero-carousel .hero-content {
+    max-width: 500px;
+  }
+  .hero-carousel .hero-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+  .hero-carousel .hero-arrow {
+    display: inline-flex;
+  }
+}
+
+/* Desktop and up (>= 1024px): content max-width 600px, 64px left padding,
+   larger header clearance for the 80px header (Req 14.1, 5.4, 8.5) */
+@media (min-width: 1024px) {
+  .hero-carousel .hero-body {
+    padding-inline: var(--space-6); /* 64px (Req 5.4) */
+    padding-top: calc(var(--space-6) + var(--space-4)); /* ~96px clears 80px header */
+  }
+  .hero-carousel .hero-content {
+    max-width: 600px;
+  }
+}
