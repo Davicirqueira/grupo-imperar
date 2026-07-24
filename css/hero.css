@@ -309,14 +309,26 @@
   opacity: 1;
 }
 
-/* Reduced motion: disable all hero transitions (Req 12.6 companion, a11y) */
+/* Reduced motion: disable all hero transitions/animations (Req 12.6 companion,
+   accessibility Req 6.6). Slides still swap to their .is-active end-state
+   instantly (JS toggles the class) — only the perceived fade/transform motion
+   is removed. Covers every scoped element plus a catch-all so nothing inside
+   the carousel animates. */
 @media (prefers-reduced-motion: reduce) {
+  .hero-carousel *,
+  .hero-carousel *::before,
+  .hero-carousel *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
   .hero-carousel .hero-slide,
   .hero-carousel .hero-dot::before,
   .hero-carousel .hero-arrow,
   .hero-carousel .hero-btn-primary,
   .hero-carousel .hero-btn-secondary {
-    transition: none;
+    transition: none !important;
   }
 }
 

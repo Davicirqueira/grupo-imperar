@@ -22,14 +22,28 @@
     </noscript>
     <!-- End Meta Pixel Code -->
 
+    <!-- Google Analytics 4 (gtag.js) — async, non-render-blocking -->
+    <!-- NOTE: Replace G-XXXXXXXXXX with the site owner's real GA4 Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XXXXXXXXXX");
+    </script>
+    <!-- End Google Analytics 4 -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sobre | Grupo ImperAR</title>
+    <title>Sobre o Grupo ImperAR | Climatização em São Paulo</title>
     <meta
       name="description"
-      content="Conheça a missão, visão e valores do Grupo ImperAR e o compromisso com qualidade, transparência e excelência."
+      content="Conheça a história, a missão e os valores do Grupo ImperAR, especialista em climatização e ar-condicionado em São Paulo. Fale com a nossa equipe."
     />
+    <link rel="canonical" href="https://grupoimperar.com.br/about.html" />
 
-    <meta property="og:title" content="Sobre | Grupo ImperAR" />
+    <meta property="og:title" content="Sobre o Grupo ImperAR | Climatização em São Paulo" />
     <meta property="og:description" content="Missão, visão e valores do Grupo ImperAR." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="images/imagem3.jpeg" />
@@ -42,7 +56,92 @@
       href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Inter:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/output.css?v=3" />
+    <!-- Critical CSS: header + hero above-the-fold (inlined for first paint) -->
+    <style>
+      *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid}
+      html{-webkit-text-size-adjust:100%;line-height:1.5;font-family:Inter,system-ui,sans-serif;scroll-behavior:smooth}
+      body{margin:0;line-height:1.625;font-family:Inter,system-ui,sans-serif;color:#4A4A4A;background:linear-gradient(to bottom right,#ffffff 0%,#b2def0 55%,rgba(58,174,220,.15) 100%);background-attachment:fixed;min-height:100vh}
+      h1,h2,h3,h4,h5,h6{margin:0;font-family:Barlow,Inter,system-ui,sans-serif;font-weight:700;color:#1A2B5C}
+      p{margin:0}
+      a{color:inherit;text-decoration:inherit}
+      img,svg{display:block;vertical-align:middle}
+      img{max-width:100%;height:auto}
+      button{margin:0;padding:0;font-family:inherit;font-size:100%;background-color:transparent;background-image:none;cursor:pointer}
+      /* Header (shared component) */
+      [data-header]{position:fixed;top:0;left:0;right:0;z-index:50;background-color:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,43,92,.08);transition:background-color .3s ease,border-color .3s ease,box-shadow .3s ease,backdrop-filter .3s ease}
+      [data-header].is-scrolled{box-shadow:0 6px 22px rgba(26,43,92,.12)}
+      [data-page="home"] [data-header]{position:absolute;background-color:transparent;border-bottom-color:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+      [data-page="home"] [data-header] a[aria-label="Ir para a página inicial"] span{color:#fff}
+      [data-page="home"] [data-header] .nav-link{color:#fff}
+      [data-page="home"] [data-header] [data-nav-toggle] span{background-color:#fff}
+      /* Above-the-fold utilities */
+      .container{width:100%}
+      .relative{position:relative}.absolute{position:absolute}.fixed{position:fixed}
+      .inset-0{top:0;right:0;bottom:0;left:0}.top-0{top:0}.right-0{right:0}
+      .block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.hidden{display:none}
+      .flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}
+      .text-center{text-align:center}
+      .mx-auto{margin-left:auto;margin-right:auto}
+      .gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}
+      .px-4{padding-left:1rem;padding-right:1rem}.px-8{padding-left:2rem;padding-right:2rem}
+      .py-3{padding-top:.75rem;padding-bottom:.75rem}.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}
+      .pt-28{padding-top:7rem}.pb-16{padding-bottom:4rem}
+      .mb-4{margin-bottom:1rem}.mb-8{margin-bottom:2rem}
+      .h-9{height:2.25rem}.h-10{height:2.5rem}.h-full{height:100%}.h-0\.5{height:.125rem}
+      .w-6{width:1.5rem}.w-10{width:2.5rem}.w-auto{width:auto}.w-4\/5{width:80%}
+      .min-h-\[44px\]{min-height:44px}.min-h-\[64px\]{min-height:64px}
+      .max-w-3xl{max-width:48rem}.max-w-\[320px\]{max-width:320px}
+      .z-40{z-index:40}.z-50{z-index:50}
+      .rounded-2xl{border-radius:1.25rem}
+      .font-heading{font-family:Barlow,Inter,system-ui,sans-serif}
+      .font-bold{font-weight:700}.font-semibold{font-weight:600}
+      .text-deep{color:#1A2B5C}.text-gray-text{color:#4A4A4A}.text-white{color:#fff}
+      .text-xs{font-size:.75rem;line-height:1rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}
+      .leading-tight{line-height:1.25}.leading-relaxed{line-height:1.625}
+      .bg-white{background-color:#fff}.bg-deep{background-color:#1A2B5C}.bg-primary{background-color:#3AAEDC}.bg-black\/50{background-color:rgba(0,0,0,.5)}
+      .opacity-0{opacity:0}.pointer-events-none{pointer-events:none}
+      .translate-x-full{transform:translateX(100%)}
+      .transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
+      .duration-200{transition-duration:.2s}.duration-300{transition-duration:.3s}
+      .nav-link{position:relative;color:#1A2B5C;font-weight:600;font-size:.875rem;transition:color .2s}
+      .btn{position:relative;overflow:hidden;cursor:pointer}
+      .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+      [data-animate]{opacity:0;transform:translateY(1.5rem);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
+      [data-animate].is-visible{opacity:1;transform:none}
+      @media(min-width:640px){.container{max-width:640px}}
+      @media(min-width:768px){.container{max-width:768px}}
+      @media(min-width:1024px){.container{max-width:1024px}.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:py-5{padding-top:1.25rem;padding-bottom:1.25rem}.lg\:pt-32{padding-top:8rem}.lg\:pb-20{padding-bottom:5rem}.lg\:min-h-\[80px\]{min-height:80px}.lg\:h-11{height:2.75rem}.lg\:text-base{font-size:1rem;line-height:1.5rem}.lg\:text-xl{font-size:1.25rem;line-height:1.75rem}.lg\:text-5xl{font-size:3rem;line-height:1}}
+      @media(min-width:1280px){.container{max-width:1280px}}
+      @media(min-width:1440px){.container{max-width:1440px}}
+      @media(prefers-reduced-motion:reduce){[data-animate]{opacity:1;transform:none;transition:none}}
+    </style>
+
+    <!-- Deferred non-critical CSS (preload + onload swap, with noscript fallback) -->
+    <link rel="preload" as="style" href="css/output.css?v=3" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="css/output.css?v=3" /></noscript>
+
+    <!-- JSON-LD Structured Data: LocalBusiness -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Grupo ImperAR",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. do Rio Bonito, 2206",
+          "addressLocality": "São Paulo",
+          "addressRegion": "SP",
+          "postalCode": "04776-003",
+          "addressCountry": "BR"
+        },
+        "telephone": "+55-11-5669-2090",
+        "openingHours": "Mo-Fr 08:00-18:00",
+        "areaServed": {
+          "@type": "City",
+          "name": "São Paulo"
+        }
+      }
+    </script>
   </head>
   <body data-page="about">
     <a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-deep focus:text-white focus:rounded-lg focus:text-sm" href="#conteudo">Pular para o conteúdo</a>
@@ -50,7 +149,10 @@
     <header class="site-header" data-header>
       <div class="header-inner container mx-auto px-4 py-3.5 lg:py-5 flex items-center justify-between gap-4 min-h-[64px] lg:min-h-[80px] transition-all duration-200">
         <a class="flex items-center gap-2" href="index.html" aria-label="Ir para a página inicial">
-          <img src="logos/imperar-simbolo.png" alt="Grupo ImperAR" class="h-9 lg:h-11 w-auto" />
+          <picture style="display:contents">
+            <source type="image/webp" srcset="logos/imperar-simbolo.webp" />
+            <img src="logos/imperar-simbolo.png" alt="Grupo ImperAR" width="512" height="512" class="h-9 lg:h-11 w-auto" />
+          </picture>
           <span class="flex flex-col">
             <span class="font-heading font-bold text-deep text-sm lg:text-base leading-tight">Grupo ImperAR</span>
             <span class="text-gray-text text-xs leading-tight">Climatização & Refrigeração</span>
@@ -193,6 +295,138 @@
         </div>
       </section>
 
+      <!-- Section: Nossos números (numeric data points) -->
+      <!-- NOTE: Números ilustrativos — o cliente pode ajustar os valores reais. -->
+      <section class="py-16 lg:py-24 bg-deep">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl lg:text-4xl font-bold text-white text-center mb-4" data-animate>
+            Nossos números
+          </h2>
+          <p class="text-lg text-white/80 text-center mb-12 max-w-2xl mx-auto" data-animate data-animate-delay="100">
+            Uma trajetória construída com trabalho técnico, projetos entregues e uma equipe dedicada.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            <!-- Ano de fundação -->
+            <div data-animate data-animate-delay="100">
+              <span class="block text-4xl lg:text-5xl font-bold text-primary font-heading mb-2">2016</span>
+              <p class="text-white/80 leading-relaxed">Ano de fundação</p>
+            </div>
+            <!-- Anos de operação -->
+            <div data-animate data-animate-delay="200">
+              <span class="block text-4xl lg:text-5xl font-bold text-primary font-heading mb-2">8+</span>
+              <p class="text-white/80 leading-relaxed">Anos de operação</p>
+            </div>
+            <!-- Projetos realizados -->
+            <div data-animate data-animate-delay="300">
+              <span class="block text-4xl lg:text-5xl font-bold text-primary font-heading mb-2">500+</span>
+              <p class="text-white/80 leading-relaxed">Projetos realizados</p>
+            </div>
+            <!-- Profissionais na equipe -->
+            <div data-animate data-animate-delay="400">
+              <span class="block text-4xl lg:text-5xl font-bold text-primary font-heading mb-2">15+</span>
+              <p class="text-white/80 leading-relaxed">Profissionais na equipe</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Área de atendimento (service area) -->
+      <section class="py-16 lg:py-24">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl lg:text-4xl font-bold text-deep text-center mb-4" data-animate>
+            Onde atendemos
+          </h2>
+          <p class="text-lg text-gray-text text-center mb-12 max-w-2xl mx-auto" data-animate data-animate-delay="100">
+            Atendemos São Paulo capital e região metropolitana, com base em Interlagos, na zona sul.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- Cobertura por região -->
+            <article class="bg-white rounded-2xl border border-deep/8 border-l-4 border-l-primary shadow-sm p-8 transition-all duration-200 hover:-translate-y-1 hover:border-deep/12 hover:shadow-md" data-animate data-animate-delay="100">
+              <div class="w-14 h-14 rounded-full bg-ice flex items-center justify-center mb-6" aria-hidden="true">
+                <svg class="text-primary w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <h3 class="text-xl font-semibold text-deep font-heading mb-3">Regiões atendidas</h3>
+              <p class="text-gray-text leading-relaxed mb-4">
+                São Paulo capital (zonas sul, oeste, centro, leste e norte) e cidades da Grande São Paulo.
+              </p>
+              <ul class="space-y-2 text-gray-text leading-relaxed">
+                <li class="flex items-start gap-2">
+                  <span class="text-primary mt-1">•</span>
+                  <span>Interlagos, Campo Grande, Santo Amaro e Morumbi</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-primary mt-1">•</span>
+                  <span>Pinheiros, Itaim Bibi, Moema e Vila Mariana</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-primary mt-1">•</span>
+                  <span>ABC Paulista e demais municípios da região metropolitana</span>
+                </li>
+              </ul>
+            </article>
+
+            <!-- Raio de atendimento -->
+            <article class="bg-white rounded-2xl border border-deep/8 border-l-4 border-l-primary shadow-sm p-8 transition-all duration-200 hover:-translate-y-1 hover:border-deep/12 hover:shadow-md" data-animate data-animate-delay="200">
+              <div class="w-14 h-14 rounded-full bg-ice flex items-center justify-center mb-6" aria-hidden="true">
+                <svg class="text-primary w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
+              </div>
+              <h3 class="text-xl font-semibold text-deep font-heading mb-3">Raio de cobertura</h3>
+              <p class="text-gray-text leading-relaxed mb-4">
+                Cobrimos um raio de aproximadamente <span class="font-semibold text-deep">40 km</span> a partir da nossa sede.
+              </p>
+              <p class="text-gray-text leading-relaxed flex items-start gap-2">
+                <svg class="text-primary w-5 h-5 shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>Av. do Rio Bonito, 2206 &mdash; Interlagos, São Paulo &ndash; SP</span>
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Certificações e qualificações técnicas (HVAC) -->
+      <!-- NOTE: Certificações ilustrativas — o cliente deve confirmar/atualizar nomes e entidades emissoras reais. -->
+      <section class="py-16 lg:py-24">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl lg:text-4xl font-bold text-deep text-center mb-4" data-animate>
+            Certificações e qualificações técnicas
+          </h2>
+          <p class="text-lg text-gray-text text-center mb-12 max-w-2xl mx-auto" data-animate data-animate-delay="100">
+            Nossa equipe mantém qualificações reconhecidas no setor de climatização e refrigeração.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Certificação 1 -->
+            <article class="bg-white rounded-2xl border border-deep/8 shadow-sm p-8 transition-all duration-200 hover:-translate-y-1 hover:border-deep/12 hover:shadow-md" data-animate data-animate-delay="100">
+              <div class="w-14 h-14 rounded-full bg-ice flex items-center justify-center mb-6" aria-hidden="true">
+                <svg class="text-primary w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+              </div>
+              <h3 class="text-xl font-semibold text-deep font-heading mb-2">Certificação Técnica em Sistemas VRF/VRV</h3>
+              <p class="text-sm text-gray-text leading-relaxed">Entidade emissora: fabricante parceiro (ex.: Daikin)</p>
+            </article>
+
+            <!-- Certificação 2 -->
+            <article class="bg-white rounded-2xl border border-deep/8 shadow-sm p-8 transition-all duration-200 hover:-translate-y-1 hover:border-deep/12 hover:shadow-md" data-animate data-animate-delay="200">
+              <div class="w-14 h-14 rounded-full bg-ice flex items-center justify-center mb-6" aria-hidden="true">
+                <svg class="text-primary w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+              <h3 class="text-xl font-semibold text-deep font-heading mb-2">NR-35 &mdash; Trabalho em Altura</h3>
+              <p class="text-sm text-gray-text leading-relaxed">Entidade emissora: instituição credenciada pelo Ministério do Trabalho e Emprego (MTE)</p>
+            </article>
+
+            <!-- Certificação 3 -->
+            <article class="bg-white rounded-2xl border border-deep/8 shadow-sm p-8 transition-all duration-200 hover:-translate-y-1 hover:border-deep/12 hover:shadow-md" data-animate data-animate-delay="300">
+              <div class="w-14 h-14 rounded-full bg-ice flex items-center justify-center mb-6" aria-hidden="true">
+                <svg class="text-primary w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+              </div>
+              <h3 class="text-xl font-semibold text-deep font-heading mb-2">Formação Técnica em Refrigeração e Climatização</h3>
+              <p class="text-sm text-gray-text leading-relaxed">Entidade emissora: SENAI</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="py-16 lg:py-24">
         <div class="container mx-auto px-4 text-center">
           <h2 class="text-3xl lg:text-4xl font-bold text-deep mb-4" data-animate>
@@ -213,7 +447,10 @@
       <div class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
         <div>
           <a class="flex items-center gap-2 mb-4" href="index.html" aria-label="Ir para a página inicial">
-            <img src="logos/imperar-simbolo.png" alt="Grupo ImperAR" class="h-8 w-auto" />
+            <picture style="display:contents">
+              <source type="image/webp" srcset="logos/imperar-simbolo.webp" />
+              <img src="logos/imperar-simbolo.png" alt="Grupo ImperAR" width="512" height="512" class="h-8 w-auto" />
+            </picture>
             <span class="flex flex-col">
               <span class="font-heading font-bold text-white text-sm leading-tight">Grupo ImperAR</span>
               <span class="text-white/60 text-xs leading-tight">Climatização & Refrigeração</span>
@@ -302,8 +539,15 @@
       </a>
     </div>
 
+    <script src="js/analytics.js" defer></script>
+    <script src="js/cta.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/animations.js" defer></script>
     <script src="js/wind.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.ImperarAnalytics) ImperarAnalytics.trackPageView();
+      });
+    </script>
   </body>
 </html>

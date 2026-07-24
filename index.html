@@ -22,14 +22,28 @@
     </noscript>
     <!-- End Meta Pixel Code -->
 
+    <!-- Google Analytics 4 (gtag.js) — async, non-render-blocking -->
+    <!-- NOTE: Replace G-XXXXXXXXXX with the site owner's real GA4 Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XXXXXXXXXX");
+    </script>
+    <!-- End Google Analytics 4 -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Grupo ImperAR | Climatização & Refrigeração</title>
+    <title>Climatização e Ar-Condicionado em São Paulo | ImperAR</title>
     <meta
       name="description"
-      content="Instalação, manutenção e suporte técnico em sistemas de ar-condicionado. Conforto, eficiência e credibilidade para residências e empresas."
+      content="Instalação e manutenção de ar-condicionado em São Paulo. Solicite seu orçamento com o Grupo ImperAR e garanta conforto e eficiência o ano todo."
     />
+    <link rel="canonical" href="https://grupoimperar.com.br/index.html" />
 
-    <meta property="og:title" content="Grupo ImperAR | Climatização & Refrigeração" />
+    <meta property="og:title" content="Climatização e Ar-Condicionado em São Paulo | ImperAR" />
     <meta
       property="og:description"
       content="Soluções em climatização com qualidade, agilidade e alto padrão técnico."
@@ -45,8 +59,102 @@
       href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Inter:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/output.css?v=3" />
+    <!-- Critical CSS: header + hero above-the-fold (inlined for first paint) -->
+    <style>
+      *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid}
+      html{-webkit-text-size-adjust:100%;line-height:1.5;font-family:Inter,system-ui,sans-serif;scroll-behavior:smooth}
+      body{margin:0;line-height:1.625;font-family:Inter,system-ui,sans-serif;color:#4A4A4A;background:linear-gradient(to bottom right,#ffffff 0%,#b2def0 55%,rgba(58,174,220,.15) 100%);background-attachment:fixed;min-height:100vh}
+      h1,h2,h3,h4,h5,h6{margin:0;font-family:Barlow,Inter,system-ui,sans-serif;font-weight:700;color:#1A2B5C}
+      p{margin:0}
+      a{color:inherit;text-decoration:inherit}
+      img,svg{display:block;vertical-align:middle}
+      img{max-width:100%;height:auto}
+      button{margin:0;padding:0;font-family:inherit;font-size:100%;background-color:transparent;background-image:none;cursor:pointer}
+      /* Header (shared component) */
+      [data-header]{position:fixed;top:0;left:0;right:0;z-index:50;background-color:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,43,92,.08);transition:background-color .3s ease,border-color .3s ease,box-shadow .3s ease,backdrop-filter .3s ease}
+      [data-header].is-scrolled{box-shadow:0 6px 22px rgba(26,43,92,.12)}
+      [data-page="home"] [data-header]{position:absolute;background-color:transparent;border-bottom-color:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+      [data-page="home"] [data-header] a[aria-label="Ir para a página inicial"] span{color:#fff}
+      [data-page="home"] [data-header] .nav-link{color:#fff}
+      [data-page="home"] [data-header] [data-nav-toggle] span{background-color:#fff}
+      /* Above-the-fold utilities */
+      .container{width:100%}
+      .relative{position:relative}.absolute{position:absolute}.fixed{position:fixed}
+      .inset-0{top:0;right:0;bottom:0;left:0}.top-0{top:0}.right-0{right:0}
+      .block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.hidden{display:none}
+      .flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}
+      .text-center{text-align:center}
+      .mx-auto{margin-left:auto;margin-right:auto}
+      .gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}
+      .px-4{padding-left:1rem;padding-right:1rem}.px-8{padding-left:2rem;padding-right:2rem}
+      .py-3{padding-top:.75rem;padding-bottom:.75rem}.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}
+      .pt-28{padding-top:7rem}.pb-16{padding-bottom:4rem}
+      .mb-4{margin-bottom:1rem}.mb-8{margin-bottom:2rem}
+      .h-9{height:2.25rem}.h-10{height:2.5rem}.h-full{height:100%}.h-0\.5{height:.125rem}
+      .w-6{width:1.5rem}.w-10{width:2.5rem}.w-auto{width:auto}.w-4\/5{width:80%}
+      .min-h-\[44px\]{min-height:44px}.min-h-\[64px\]{min-height:64px}
+      .max-w-3xl{max-width:48rem}.max-w-\[320px\]{max-width:320px}
+      .z-40{z-index:40}.z-50{z-index:50}
+      .rounded-2xl{border-radius:1.25rem}
+      .font-heading{font-family:Barlow,Inter,system-ui,sans-serif}
+      .font-bold{font-weight:700}.font-semibold{font-weight:600}
+      .text-deep{color:#1A2B5C}.text-gray-text{color:#4A4A4A}.text-white{color:#fff}
+      .text-xs{font-size:.75rem;line-height:1rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}
+      .leading-tight{line-height:1.25}.leading-relaxed{line-height:1.625}
+      .bg-white{background-color:#fff}.bg-deep{background-color:#1A2B5C}.bg-primary{background-color:#3AAEDC}.bg-black\/50{background-color:rgba(0,0,0,.5)}
+      .opacity-0{opacity:0}.pointer-events-none{pointer-events:none}
+      .translate-x-full{transform:translateX(100%)}
+      .transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
+      .duration-200{transition-duration:.2s}.duration-300{transition-duration:.3s}
+      .nav-link{position:relative;color:#1A2B5C;font-weight:600;font-size:.875rem;transition:color .2s}
+      .btn{position:relative;overflow:hidden;cursor:pointer}
+      .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+      [data-animate]{opacity:0;transform:translateY(1.5rem);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
+      [data-animate].is-visible{opacity:1;transform:none}
+      @media(min-width:640px){.container{max-width:640px}}
+      @media(min-width:768px){.container{max-width:768px}}
+      @media(min-width:1024px){.container{max-width:1024px}.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:py-5{padding-top:1.25rem;padding-bottom:1.25rem}.lg\:pt-32{padding-top:8rem}.lg\:pb-20{padding-bottom:5rem}.lg\:min-h-\[80px\]{min-height:80px}.lg\:h-11{height:2.75rem}.lg\:text-base{font-size:1rem;line-height:1.5rem}.lg\:text-xl{font-size:1.25rem;line-height:1.75rem}.lg\:text-5xl{font-size:3rem;line-height:1}}
+      @media(min-width:1280px){.container{max-width:1280px}}
+      @media(min-width:1440px){.container{max-width:1440px}}
+      @media(prefers-reduced-motion:reduce){[data-animate]{opacity:1;transform:none;transition:none}}
+    </style>
+
+    <!-- Preload LCP hero image (first carousel slide, WebP) to speed up Largest Contentful Paint -->
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="hero-section/a-contemporary-high-end-apartment-located-on-a-hig.webp"
+      fetchpriority="high"
+    />
+
+    <!-- Deferred non-critical CSS (preload + onload swap, with noscript fallback) -->
+    <link rel="preload" as="style" href="css/output.css?v=3" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="css/output.css?v=3" /></noscript>
     <link rel="stylesheet" href="css/hero.css" />
+
+    <!-- JSON-LD Structured Data: LocalBusiness -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Grupo ImperAR",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. do Rio Bonito, 2206",
+          "addressLocality": "São Paulo",
+          "addressRegion": "SP",
+          "postalCode": "04776-003",
+          "addressCountry": "BR"
+        },
+        "telephone": "+55-11-5669-2090",
+        "openingHours": "Mo-Fr 08:00-18:00",
+        "areaServed": {
+          "@type": "City",
+          "name": "São Paulo"
+        }
+      }
+    </script>
   </head>
   <body data-page="home">
     <a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-deep focus:text-white focus:rounded-lg focus:text-sm" href="#conteudo">Pular para o conteúdo</a>
@@ -54,7 +162,10 @@
     <header class="site-header" data-header>
       <div class="header-inner container mx-auto px-4 py-3.5 lg:py-5 flex items-center justify-between gap-4 min-h-[64px] lg:min-h-[80px] transition-all duration-200">
         <a class="flex items-center gap-2" href="index.html" aria-label="Ir para a página inicial">
-          <img src="logos/imperar-simbolo.png" alt="Grupo ImperAR" class="h-9 lg:h-11 w-auto" />
+          <picture style="display:contents">
+            <source type="image/webp" srcset="logos/imperar-simbolo.webp" />
+            <img src="logos/imperar-simbolo.png" alt="Grupo ImperAR" width="512" height="512" class="h-9 lg:h-11 w-auto" />
+          </picture>
           <span class="flex flex-col">
             <span class="font-heading font-bold text-deep text-sm lg:text-base leading-tight">Grupo ImperAR</span>
             <span class="text-gray-text text-xs leading-tight">Climatização & Refrigeração</span>
@@ -96,30 +207,50 @@
       >
         <!-- Background Slides -->
         <div class="hero-slides" aria-hidden="true">
-          <img
-            class="hero-slide is-active"
-            src="hero-section/a-contemporary-high-end-apartment-located-on-a-hig.png"
-            alt=""
-            loading="eager"
-          />
-          <img
-            class="hero-slide"
-            src="hero-section/a-contemporary-high-end-apartment-located-on-a-hig%20%281%29.png"
-            alt=""
-            loading="lazy"
-          />
-          <img
-            class="hero-slide"
-            src="hero-section/interior-of-a-modern--sophisticated-living-room-in.png"
-            alt=""
-            loading="lazy"
-          />
-          <img
-            class="hero-slide"
-            src="hero-section/interior-of-a-modern--sophisticated-living-room-in%20%281%29.png"
-            alt=""
-            loading="lazy"
-          />
+          <picture style="display:contents">
+            <source type="image/webp" srcset="hero-section/a-contemporary-high-end-apartment-located-on-a-hig.webp" />
+            <img
+              class="hero-slide is-active"
+              src="hero-section/a-contemporary-high-end-apartment-located-on-a-hig.png"
+              alt=""
+              width="1376"
+              height="768"
+              loading="eager"
+            />
+          </picture>
+          <picture style="display:contents">
+            <source type="image/webp" srcset="hero-section/a-contemporary-high-end-apartment-located-on-a-hig%20%281%29.webp" />
+            <img
+              class="hero-slide"
+              src="hero-section/a-contemporary-high-end-apartment-located-on-a-hig%20%281%29.png"
+              alt=""
+              width="1376"
+              height="768"
+              loading="lazy"
+            />
+          </picture>
+          <picture style="display:contents">
+            <source type="image/webp" srcset="hero-section/interior-of-a-modern--sophisticated-living-room-in.webp" />
+            <img
+              class="hero-slide"
+              src="hero-section/interior-of-a-modern--sophisticated-living-room-in.png"
+              alt=""
+              width="1376"
+              height="768"
+              loading="lazy"
+            />
+          </picture>
+          <picture style="display:contents">
+            <source type="image/webp" srcset="hero-section/interior-of-a-modern--sophisticated-living-room-in%20%281%29.webp" />
+            <img
+              class="hero-slide"
+              src="hero-section/interior-of-a-modern--sophisticated-living-room-in%20%281%29.png"
+              alt=""
+              width="1376"
+              height="768"
+              loading="lazy"
+            />
+          </picture>
         </div>
 
         <!-- Gradient Overlay -->
@@ -231,6 +362,11 @@
             Experiência técnica, processos estruturados e compromisso com resultados.
           </p>
 
+          <!--
+            NOTA: Os números abaixo (500+ projetos, 15+ profissionais, 24h/48h de resposta,
+            12 meses de garantia) são valores ILUSTRATIVOS para reforçar a proposta de valor.
+            O cliente deve confirmar/ajustar os dados reais antes da publicação.
+          -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
             <article class="group contain-card bg-white rounded-2xl border border-deep/8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-deep/12 hover:shadow-md p-6 text-center" data-animate data-animate-delay="100">
               <div class="w-[60px] h-[60px] rounded-full bg-ice flex items-center justify-center mx-auto mb-6 transition-colors duration-200 group-hover:bg-primary" aria-hidden="true">
@@ -240,6 +376,8 @@
               </div>
               <h3 class="text-2xl font-semibold text-deep mb-2 font-heading">Equipe Especializada</h3>
               <p class="text-gray-text leading-relaxed">Profissionais certificados com experiência em projetos residenciais e comerciais de diferentes portes.</p>
+              <span class="block mt-6 text-2xl font-bold text-primary font-heading">+15 profissionais certificados</span>
+              <span class="block mt-1 text-sm text-gray-text">e +500 projetos entregues</span>
             </article>
 
             <article class="group contain-card bg-white rounded-2xl border border-deep/8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-deep/12 hover:shadow-md p-6 text-center" data-animate data-animate-delay="200">
@@ -250,6 +388,8 @@
               </div>
               <h3 class="text-2xl font-semibold text-deep mb-2 font-heading">Atendimento Ágil</h3>
               <p class="text-gray-text leading-relaxed">Resposta rápida e suporte técnico dedicado para resolver suas necessidades com agilidade.</p>
+              <span class="block mt-6 text-2xl font-bold text-primary font-heading">Resposta em até 24h</span>
+              <span class="block mt-1 text-sm text-gray-text">e orçamento em até 48h</span>
             </article>
 
             <article class="group contain-card bg-white rounded-2xl border border-deep/8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-deep/12 hover:shadow-md p-6 text-center" data-animate data-animate-delay="300">
@@ -261,7 +401,15 @@
               </div>
               <h3 class="text-2xl font-semibold text-deep mb-2 font-heading">Qualidade Garantida</h3>
               <p class="text-gray-text leading-relaxed">Materiais premium e garantia de serviço para sua total tranquilidade e satisfação.</p>
+              <span class="block mt-6 text-2xl font-bold text-primary font-heading">12 meses de garantia</span>
+              <span class="block mt-1 text-sm text-gray-text">em serviços e instalações</span>
             </article>
+          </div>
+
+          <div class="mt-8 text-center" data-animate data-animate-delay="400">
+            <a class="btn inline-flex items-center justify-center min-h-[44px] px-8 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="contact.html">
+              Solicite seu orçamento
+            </a>
           </div>
         </div>
       </section>
@@ -323,6 +471,15 @@
               </div>
             </div>
           </div>
+
+          <div class="mt-8 flex flex-col items-center justify-center gap-4" data-animate>
+            <a class="btn inline-flex items-center justify-center min-h-[44px] px-8 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20iniciar%20um%20diagn%C3%B3stico%20de%20climatiza%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">
+              Falar com um especialista
+            </a>
+            <a class="btn inline-flex items-center justify-center min-h-[44px] px-8 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
+              Solicitar orçamento
+            </a>
+          </div>
         </div>
       </section>
 
@@ -339,7 +496,10 @@
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12">
             <!-- Portfolio Item 1 -->
             <div class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer border border-deep/6 hover:border-deep/12 transition-colors duration-300" data-animate data-animate-delay="100" data-modal-trigger="proj-comercial" aria-label="Ver detalhes do projeto Climatização Comercial">
-              <img src="images/imagem2.jpeg" alt="Projeto de climatização comercial" loading="lazy" width="400" height="300" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <picture style="display:contents">
+                <source type="image/webp" srcset="images/imagem2.webp" />
+                <img src="images/imagem2.jpeg" alt="Projeto de climatização comercial" loading="lazy" width="400" height="300" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              </picture>
               <div class="absolute inset-0 bg-gradient-to-t from-deep/70 to-transparent flex flex-col justify-end p-6 transition-all duration-300 group-hover:from-deep/80">
                 <h3 class="text-white text-xl font-semibold mb-1 font-heading">Climatização Comercial</h3>
                 <p class="text-white/90 text-sm">Sistemas para escritórios e lojas</p>
@@ -348,7 +508,10 @@
 
             <!-- Portfolio Item 2 -->
             <div class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer border border-deep/6 hover:border-deep/12 transition-colors duration-300" data-animate data-animate-delay="200" data-modal-trigger="proj-residencial" aria-label="Ver detalhes do projeto Residencial Premium">
-              <img src="images/imagem3.jpeg" alt="Projeto residencial premium de climatização" loading="lazy" width="400" height="300" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <picture style="display:contents">
+                <source type="image/webp" srcset="images/imagem3.webp" />
+                <img src="images/imagem3.jpeg" alt="Projeto residencial premium de climatização" loading="lazy" width="400" height="300" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              </picture>
               <div class="absolute inset-0 bg-gradient-to-t from-deep/70 to-transparent flex flex-col justify-end p-6 transition-all duration-300 group-hover:from-deep/80">
                 <h3 class="text-white text-xl font-semibold mb-1 font-heading">Residencial Premium</h3>
                 <p class="text-white/90 text-sm">Climatização completa para residências</p>
@@ -357,7 +520,10 @@
 
             <!-- Portfolio Item 3 -->
             <div class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer border border-deep/6 hover:border-deep/12 transition-colors duration-300" data-animate data-animate-delay="300" data-modal-trigger="proj-manutencao" aria-label="Ver detalhes do projeto Manutenção Preventiva">
-              <img src="images/imagem4.jpeg" alt="Manutenção preventiva de ar-condicionado" loading="lazy" width="400" height="300" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <picture style="display:contents">
+                <source type="image/webp" srcset="images/imagem4.webp" />
+                <img src="images/imagem4.jpeg" alt="Manutenção preventiva de ar-condicionado" loading="lazy" width="400" height="300" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              </picture>
               <div class="absolute inset-0 bg-gradient-to-t from-deep/70 to-transparent flex flex-col justify-end p-6 transition-all duration-300 group-hover:from-deep/80">
                 <h3 class="text-white text-xl font-semibold mb-1 font-heading">Manutenção Preventiva</h3>
                 <p class="text-white/90 text-sm">Higienização e inspeção periódica</p>
@@ -366,13 +532,161 @@
 
             <!-- Portfolio Item 4 -->
             <div class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer border border-deep/6 hover:border-deep/12 transition-colors duration-300" data-animate data-animate-delay="400" data-modal-trigger="proj-industrial" aria-label="Ver detalhes do projeto Refrigeração Industrial">
-              <img src="images/imagem5.jpeg" alt="Refrigeração industrial" loading="lazy" width="400" height="300" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <picture style="display:contents">
+                <source type="image/webp" srcset="images/imagem5.webp" />
+                <img src="images/imagem5.jpeg" alt="Refrigeração industrial" loading="lazy" width="400" height="300" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              </picture>
               <div class="absolute inset-0 bg-gradient-to-t from-deep/70 to-transparent flex flex-col justify-end p-6 transition-all duration-300 group-hover:from-deep/80">
                 <h3 class="text-white text-xl font-semibold mb-1 font-heading">Refrigeração Industrial</h3>
                 <p class="text-white/90 text-sm">Soluções para ambientes industriais</p>
               </div>
             </div>
           </div>
+
+          <div class="mt-8 text-center" data-animate>
+            <a class="btn inline-flex items-center justify-center min-h-[44px] px-8 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20vi%20os%20projetos%20no%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer">
+              Quero um projeto assim
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="py-16 lg:py-24" id="depoimentos">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl lg:text-4xl font-bold text-deep text-center mb-4" data-animate>
+            O que nossos clientes dizem
+          </h2>
+          <p class="text-lg text-gray-text text-center mb-12 max-w-2xl mx-auto" data-animate data-animate-delay="100">
+            Depoimentos de quem confiou no Grupo ImperAR para climatizar seus ambientes.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+            <!-- Testimonial 1 -->
+            <article class="contain-card bg-white rounded-2xl border border-deep/8 shadow-sm p-6" data-animate data-animate-delay="100">
+              <div class="flex gap-1.5 mb-3" role="img" aria-label="Avaliação: 5 de 5 estrelas">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#f5a623" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#f5a623" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#f5a623" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#f5a623" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#f5a623" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <blockquote class="text-gray-text leading-relaxed mb-4">
+                &ldquo;Acompanharam nosso apartamento desde a planta e entregaram a climatização impecável. Equipe pontual, organizada e muito atenciosa. Recomendo de olhos fechados.&rdquo;
+              </blockquote>
+              <footer class="flex flex-col">
+                <cite class="font-semibold text-deep" style="font-style:normal">João S.</cite>
+                <span class="text-sm text-gray-text mt-1">Apartamento na planta</span>
+              </footer>
+            </article>
+
+            <!-- Testimonial 2 -->
+            <article class="contain-card bg-white rounded-2xl border border-deep/8 shadow-sm p-6" data-animate data-animate-delay="200">
+              <div class="flex gap-1.5 mb-3" role="img" aria-label="Avaliação: 5 de 5 estrelas">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#f5a623" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#f5a623" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#f5a623" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#f5a623" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#f5a623" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <blockquote class="text-gray-text leading-relaxed mb-4">
+                &ldquo;Contratamos para o condomínio e o resultado superou as expectativas. Instalação limpa, prazo cumprido e suporte rápido sempre que precisamos.&rdquo;
+              </blockquote>
+              <footer class="flex flex-col">
+                <cite class="font-semibold text-deep" style="font-style:normal">Mariana L.</cite>
+                <span class="text-sm text-gray-text mt-1">Condomínio residencial</span>
+              </footer>
+            </article>
+
+            <!-- Testimonial 3 -->
+            <article class="contain-card bg-white rounded-2xl border border-deep/8 shadow-sm p-6" data-animate data-animate-delay="300">
+              <div class="flex gap-1.5 mb-3" role="img" aria-label="Avaliação: 4 de 5 estrelas">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#f5a623" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#f5a623" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#f5a623" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#f5a623" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#d1d5db" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <blockquote class="text-gray-text leading-relaxed mb-4">
+                &ldquo;Excelente atendimento técnico e acabamento de primeira na nossa obra de alto padrão. Profissionais que entendem do assunto e cuidam de cada detalhe.&rdquo;
+              </blockquote>
+              <footer class="flex flex-col">
+                <cite class="font-semibold text-deep" style="font-style:normal">Ricardo A.</cite>
+                <span class="text-sm text-gray-text mt-1">Obra de alto padrão</span>
+              </footer>
+            </article>
+          </div>
+
+          <div class="mt-8 text-center" data-animate data-animate-delay="400">
+            <a class="btn inline-flex items-center justify-center min-h-[44px] px-8 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20vi%20os%20depoimentos%20no%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer">
+              Quero fazer parte dessas histórias
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats / Credibility Section -->
+      <!--
+        NOTE: Os números abaixo são ILUSTRATIVOS. O cliente deve ajustá-los para
+        refletir os dados reais da empresa (anos de atuação, projetos, raio de atendimento, equipe).
+      -->
+      <section id="numeros" class="py-16 lg:py-24 bg-deep">
+        <style>
+          #numeros .imperar-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.5rem 1rem;text-align:center}
+          #numeros .imperar-stat-value{font-family:Barlow,Inter,system-ui,sans-serif;font-weight:700;color:#fff;font-size:2.75rem;line-height:1.1}
+          #numeros .imperar-stat-label{color:rgba(255,255,255,.8);font-size:.95rem;margin-top:.5rem}
+          @media(min-width:1024px){#numeros .imperar-stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:2rem}#numeros .imperar-stat-value{font-size:3.25rem}}
+        </style>
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl lg:text-4xl font-bold text-white text-center mb-4" data-animate>
+            Números que comprovam nossa experiência
+          </h2>
+          <p class="text-lg text-white/80 text-center mb-12 max-w-2xl mx-auto" data-animate data-animate-delay="100">
+            Resultados construídos com técnica, compromisso e atenção aos detalhes.
+          </p>
+
+          <div class="imperar-stats" data-animate data-animate-delay="200">
+            <div>
+              <span class="imperar-stat-value">8+</span>
+              <p class="imperar-stat-label">Anos de experiência</p>
+            </div>
+            <div>
+              <span class="imperar-stat-value">500+</span>
+              <p class="imperar-stat-label">Projetos realizados</p>
+            </div>
+            <div>
+              <span class="imperar-stat-value">50km</span>
+              <p class="imperar-stat-label">Raio de atendimento</p>
+            </div>
+            <div>
+              <span class="imperar-stat-value">15+</span>
+              <p class="imperar-stat-label">Profissionais na equipe</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Partner / Client Logos Section -->
+      <!--
+        NOTE: Estes são PLACEHOLDERS textuais dos parceiros/clientes. Substituir pelos
+        logotipos reais (imagens com alt text) assim que os assets estiverem disponíveis.
+      -->
+      <section class="py-12 lg:py-16" aria-labelledby="parceiros-title">
+        <style>
+          .imperar-partners{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1rem 1.5rem}
+          .imperar-partner{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:.75rem 1.5rem;border:1px solid rgba(26,43,92,.12);border-radius:1rem;background:#fff;font-family:Barlow,Inter,system-ui,sans-serif;font-weight:700;color:#1A2B5C;letter-spacing:.03em}
+        </style>
+        <div class="container mx-auto px-4">
+          <p id="parceiros-title" class="text-center text-sm font-semibold text-gray-text mb-8" data-animate>
+            Parceiros e clientes que confiam no Grupo ImperAR
+          </p>
+
+          <ul class="imperar-partners" role="list" data-animate data-animate-delay="100">
+            <li class="imperar-partner">Construtora Aurora</li>
+            <li class="imperar-partner">Incorporadora Vértice</li>
+            <li class="imperar-partner">Condomínio Bosque Real</li>
+            <li class="imperar-partner">Studio Arquitetura Prime</li>
+          </ul>
         </div>
       </section>
 
@@ -397,7 +711,10 @@
 
     <template data-modal-content="proj-comercial">
       <div class="modal-media">
-        <img src="images/imagem2.jpeg" alt="Climatização comercial em ambiente corporativo" />
+        <picture style="display:contents">
+          <source type="image/webp" srcset="images/imagem2.webp" />
+          <img src="images/imagem2.jpeg" alt="Climatização comercial em ambiente corporativo" width="800" height="1067" loading="lazy" />
+        </picture>
         <div class="modal-media-overlay"></div>
         <div class="modal-media-caption">
           <span class="modal-badge">Comercial</span>
@@ -445,7 +762,10 @@
 
     <template data-modal-content="proj-residencial">
       <div class="modal-media">
-        <img src="images/imagem3.jpeg" alt="Climatização residencial premium" />
+        <picture style="display:contents">
+          <source type="image/webp" srcset="images/imagem3.webp" />
+          <img src="images/imagem3.jpeg" alt="Climatização residencial premium" width="800" height="1067" loading="lazy" />
+        </picture>
         <div class="modal-media-overlay"></div>
         <div class="modal-media-caption">
           <span class="modal-badge">Residencial</span>
@@ -493,7 +813,10 @@
 
     <template data-modal-content="proj-manutencao">
       <div class="modal-media">
-        <img src="images/imagem4.jpeg" alt="Manutenção preventiva e higienização" />
+        <picture style="display:contents">
+          <source type="image/webp" srcset="images/imagem4.webp" />
+          <img src="images/imagem4.jpeg" alt="Manutenção preventiva e higienização" width="800" height="1067" loading="lazy" />
+        </picture>
         <div class="modal-media-overlay"></div>
         <div class="modal-media-caption">
           <span class="modal-badge">Manutenção</span>
@@ -541,7 +864,10 @@
 
     <template data-modal-content="proj-industrial">
       <div class="modal-media">
-        <img src="images/imagem5.jpeg" alt="Refrigeração industrial em operação" />
+        <picture style="display:contents">
+          <source type="image/webp" srcset="images/imagem5.webp" />
+          <img src="images/imagem5.jpeg" alt="Refrigeração industrial em operação" width="800" height="436" loading="lazy" />
+        </picture>
         <div class="modal-media-overlay"></div>
         <div class="modal-media-caption">
           <span class="modal-badge">Industrial</span>
@@ -590,7 +916,10 @@
       <div class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
         <div>
           <a class="flex items-center gap-2 mb-4" href="index.html" aria-label="Ir para a página inicial">
-            <img src="logos/imperar-simbolo.png" alt="Grupo ImperAR" class="h-8 w-auto" />
+            <picture style="display:contents">
+              <source type="image/webp" srcset="logos/imperar-simbolo.webp" />
+              <img src="logos/imperar-simbolo.png" alt="Grupo ImperAR" width="512" height="512" class="h-8 w-auto" />
+            </picture>
             <span class="flex flex-col">
               <span class="font-heading font-bold text-white text-sm leading-tight">Grupo ImperAR</span>
               <span class="text-white/60 text-xs leading-tight">Climatização & Refrigeração</span>
@@ -679,11 +1008,18 @@
       </a>
     </div>
 
+    <script src="js/analytics.js" defer></script>
+    <script src="js/cta.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/animations.js" defer></script>
     <script src="js/wind.js" defer></script>
     <script src="js/modal.js" defer></script>
     <script src="js/hero.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.ImperarAnalytics) ImperarAnalytics.trackPageView();
+      });
+    </script>
   </body>
 </html>
 

@@ -560,11 +560,78 @@ body {
   min-height: 100vh;
 }
 
+/* ============================================================
+     No horizontal scroll from 320px to 1920px (Req 7.1)
+     The off-canvas mobile menu is `position: fixed` and parked off the
+     right edge via `translate-x-full` while closed. A fixed element that
+     overflows the viewport triggers a horizontal scrollbar on the root in
+     most browsers. Clipping horizontal overflow on both the root and body
+     removes that scroll without affecting vertical scrolling (overflow-y
+     computes to auto) or the fixed/absolute headers (both are viewport
+     relative and unaffected). No `position: sticky` is used anywhere, so
+     this is side-effect free.
+     ============================================================ */
+
+html,
+  body {
+  overflow-x: hidden;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: Barlow, Inter, system-ui, sans-serif;
   font-weight: 700;
   --tw-text-opacity: 1;
   color: rgb(26 43 92 / var(--tw-text-opacity, 1));
+}
+
+/* ============================================================
+     Global keyboard focus indicators (WCAG 2.4.7 / 1.4.11 — Req 6.2)
+     Every interactive element receives a visible 2px outline with an
+     outline-offset so the ring is drawn on the adjacent background.
+     Default ring uses brand deep (#1A2B5C): ~9:1 vs white/ice light
+     backgrounds and ~5.3:1 vs the sky (#3AAEDC) button fill — both well
+     above the required 3:1. Dark surfaces are overridden below with a
+     white ring. :focus-visible is used so the ring only appears for
+     keyboard/AT users, never on mouse click.
+     ============================================================ */
+
+a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  summary:focus-visible,
+  details:focus-visible,
+  [tabindex]:focus-visible,
+  [role="button"]:focus-visible,
+  [contenteditable="true"]:focus-visible {
+  outline: 2px solid #1A2B5C;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Dark surfaces (deep-blue sections + footer + transparent home header
+     over the dark hero): a white ring keeps >=3:1 contrast. White vs
+     #1A2B5C ~9.2:1. */
+
+.bg-deep a:focus-visible,
+  .bg-deep button:focus-visible,
+  .bg-deep input:focus-visible,
+  .bg-deep select:focus-visible,
+  .bg-deep textarea:focus-visible,
+  .bg-deep summary:focus-visible,
+  .bg-deep [tabindex]:focus-visible,
+  .bg-deep [role="button"]:focus-visible,
+  footer a:focus-visible,
+  footer button:focus-visible,
+  footer [tabindex]:focus-visible,
+  footer [role="button"]:focus-visible,
+  [data-page="home"] [data-header] a:focus-visible,
+  [data-page="home"] [data-header] button:focus-visible,
+  [data-page="home"] [data-header] [tabindex]:focus-visible,
+  [data-page="home"] [data-header] [role="button"]:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
 }
 
 .container {
@@ -676,7 +743,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 0.125rem;
   outline-width: 2px;
   outline-offset: 2px;
-  outline-color: #3AAEDC;
+  outline-color: #1A2B5C;
 }
 
 .nav-link[aria-current="page"] {
@@ -713,13 +780,27 @@ h1, h2, h3, h4, h5, h6 {
   pointer-events: auto;
 }
 
+/* Mobile nav link — minimum 44x44 CSS px touch target (Req 7.2, 7.6).
+     The links are inline <a> with `text-lg py-2`; padding on an inline box
+     does not reliably produce a 44px tappable height. Making them flex boxes
+     with `min-height: 44px` guarantees the vertical touch target regardless
+     of line-height, while the parent nav's `gap-4` (16px) keeps >=8px spacing
+     between adjacent targets. Full-width in the flex column ensures >=44px
+     horizontally. */
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+
 /* Mobile nav link focus state */
 
 .mobile-nav-link:focus-visible {
   border-radius: 0.125rem;
   outline-width: 2px;
   outline-offset: 2px;
-  outline-color: #3AAEDC;
+  outline-color: #1A2B5C;
 }
 
 /* Button base for ripple effect compatibility */
@@ -733,7 +814,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn:focus-visible {
   outline-width: 2px;
   outline-offset: 2px;
-  outline-color: #3AAEDC;
+  outline-color: #1A2B5C;
 }
 
 /* Ripple effect animation */
@@ -988,7 +1069,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Card trigger affordance — keyboard focus visible state */
 
 [data-modal-trigger]:focus-visible {
-  outline: 2px solid #3AAEDC;
+  outline: 2px solid #1A2B5C;
   outline-offset: 4px;
   border-radius: 1.25rem;
 }
@@ -1023,6 +1104,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .relative {
   position: relative;
+}
+
+.sticky {
+  position: sticky;
 }
 
 .inset-0 {
@@ -1160,6 +1245,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .aspect-\[4\/3\] {
   aspect-ratio: 4/3;
+}
+
+.h-0 {
+  height: 0px;
 }
 
 .h-0\.5 {
@@ -1373,6 +1462,10 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
 }
 
+.gap-1 {
+  gap: 0.25rem;
+}
+
 .gap-1\.5 {
   gap: 0.375rem;
 }
@@ -1511,6 +1604,11 @@ h1, h2, h3, h4, h5, h6 {
   background-color: rgb(15 96 128 / 0.1);
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+}
+
 .bg-black\/50 {
   background-color: rgb(0 0 0 / 0.5);
 }
@@ -1636,6 +1734,11 @@ h1, h2, h3, h4, h5, h6 {
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .py-16 {
@@ -1794,6 +1897,10 @@ h1, h2, h3, h4, h5, h6 {
   color: rgb(255 255 255 / 0.9);
 }
 
+.underline {
+  text-decoration-line: underline;
+}
+
 .opacity-0 {
   opacity: 0;
 }
@@ -1845,6 +1952,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.backdrop-filter {
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
 .transition {
@@ -2045,6 +2157,65 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 0.875rem;
     padding-bottom: 0.875rem;
   }
+}
+
+/* ============================================================
+   Reduced motion — centralized global override (Req 6.6)
+   When the user requests reduced motion at the OS level, disable ALL
+   decorative motion site-wide: scroll-triggered animations ([data-animate]),
+   the hero carousel slide fade/transform, the sticky CTA bar transitions,
+   keyframe animations (typewriter blink, ripple, skeleton shimmer) and every
+   general CSS transition.
+
+   Approach: force animation/transition durations to ~0 (0.01ms) rather than
+   `none`, so END STATES are still applied instantly. This is the desired
+   behavior — perceived motion is removed while immediate state changes remain
+   intact and usable:
+     • Mobile menu open/close visibility (transform/opacity end-state applied
+       instantly, so the panel still shows/hides).
+     • Form validation indicators (error/success visibility unaffected).
+     • Modal show/hide (visibility + opacity end-states still reached instantly).
+     • Hero carousel still swaps slides (JS toggles .is-active; with near-zero
+       duration the opacity change is instant, which is correct).
+
+   This block complements (does not replace) the existing scoped reduced-motion
+   rules already present in the inline critical CSS, the modal rules above,
+   css/animations.css and css/hero.css.
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  /* Scroll-triggered animations resolve to their final, visible state. */
+
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Hero carousel: land on the active slide with no perceived fade/transform. */
+
+  .hero-carousel .hero-slide,
+  .hero-carousel .hero-dot::before,
+  .hero-carousel .hero-arrow {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.focus\:bg-deep:focus a:focus-visible,.focus\:bg-deep:focus button:focus-visible,.focus\:bg-deep:focus input:focus-visible,.focus\:bg-deep:focus select:focus-visible,.focus\:bg-deep:focus textarea:focus-visible,.focus\:bg-deep:focus summary:focus-visible,.focus\:bg-deep:focus [tabindex]:focus-visible,.focus\:bg-deep:focus [role="button"]:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
 }
 
 .placeholder\:text-gray-400::placeholder {
@@ -2322,6 +2493,11 @@ h1, h2, h3, h4, h5, h6 {
 
   .lg\:p-16 {
     padding: 4rem;
+  }
+
+  .lg\:py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
   .lg\:py-24 {

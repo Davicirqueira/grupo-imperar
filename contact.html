@@ -22,14 +22,28 @@
     </noscript>
     <!-- End Meta Pixel Code -->
 
+    <!-- Google Analytics 4 (gtag.js) — async, non-render-blocking -->
+    <!-- NOTE: Replace G-XXXXXXXXXX with the site owner's real GA4 Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XXXXXXXXXX");
+    </script>
+    <!-- End Google Analytics 4 -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Contato | Grupo ImperAR</title>
+    <title>Contato | Orçamento de Climatização | ImperAR</title>
     <meta
       name="description"
-      content="Entre em contato com o Grupo ImperAR para solicitar orçamento ou tirar dúvidas. Resposta rápida e atendimento transparente."
+      content="Entre em contato com o Grupo ImperAR e solicite um orçamento de climatização e ar-condicionado em São Paulo. Atendimento rápido e transparente."
     />
+    <link rel="canonical" href="https://grupoimperar.com.br/contact.html" />
 
-    <meta property="og:title" content="Contato | Grupo ImperAR" />
+    <meta property="og:title" content="Contato | Orçamento de Climatização | ImperAR" />
     <meta property="og:description" content="Solicite orçamento e tire dúvidas com o Grupo ImperAR." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="images/imagem4.jpeg" />
@@ -42,7 +56,92 @@
       href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Inter:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/output.css?v=3" />
+    <!-- Critical CSS: header + hero above-the-fold (inlined for first paint) -->
+    <style>
+      *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid}
+      html{-webkit-text-size-adjust:100%;line-height:1.5;font-family:Inter,system-ui,sans-serif;scroll-behavior:smooth}
+      body{margin:0;line-height:1.625;font-family:Inter,system-ui,sans-serif;color:#4A4A4A;background:linear-gradient(to bottom right,#ffffff 0%,#b2def0 55%,rgba(58,174,220,.15) 100%);background-attachment:fixed;min-height:100vh}
+      h1,h2,h3,h4,h5,h6{margin:0;font-family:Barlow,Inter,system-ui,sans-serif;font-weight:700;color:#1A2B5C}
+      p{margin:0}
+      a{color:inherit;text-decoration:inherit}
+      img,svg{display:block;vertical-align:middle}
+      img{max-width:100%;height:auto}
+      button{margin:0;padding:0;font-family:inherit;font-size:100%;background-color:transparent;background-image:none;cursor:pointer}
+      /* Header (shared component) */
+      [data-header]{position:fixed;top:0;left:0;right:0;z-index:50;background-color:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,43,92,.08);transition:background-color .3s ease,border-color .3s ease,box-shadow .3s ease,backdrop-filter .3s ease}
+      [data-header].is-scrolled{box-shadow:0 6px 22px rgba(26,43,92,.12)}
+      [data-page="home"] [data-header]{position:absolute;background-color:transparent;border-bottom-color:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+      [data-page="home"] [data-header] a[aria-label="Ir para a página inicial"] span{color:#fff}
+      [data-page="home"] [data-header] .nav-link{color:#fff}
+      [data-page="home"] [data-header] [data-nav-toggle] span{background-color:#fff}
+      /* Above-the-fold utilities */
+      .container{width:100%}
+      .relative{position:relative}.absolute{position:absolute}.fixed{position:fixed}
+      .inset-0{top:0;right:0;bottom:0;left:0}.top-0{top:0}.right-0{right:0}
+      .block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.hidden{display:none}
+      .flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}
+      .text-center{text-align:center}
+      .mx-auto{margin-left:auto;margin-right:auto}
+      .gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}
+      .px-4{padding-left:1rem;padding-right:1rem}.px-8{padding-left:2rem;padding-right:2rem}
+      .py-3{padding-top:.75rem;padding-bottom:.75rem}.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}
+      .pt-28{padding-top:7rem}.pb-16{padding-bottom:4rem}
+      .mb-4{margin-bottom:1rem}.mb-8{margin-bottom:2rem}
+      .h-9{height:2.25rem}.h-10{height:2.5rem}.h-full{height:100%}.h-0\.5{height:.125rem}
+      .w-6{width:1.5rem}.w-10{width:2.5rem}.w-auto{width:auto}.w-4\/5{width:80%}
+      .min-h-\[44px\]{min-height:44px}.min-h-\[64px\]{min-height:64px}
+      .max-w-3xl{max-width:48rem}.max-w-\[320px\]{max-width:320px}
+      .z-40{z-index:40}.z-50{z-index:50}
+      .rounded-2xl{border-radius:1.25rem}
+      .font-heading{font-family:Barlow,Inter,system-ui,sans-serif}
+      .font-bold{font-weight:700}.font-semibold{font-weight:600}
+      .text-deep{color:#1A2B5C}.text-gray-text{color:#4A4A4A}.text-white{color:#fff}
+      .text-xs{font-size:.75rem;line-height:1rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}
+      .leading-tight{line-height:1.25}.leading-relaxed{line-height:1.625}
+      .bg-white{background-color:#fff}.bg-deep{background-color:#1A2B5C}.bg-primary{background-color:#3AAEDC}.bg-black\/50{background-color:rgba(0,0,0,.5)}
+      .opacity-0{opacity:0}.pointer-events-none{pointer-events:none}
+      .translate-x-full{transform:translateX(100%)}
+      .transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
+      .duration-200{transition-duration:.2s}.duration-300{transition-duration:.3s}
+      .nav-link{position:relative;color:#1A2B5C;font-weight:600;font-size:.875rem;transition:color .2s}
+      .btn{position:relative;overflow:hidden;cursor:pointer}
+      .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+      [data-animate]{opacity:0;transform:translateY(1.5rem);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
+      [data-animate].is-visible{opacity:1;transform:none}
+      @media(min-width:640px){.container{max-width:640px}}
+      @media(min-width:768px){.container{max-width:768px}}
+      @media(min-width:1024px){.container{max-width:1024px}.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:py-5{padding-top:1.25rem;padding-bottom:1.25rem}.lg\:pt-32{padding-top:8rem}.lg\:pb-20{padding-bottom:5rem}.lg\:min-h-\[80px\]{min-height:80px}.lg\:h-11{height:2.75rem}.lg\:text-base{font-size:1rem;line-height:1.5rem}.lg\:text-xl{font-size:1.25rem;line-height:1.75rem}.lg\:text-5xl{font-size:3rem;line-height:1}}
+      @media(min-width:1280px){.container{max-width:1280px}}
+      @media(min-width:1440px){.container{max-width:1440px}}
+      @media(prefers-reduced-motion:reduce){[data-animate]{opacity:1;transform:none;transition:none}}
+    </style>
+
+    <!-- Deferred non-critical CSS (preload + onload swap, with noscript fallback) -->
+    <link rel="preload" as="style" href="css/output.css?v=3" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="css/output.css?v=3" /></noscript>
+
+    <!-- JSON-LD Structured Data: LocalBusiness -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Grupo ImperAR",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. do Rio Bonito, 2206",
+          "addressLocality": "São Paulo",
+          "addressRegion": "SP",
+          "postalCode": "04776-003",
+          "addressCountry": "BR"
+        },
+        "telephone": "+55-11-5669-2090",
+        "openingHours": "Mo-Fr 08:00-18:00",
+        "areaServed": {
+          "@type": "City",
+          "name": "São Paulo"
+        }
+      }
+    </script>
   </head>
   <body data-page="contact">
     <a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-deep focus:text-white focus:rounded-lg focus:text-sm" href="#conteudo">Pular para o conteúdo</a>
@@ -50,7 +149,10 @@
     <header class="site-header" data-header>
       <div class="header-inner container mx-auto px-4 py-3.5 lg:py-5 flex items-center justify-between gap-4 min-h-[64px] lg:min-h-[80px] transition-all duration-200">
         <a class="flex items-center gap-2" href="index.html" aria-label="Ir para a página inicial">
-          <img src="logos/imperar-simbolo.png" alt="Grupo ImperAR" class="h-9 lg:h-11 w-auto" />
+          <picture style="display:contents">
+            <source type="image/webp" srcset="logos/imperar-simbolo.webp" />
+            <img src="logos/imperar-simbolo.png" alt="Grupo ImperAR" width="512" height="512" class="h-9 lg:h-11 w-auto" />
+          </picture>
           <span class="flex flex-col">
             <span class="font-heading font-bold text-deep text-sm lg:text-base leading-tight">Grupo ImperAR</span>
             <span class="text-gray-text text-xs leading-tight">Climatização & Refrigeração</span>
@@ -153,6 +255,28 @@
                 <div class="text-red-600 text-sm mt-1 opacity-0 transition-opacity duration-200" data-error aria-live="polite"></div>
               </div>
 
+              <!-- Service Type Field -->
+              <div class="flex flex-col gap-1.5" data-field>
+                <label for="service-type" class="flex items-center gap-2 text-sm font-semibold text-deep">
+                  <svg class="w-4 h-4 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                  Tipo de serviço
+                </label>
+                <select
+                  id="service-type"
+                  name="service-type"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl text-gray-text bg-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary"
+                >
+                  <option value="" disabled selected>Selecione um serviço</option>
+                  <option value="Apartamentos na planta">Apartamentos na planta</option>
+                  <option value="Condomínios residenciais">Condomínios residenciais</option>
+                  <option value="Obras de alto padrão">Obras de alto padrão</option>
+                  <option value="Infraestrutura de climatização">Infraestrutura de climatização</option>
+                  <option value="Projetos VRF">Projetos VRF</option>
+                </select>
+                <div class="text-red-600 text-sm mt-1 opacity-0 transition-opacity duration-200" data-error aria-live="polite"></div>
+              </div>
+
               <!-- Message Field -->
               <div class="flex flex-col gap-1.5" data-field>
                 <label for="message" class="flex items-center gap-2 text-sm font-semibold text-deep">
@@ -175,6 +299,24 @@
                   <span class="text-xs text-gray-400" data-counter>0/500 caracteres</span>
                 </div>
               </div>
+
+              <!-- Honeypot field (anti-spam) — visually hidden, must remain empty -->
+              <div aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;height:0;overflow:hidden">
+                <label for="website">Não preencha este campo</label>
+                <input
+                  id="website"
+                  name="website"
+                  type="text"
+                  data-honeypot
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </div>
+
+              <!-- Hidden UTM fields (populated by js/contact.js) -->
+              <input type="hidden" name="utm_source" />
+              <input type="hidden" name="utm_medium" />
+              <input type="hidden" name="utm_campaign" />
 
               <!-- Submit Button -->
               <button
@@ -298,7 +440,10 @@
       <div class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
         <div>
           <a class="flex items-center gap-2 mb-4" href="index.html" aria-label="Ir para a página inicial">
-            <img src="logos/imperar-simbolo.png" alt="Grupo ImperAR" class="h-8 w-auto" />
+            <picture style="display:contents">
+              <source type="image/webp" srcset="logos/imperar-simbolo.webp" />
+              <img src="logos/imperar-simbolo.png" alt="Grupo ImperAR" width="512" height="512" class="h-8 w-auto" />
+            </picture>
             <span class="flex flex-col">
               <span class="font-heading font-bold text-white text-sm leading-tight">Grupo ImperAR</span>
               <span class="text-white/60 text-xs leading-tight">Climatização & Refrigeração</span>
@@ -387,10 +532,22 @@
       </a>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"
+      integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="js/analytics.js" defer></script>
+    <script src="js/cta.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/contact.js" defer></script>
     <script src="js/animations.js" defer></script>
     <script src="js/wind.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.ImperarAnalytics) ImperarAnalytics.trackPageView();
+      });
+    </script>
   </body>
 </html>

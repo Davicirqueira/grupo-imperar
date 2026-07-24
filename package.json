@@ -6,7 +6,8 @@
     "build": "npx tailwindcss -i ./css/input.css -o ./css/output.css",
     "watch": "npx tailwindcss -i ./css/input.css -o ./css/output.css --watch",
     "production": "npx tailwindcss -i ./css/input.css -o ./css/output.css --minify",
-    "optimize-images": "node scripts/optimize-images.js"
+    "optimize-images": "node scripts/optimize-images.js",
+    "test": "node --test tests/"
   },
   "keywords": [
     "climatização",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "autoprefixer": "^10.5.0",
     "cssnano": "^6.1.2",
+    "fast-check": "^4.9.0",
     "postcss": "^8.5.14",
     "sharp": "^0.33.0",
     "tailwindcss": "^3.4.19"

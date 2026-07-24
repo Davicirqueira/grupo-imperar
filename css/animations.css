@@ -26,12 +26,23 @@
   transition: opacity 800ms cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
-/* Respect prefers-reduced-motion preference (Requirement 20.9) */
+/* Respect prefers-reduced-motion preference (Requirement 20.9, 6.6).
+   Scroll-triggered animations resolve to their final, visible state and all
+   decorative transitions/keyframe animations are neutralized. End states remain
+   applied instantly, so no content is hidden from reduced-motion users. */
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
   [data-animate] {
-    opacity: 1;
-    transform: none;
-    transition: none;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

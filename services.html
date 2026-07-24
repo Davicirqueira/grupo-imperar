@@ -22,14 +22,28 @@
     </noscript>
     <!-- End Meta Pixel Code -->
 
+    <!-- Google Analytics 4 (gtag.js) — async, non-render-blocking -->
+    <!-- NOTE: Replace G-XXXXXXXXXX with the site owner's real GA4 Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XXXXXXXXXX");
+    </script>
+    <!-- End Google Analytics 4 -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Serviços | Grupo ImperAR</title>
+    <title>Serviços de Climatização e Refrigeração | ImperAR</title>
     <meta
       name="description"
-      content="Conheça os serviços de instalação, manutenção e suporte técnico em climatização e refrigeração do Grupo ImperAR."
+      content="Conheça os serviços de instalação, manutenção e projetos VRF de climatização do Grupo ImperAR em São Paulo. Peça um orçamento sem compromisso."
     />
+    <link rel="canonical" href="https://grupoimperar.com.br/services.html" />
 
-    <meta property="og:title" content="Serviços | Grupo ImperAR" />
+    <meta property="og:title" content="Serviços de Climatização e Refrigeração | ImperAR" />
     <meta property="og:description" content="Instalação, manutenção e suporte técnico em climatização." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="images/imagem2.jpeg" />
@@ -42,7 +56,134 @@
       href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Inter:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/output.css?v=3" />
+    <!-- Critical CSS: header + hero above-the-fold (inlined for first paint) -->
+    <style>
+      *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid}
+      html{-webkit-text-size-adjust:100%;line-height:1.5;font-family:Inter,system-ui,sans-serif;scroll-behavior:smooth}
+      body{margin:0;line-height:1.625;font-family:Inter,system-ui,sans-serif;color:#4A4A4A;background:linear-gradient(to bottom right,#ffffff 0%,#b2def0 55%,rgba(58,174,220,.15) 100%);background-attachment:fixed;min-height:100vh}
+      h1,h2,h3,h4,h5,h6{margin:0;font-family:Barlow,Inter,system-ui,sans-serif;font-weight:700;color:#1A2B5C}
+      p{margin:0}
+      a{color:inherit;text-decoration:inherit}
+      img,svg{display:block;vertical-align:middle}
+      img{max-width:100%;height:auto}
+      button{margin:0;padding:0;font-family:inherit;font-size:100%;background-color:transparent;background-image:none;cursor:pointer}
+      /* Header (shared component) */
+      [data-header]{position:fixed;top:0;left:0;right:0;z-index:50;background-color:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,43,92,.08);transition:background-color .3s ease,border-color .3s ease,box-shadow .3s ease,backdrop-filter .3s ease}
+      [data-header].is-scrolled{box-shadow:0 6px 22px rgba(26,43,92,.12)}
+      [data-page="home"] [data-header]{position:absolute;background-color:transparent;border-bottom-color:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+      [data-page="home"] [data-header] a[aria-label="Ir para a página inicial"] span{color:#fff}
+      [data-page="home"] [data-header] .nav-link{color:#fff}
+      [data-page="home"] [data-header] [data-nav-toggle] span{background-color:#fff}
+      /* Above-the-fold utilities */
+      .container{width:100%}
+      .relative{position:relative}.absolute{position:absolute}.fixed{position:fixed}
+      .inset-0{top:0;right:0;bottom:0;left:0}.top-0{top:0}.right-0{right:0}
+      .block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.hidden{display:none}
+      .flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}
+      .text-center{text-align:center}
+      .mx-auto{margin-left:auto;margin-right:auto}
+      .gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}
+      .px-4{padding-left:1rem;padding-right:1rem}.px-8{padding-left:2rem;padding-right:2rem}
+      .py-3{padding-top:.75rem;padding-bottom:.75rem}.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}
+      .pt-28{padding-top:7rem}.pb-16{padding-bottom:4rem}
+      .mb-4{margin-bottom:1rem}.mb-8{margin-bottom:2rem}
+      .h-9{height:2.25rem}.h-10{height:2.5rem}.h-full{height:100%}.h-0\.5{height:.125rem}
+      .w-6{width:1.5rem}.w-10{width:2.5rem}.w-auto{width:auto}.w-4\/5{width:80%}
+      .min-h-\[44px\]{min-height:44px}.min-h-\[64px\]{min-height:64px}
+      .max-w-3xl{max-width:48rem}.max-w-\[320px\]{max-width:320px}
+      .z-40{z-index:40}.z-50{z-index:50}
+      .rounded-2xl{border-radius:1.25rem}
+      .font-heading{font-family:Barlow,Inter,system-ui,sans-serif}
+      .font-bold{font-weight:700}.font-semibold{font-weight:600}
+      .text-deep{color:#1A2B5C}.text-gray-text{color:#4A4A4A}.text-white{color:#fff}
+      .text-xs{font-size:.75rem;line-height:1rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}
+      .leading-tight{line-height:1.25}.leading-relaxed{line-height:1.625}
+      .bg-white{background-color:#fff}.bg-deep{background-color:#1A2B5C}.bg-primary{background-color:#3AAEDC}.bg-black\/50{background-color:rgba(0,0,0,.5)}
+      .opacity-0{opacity:0}.pointer-events-none{pointer-events:none}
+      .translate-x-full{transform:translateX(100%)}
+      .transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
+      .duration-200{transition-duration:.2s}.duration-300{transition-duration:.3s}
+      .nav-link{position:relative;color:#1A2B5C;font-weight:600;font-size:.875rem;transition:color .2s}
+      .btn{position:relative;overflow:hidden;cursor:pointer}
+      .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+      [data-animate]{opacity:0;transform:translateY(1.5rem);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
+      [data-animate].is-visible{opacity:1;transform:none}
+      @media(min-width:640px){.container{max-width:640px}}
+      @media(min-width:768px){.container{max-width:768px}}
+      @media(min-width:1024px){.container{max-width:1024px}.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:py-5{padding-top:1.25rem;padding-bottom:1.25rem}.lg\:pt-32{padding-top:8rem}.lg\:pb-20{padding-bottom:5rem}.lg\:min-h-\[80px\]{min-height:80px}.lg\:h-11{height:2.75rem}.lg\:text-base{font-size:1rem;line-height:1.5rem}.lg\:text-xl{font-size:1.25rem;line-height:1.75rem}.lg\:text-5xl{font-size:3rem;line-height:1}}
+      @media(min-width:1280px){.container{max-width:1280px}}
+      @media(min-width:1440px){.container{max-width:1440px}}
+      @media(prefers-reduced-motion:reduce){[data-animate]{opacity:1;transform:none;transition:none}}
+    </style>
+
+    <!-- Deferred non-critical CSS (preload + onload swap, with noscript fallback) -->
+    <link rel="preload" as="style" href="css/output.css?v=3" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="css/output.css?v=3" /></noscript>
+
+    <!-- JSON-LD Structured Data: LocalBusiness -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "#localbusiness",
+        "name": "Grupo ImperAR",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. do Rio Bonito, 2206",
+          "addressLocality": "São Paulo",
+          "addressRegion": "SP",
+          "postalCode": "04776-003",
+          "addressCountry": "BR"
+        },
+        "telephone": "+55-11-5669-2090",
+        "openingHours": "Mo-Fr 08:00-18:00",
+        "areaServed": {
+          "@type": "City",
+          "name": "São Paulo"
+        }
+      }
+    </script>
+
+    <!-- JSON-LD Structured Data: Services -->
+    <script type="application/ld+json">
+      [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "provider": { "@id": "#localbusiness" },
+          "name": "Apartamentos na planta",
+          "description": "Planejamento e execução da climatização ainda na fase da obra, com infraestrutura embutida e dimensionamento técnico de cada ambiente, entregando conforto térmico desde a entrega das chaves."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "provider": { "@id": "#localbusiness" },
+          "name": "Condomínios residenciais",
+          "description": "Soluções completas de climatização para áreas comuns e privativas, com especificação técnica, plano de manutenção preventiva e documentação para a administração do condomínio."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "provider": { "@id": "#localbusiness" },
+          "name": "Obras de alto padrão",
+          "description": "Climatização sob medida para residências e empreendimentos exclusivos, com equipamentos premium de baixo ruído, integração à automação e trabalho conjunto com arquitetos para preservar a estética."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "provider": { "@id": "#localbusiness" },
+          "name": "Infraestrutura de climatização",
+          "description": "Projetos técnicos completos de infraestrutura para sistemas de climatização eficientes e de alto desempenho, garantindo dimensionamento adequado e execução dentro das normas."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "provider": { "@id": "#localbusiness" },
+          "name": "Projetos VRF",
+          "description": "Sistemas VRF para empreendimentos, com eficiência energética, economia operacional e controle individualizado de temperatura por ambiente."
+        }
+      ]
+    </script>
   </head>
   <body data-page="services">
     <a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-deep focus:text-white focus:rounded-lg focus:text-sm" href="#conteudo">Pular para o conteúdo</a>
@@ -50,7 +191,10 @@
     <header class="site-header" data-header>
       <div class="header-inner container mx-auto px-4 py-3.5 lg:py-5 flex items-center justify-between gap-4 min-h-[64px] lg:min-h-[80px] transition-all duration-200">
         <a class="flex items-center gap-2" href="index.html" aria-label="Ir para a página inicial">
-          <img src="logos/imperar-simbolo.png" alt="Grupo ImperAR" class="h-9 lg:h-11 w-auto" />
+          <picture style="display:contents">
+            <source type="image/webp" srcset="logos/imperar-simbolo.webp" />
+            <img src="logos/imperar-simbolo.png" alt="Grupo ImperAR" width="512" height="512" class="h-9 lg:h-11 w-auto" />
+          </picture>
           <span class="flex flex-col">
             <span class="font-heading font-bold text-deep text-sm lg:text-base leading-tight">Grupo ImperAR</span>
             <span class="text-gray-text text-xs leading-tight">Climatização & Refrigeração</span>
@@ -106,7 +250,10 @@
 
             <!-- Apartamentos na planta -->
             <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="100" data-modal-trigger="serv-apartamentos" aria-label="Ver detalhes do serviço Apartamentos na planta">
-              <img src="images/servico-apartamentos.jpeg" alt="Climatização para apartamentos na planta" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <picture style="display:contents">
+                <source type="image/webp" srcset="images/servico-apartamentos.webp" />
+                <img src="images/servico-apartamentos.jpeg" alt="Climatização para apartamentos na planta" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              </picture>
               <div class="absolute inset-0 bg-gradient-to-t from-deep/90 via-deep/40 to-transparent"></div>
               <div class="absolute top-4 left-4 w-12 h-12 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
                 <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
@@ -119,7 +266,10 @@
 
             <!-- Condomínios residenciais -->
             <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="200" data-modal-trigger="serv-condominios" aria-label="Ver detalhes do serviço Condomínios residenciais">
-              <img src="images/servico-condominios.jpeg" alt="Climatização para condomínios residenciais" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <picture style="display:contents">
+                <source type="image/webp" srcset="images/servico-condominios.webp" />
+                <img src="images/servico-condominios.jpeg" alt="Climatização para condomínios residenciais" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              </picture>
               <div class="absolute inset-0 bg-gradient-to-t from-deep/90 via-deep/40 to-transparent"></div>
               <div class="absolute top-4 left-4 w-12 h-12 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
                 <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
@@ -132,7 +282,10 @@
 
             <!-- Obras de alto padrão -->
             <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="300" data-modal-trigger="serv-altopadrao" aria-label="Ver detalhes do serviço Obras de alto padrão">
-              <img src="images/servico-residencia.jpeg" alt="Climatização para obras de alto padrão" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <picture style="display:contents">
+                <source type="image/webp" srcset="images/servico-residencia.webp" />
+                <img src="images/servico-residencia.jpeg" alt="Climatização para obras de alto padrão" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              </picture>
               <div class="absolute inset-0 bg-gradient-to-t from-deep/90 via-deep/40 to-transparent"></div>
               <div class="absolute top-4 left-4 w-12 h-12 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
                 <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
@@ -150,7 +303,10 @@
 
             <!-- Infraestrutura de climatização -->
             <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="400" data-modal-trigger="serv-infra" aria-label="Ver detalhes do serviço Infraestrutura de climatização">
-              <img src="images/servico-infra.jpeg" alt="Infraestrutura de climatização" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <picture style="display:contents">
+                <source type="image/webp" srcset="images/servico-infra.webp" />
+                <img src="images/servico-infra.jpeg" alt="Infraestrutura de climatização" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              </picture>
               <div class="absolute inset-0 bg-gradient-to-t from-deep/90 via-deep/40 to-transparent"></div>
               <div class="absolute top-4 left-4 w-12 h-12 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
                 <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68 1.65 1.65 0 0 0 9 3.17V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
@@ -163,7 +319,10 @@
 
             <!-- Projetos VRF -->
             <article class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" data-animate data-animate-delay="500" data-modal-trigger="serv-vrf" aria-label="Ver detalhes do serviço Projetos VRF para empreendimentos">
-              <img src="images/servico-vrf.jpeg" alt="Projetos VRF para empreendimentos" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              <picture style="display:contents">
+                <source type="image/webp" srcset="images/servico-vrf.webp" />
+                <img src="images/servico-vrf.jpeg" alt="Projetos VRF para empreendimentos" loading="lazy" width="600" height="450" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+              </picture>
               <div class="absolute inset-0 bg-gradient-to-t from-deep/90 via-deep/40 to-transparent"></div>
               <div class="absolute top-4 left-4 w-12 h-12 rounded-full bg-primary flex items-center justify-center" aria-hidden="true">
                 <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
@@ -244,6 +403,79 @@
         </div>
       </section>
 
+      <!-- Section: FAQ (Perguntas frequentes) -->
+      <section id="faq" class="py-16 lg:py-24">
+        <style>
+          #faq .faq-item { background-color: #fff; border: 1px solid rgb(26 43 92 / 0.15); }
+          #faq summary { list-style: none; }
+          #faq summary::-webkit-details-marker { display: none; }
+          #faq .faq-chevron { transition: transform .3s ease; }
+          #faq details[open] .faq-chevron { transform: rotate(180deg); }
+          #faq .faq-answer { padding: 0 1.5rem 1.5rem; }
+          @media (prefers-reduced-motion: reduce) { #faq .faq-chevron { transition: none; } }
+        </style>
+        <div class="container mx-auto px-4 max-w-3xl">
+          <h2 class="text-3xl lg:text-4xl font-bold text-deep text-center mb-4" data-animate>
+            Perguntas frequentes
+          </h2>
+          <p class="text-lg text-gray-text text-center mb-12 max-w-2xl mx-auto" data-animate data-animate-delay="100">
+            Tire suas principais dúvidas antes de solicitar um orçamento.
+          </p>
+
+          <div class="space-y-3">
+            <details class="faq-item group rounded-xl" data-animate>
+              <summary class="flex justify-between items-center gap-3 p-6 cursor-pointer font-semibold text-deep">
+                <span>Como funciona o orçamento? É cobrado alguma taxa?</span>
+                <svg class="faq-chevron shrink-0 w-5 h-5 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </summary>
+              <div class="faq-answer text-gray-text leading-relaxed">
+                O orçamento é gratuito e sem compromisso. Após o contato, entendemos a necessidade do ambiente e do equipamento, avaliamos as condições (presencialmente ou por fotos e informações técnicas) e enviamos uma proposta transparente, com escopo, prazos e valores detalhados. Você só decide avançar depois de ter tudo claro.
+              </div>
+            </details>
+
+            <details class="faq-item group rounded-xl" data-animate data-animate-delay="100">
+              <summary class="flex justify-between items-center gap-3 p-6 cursor-pointer font-semibold text-deep">
+                <span>Qual é o prazo estimado para a execução do serviço?</span>
+                <svg class="faq-chevron shrink-0 w-5 h-5 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </summary>
+              <div class="faq-answer text-gray-text leading-relaxed">
+                O prazo varia conforme o tipo e a complexidade do projeto. Uma instalação residencial simples costuma ser concluída em 1 a 2 dias, enquanto obras maiores, como condomínios e projetos VRF, seguem um cronograma definido na proposta. Sempre alinhamos as datas previamente e mantemos você informado durante toda a execução.
+              </div>
+            </details>
+
+            <details class="faq-item group rounded-xl" data-animate data-animate-delay="200">
+              <summary class="flex justify-between items-center gap-3 p-6 cursor-pointer font-semibold text-deep">
+                <span>Os serviços têm garantia?</span>
+                <svg class="faq-chevron shrink-0 w-5 h-5 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </summary>
+              <div class="faq-answer text-gray-text leading-relaxed">
+                Sim. Todos os serviços de instalação contam com garantia sobre a mão de obra executada, e os equipamentos possuem a garantia oferecida pelo fabricante. As condições e o período de cobertura são informados por escrito na proposta, para que você tenha total segurança sobre o que está incluído.
+              </div>
+            </details>
+
+            <details class="faq-item group rounded-xl" data-animate data-animate-delay="300">
+              <summary class="flex justify-between items-center gap-3 p-6 cursor-pointer font-semibold text-deep">
+                <span>Qual é a região atendida pelo Grupo ImperAR?</span>
+                <svg class="faq-chevron shrink-0 w-5 h-5 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </summary>
+              <div class="faq-answer text-gray-text leading-relaxed">
+                Atendemos São Paulo e região, cobrindo a capital e municípios da Grande São Paulo. Para projetos específicos fora dessa área, entre em contato: avaliamos cada caso e informamos rapidamente se conseguimos atender à sua localização.
+              </div>
+            </details>
+
+            <details class="faq-item group rounded-xl" data-animate data-animate-delay="400">
+              <summary class="flex justify-between items-center gap-3 p-6 cursor-pointer font-semibold text-deep">
+                <span>Vocês oferecem manutenção preventiva?</span>
+                <svg class="faq-chevron shrink-0 w-5 h-5 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </summary>
+              <div class="faq-answer text-gray-text leading-relaxed">
+                Sim. Além da instalação, realizamos manutenção preventiva e corretiva, com planos periódicos que prolongam a vida útil dos equipamentos, mantêm a eficiência energética e evitam paradas inesperadas. Podemos montar um plano de manutenção sob medida para sua residência, condomínio ou empresa.
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
       <section class="py-16 lg:py-24">
         <div class="container mx-auto px-4 text-center">
           <h2 class="text-3xl lg:text-4xl font-bold text-deep mb-4" data-animate>
@@ -265,7 +497,10 @@
 
     <template data-modal-content="serv-apartamentos">
       <div class="modal-media">
-        <img src="images/servico-apartamentos.jpeg" alt="Climatização para apartamentos na planta" />
+        <picture style="display:contents">
+          <source type="image/webp" srcset="images/servico-apartamentos.webp" />
+          <img src="images/servico-apartamentos.jpeg" alt="Climatização para apartamentos na planta" width="464" height="424" loading="lazy" />
+        </picture>
         <div class="modal-media-overlay"></div>
         <div class="modal-media-caption">
           <span class="modal-badge">Apartamentos</span>
@@ -275,7 +510,7 @@
       </div>
       <div class="modal-body">
         <p class="text-gray-text leading-relaxed">
-          Planejamento e execução da climatização ainda na fase da obra, integrando o sistema à infraestrutura do imóvel. Resultado: tubulações embutidas, acabamento limpo e o conforto pronto desde o dia da entrega das chaves.
+          Planejamento e execução da climatização ainda na fase da obra, com infraestrutura embutida, dimensionamento técnico de cada ambiente e compatibilização com o projeto arquitetônico e os pontos elétricos. É um serviço voltado a clientes residenciais que estão comprando imóveis na planta e querem deixar o apartamento já preparado para climatização. O resultado é um acabamento limpo, sem quebra-quebra no futuro, e conforto térmico pronto desde o dia da entrega das chaves.
         </p>
         <ul class="modal-list">
           <li>
@@ -301,7 +536,7 @@
           <div class="modal-meta-item"><dt>Etapa</dt><dd>Pré-entrega das chaves</dd></div>
         </dl>
         <div class="modal-actions">
-          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20climatiza%C3%A7%C3%A3o%20para%20apartamento%20na%20planta." target="_blank" rel="noopener noreferrer">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20climatiza%C3%A7%C3%A3o%20para%20Apartamentos%20na%20planta." target="_blank" rel="noopener noreferrer">
             Solicitar orçamento
           </a>
           <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
@@ -313,7 +548,10 @@
 
     <template data-modal-content="serv-condominios">
       <div class="modal-media">
-        <img src="images/servico-condominios.jpeg" alt="Climatização para condomínios residenciais" />
+        <picture style="display:contents">
+          <source type="image/webp" srcset="images/servico-condominios.webp" />
+          <img src="images/servico-condominios.jpeg" alt="Climatização para condomínios residenciais" width="471" height="425" loading="lazy" />
+        </picture>
         <div class="modal-media-overlay"></div>
         <div class="modal-media-caption">
           <span class="modal-badge">Condomínios</span>
@@ -323,7 +561,7 @@
       </div>
       <div class="modal-body">
         <p class="text-gray-text leading-relaxed">
-          Atuação completa em condomínios, da especificação técnica das áreas comuns ao atendimento individual nas unidades. Tudo coordenado para minimizar impactos na rotina dos moradores e respeitar as normas internas.
+          Atuação completa em condomínios, da especificação técnica das áreas comuns ao atendimento individual nas unidades, incluindo plano de manutenção preventiva e documentação técnica para a administração. É indicado para o público residencial — condomínios verticais, síndicos e administradoras — que busca padronização, segurança e previsibilidade de custos. Com isso, o condomínio ganha um sistema confiável, com menor risco de paradas e impacto mínimo na rotina dos moradores.
         </p>
         <ul class="modal-list">
           <li>
@@ -349,7 +587,7 @@
           <div class="modal-meta-item"><dt>Suporte</dt><dd>Instalação e manutenção</dd></div>
         </dl>
         <div class="modal-actions">
-          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20climatiza%C3%A7%C3%A3o%20para%20condom%C3%ADnio." target="_blank" rel="noopener noreferrer">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20climatiza%C3%A7%C3%A3o%20para%20Condom%C3%ADnios%20residenciais." target="_blank" rel="noopener noreferrer">
             Solicitar orçamento
           </a>
           <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
@@ -361,7 +599,10 @@
 
     <template data-modal-content="serv-altopadrao">
       <div class="modal-media">
-        <img src="images/servico-residencia.jpeg" alt="Climatização para obras de alto padrão" />
+        <picture style="display:contents">
+          <source type="image/webp" srcset="images/servico-residencia.webp" />
+          <img src="images/servico-residencia.jpeg" alt="Climatização para obras de alto padrão" width="467" height="424" loading="lazy" />
+        </picture>
         <div class="modal-media-overlay"></div>
         <div class="modal-media-caption">
           <span class="modal-badge">Alto padrão</span>
@@ -371,7 +612,7 @@
       </div>
       <div class="modal-body">
         <p class="text-gray-text leading-relaxed">
-          Soluções dedicadas a residências e empreendimentos de alto padrão, com atenção máxima ao acabamento, ao silêncio e à integração com o projeto arquitetônico. Trabalho próximo a arquitetos e construtoras desde a concepção.
+          Soluções sob medida para residências e empreendimentos de alto padrão, com equipamentos premium de baixo ruído, integração à automação e trabalho conjunto com arquitetos e construtoras desde a concepção. É pensado para clientes residenciais e comerciais exigentes, que não abrem mão da estética dos ambientes nem do desempenho do sistema. A entrega preserva o projeto arquitetônico e garante climatização silenciosa, eficiente e perfeitamente integrada ao espaço.
         </p>
         <ul class="modal-list">
           <li>
@@ -397,7 +638,7 @@
           <div class="modal-meta-item"><dt>Diferencial</dt><dd>Acabamento e baixo ruído</dd></div>
         </dl>
         <div class="modal-actions">
-          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20obra%20de%20alto%20padr%C3%A3o." target="_blank" rel="noopener noreferrer">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20climatiza%C3%A7%C3%A3o%20para%20Obras%20de%20alto%20padr%C3%A3o." target="_blank" rel="noopener noreferrer">
             Solicitar orçamento
           </a>
           <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
@@ -409,7 +650,10 @@
 
     <template data-modal-content="serv-infra">
       <div class="modal-media">
-        <img src="images/servico-infra.jpeg" alt="Infraestrutura de climatização" />
+        <picture style="display:contents">
+          <source type="image/webp" srcset="images/servico-infra.webp" />
+          <img src="images/servico-infra.jpeg" alt="Infraestrutura de climatização" width="640" height="422" loading="lazy" />
+        </picture>
         <div class="modal-media-overlay"></div>
         <div class="modal-media-caption">
           <span class="modal-badge">Infraestrutura</span>
@@ -419,7 +663,7 @@
       </div>
       <div class="modal-body">
         <p class="text-gray-text leading-relaxed">
-          Projetos técnicos detalhados de toda a infraestrutura necessária para o funcionamento estável do sistema de climatização: tubulações, drenagem, alimentação elétrica e suportes. A base que garante eficiência e durabilidade no longo prazo.
+          Projetos técnicos detalhados de toda a infraestrutura necessária para o funcionamento estável do sistema de climatização — tubulações, drenagem, alimentação elétrica e suportes — com memorial técnico, plantas e especificação de materiais. Atende clientes residenciais, comerciais e industriais, em obras novas ou reformas, que precisam de uma base bem dimensionada antes da instalação dos equipamentos. Com isso, o cliente reduz retrabalho, garante conformidade com as normas e assegura eficiência e durabilidade do sistema no longo prazo.
         </p>
         <ul class="modal-list">
           <li>
@@ -445,7 +689,7 @@
           <div class="modal-meta-item"><dt>Etapa</dt><dd>Pré-execução</dd></div>
         </dl>
         <div class="modal-actions">
-          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20infraestrutura%20de%20climatiza%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20Infraestrutura%20de%20climatiza%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">
             Solicitar orçamento
           </a>
           <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
@@ -457,7 +701,10 @@
 
     <template data-modal-content="serv-vrf">
       <div class="modal-media">
-        <img src="images/servico-vrf.jpeg" alt="Projetos VRF para empreendimentos" />
+        <picture style="display:contents">
+          <source type="image/webp" srcset="images/servico-vrf.webp" />
+          <img src="images/servico-vrf.jpeg" alt="Projetos VRF para empreendimentos" width="640" height="422" loading="lazy" />
+        </picture>
         <div class="modal-media-overlay"></div>
         <div class="modal-media-caption">
           <span class="modal-badge">VRF</span>
@@ -467,7 +714,7 @@
       </div>
       <div class="modal-body">
         <p class="text-gray-text leading-relaxed">
-          Sistemas VRF (Variable Refrigerant Flow) para empreendimentos que demandam alta eficiência e controle independente de cada ambiente. Solução ideal para hotéis, escritórios corporativos e residências com múltiplos espaços climatizados.
+          Sistemas VRF (Variable Refrigerant Flow) com controle independente por ambiente, tecnologia inverter e uma única unidade externa para múltiplas internas, com integração possível a sistemas de automação e BMS. É a solução ideal para clientes comerciais e residenciais de grande porte, como hotéis, escritórios corporativos e residências com múltiplos ambientes climatizados. O ganho é economia de energia, menos espaço e ruído nas áreas técnicas e conforto uniforme em todo o empreendimento.
         </p>
         <ul class="modal-list">
           <li>
@@ -493,7 +740,7 @@
           <div class="modal-meta-item"><dt>Diferencial</dt><dd>Eficiência energética</dd></div>
         </dl>
         <div class="modal-actions">
-          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20projeto%20VRF." target="_blank" rel="noopener noreferrer">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20climatiza%C3%A7%C3%A3o%20para%20Projetos%20VRF." target="_blank" rel="noopener noreferrer">
             Solicitar orçamento
           </a>
           <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
@@ -509,7 +756,10 @@
       <div class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
         <div>
           <a class="flex items-center gap-2 mb-4" href="index.html" aria-label="Ir para a página inicial">
-            <img src="logos/imperar-simbolo.png" alt="Grupo ImperAR" class="h-8 w-auto" />
+            <picture style="display:contents">
+              <source type="image/webp" srcset="logos/imperar-simbolo.webp" />
+              <img src="logos/imperar-simbolo.png" alt="Grupo ImperAR" width="512" height="512" class="h-8 w-auto" />
+            </picture>
             <span class="flex flex-col">
               <span class="font-heading font-bold text-white text-sm leading-tight">Grupo ImperAR</span>
               <span class="text-white/60 text-xs leading-tight">Climatização & Refrigeração</span>
@@ -598,9 +848,16 @@
       </a>
     </div>
 
+    <script src="js/analytics.js" defer></script>
+    <script src="js/cta.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/animations.js" defer></script>
     <script src="js/wind.js" defer></script>
     <script src="js/modal.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.ImperarAnalytics) ImperarAnalytics.trackPageView();
+      });
+    </script>
   </body>
 </html>

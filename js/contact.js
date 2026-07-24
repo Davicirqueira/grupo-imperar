@@ -25,6 +25,52 @@ function validateMinLength(value, min) {
   return String(value || "").trim().length >= min;
 }
 
+function validateMaxLength(value, max) {
+  return String(value || "").trim().length <= max;
+}
+
+// --- Security / Anti-spam Helpers ---
+
+/**
+ * Remove all HTML tags from a string and trim surrounding whitespace.
+ * Handles nested, self-closing, and attribute-bearing tags (Property 6 /
+ * Requirement 10.5). Pure function — safe to unit/property test.
+ *
+ * @param {string} str - the raw input value.
+ * @returns {string} the input with every `<...>` sequence removed and trimmed.
+ */
+function stripHtml(str) {
+  return String(str == null ? "" : str).replace(/<[^>]*>/g, "").trim();
+}
+
+/**
+ * Detect whether the honeypot field was filled. A non-empty honeypot value
+ * signals an automated (bot) submission (Property 7 / Requirement 10.3).
+ * Pure function w.r.t. the passed form element — safe to test.
+ *
+ * @param {HTMLElement} form - the contact form element.
+ * @returns {boolean} true when the honeypot field has a non-empty value.
+ */
+function checkHoneypot(form) {
+  if (!form || typeof form.querySelector !== "function") return false;
+  const hp = form.querySelector('[data-honeypot], [name="website"]');
+  return !!(hp && String(hp.value || "").length > 0);
+}
+
+/**
+ * Parse UTM query parameters from the current URL and populate the matching
+ * hidden form fields. Absent parameters result in an empty string
+ * (Requirements 9.6, 9.7). Called on DOMContentLoaded.
+ */
+function populateUTMFields() {
+  if (typeof window === "undefined" || typeof document === "undefined") return;
+  const params = new URLSearchParams(window.location.search);
+  ["utm_source", "utm_medium", "utm_campaign"].forEach((key) => {
+    const field = document.querySelector(`[name="${key}"]`);
+    if (field) field.value = params.get(key) || "";
+  });
+}
+
 // --- Field Error Management ---
 
 function setFieldError(field, message) {
@@ -73,7 +119,7 @@ function clearFieldState(field) {
 }
 
 function clearAllFields(form) {
-  form.querySelectorAll("input, textarea").forEach((field) => {
+  form.querySelectorAll("input, textarea, select").forEach((field) => {
     clearFieldState(field);
   });
 }
@@ -88,6 +134,14 @@ function validateField(field) {
     case "name":
       if (!validateRequired(value)) {
         setFieldError(field, "Informe seu nome.");
+        return false;
+      }
+      if (!validateMinLength(value, 2)) {
+        setFieldError(field, "O nome deve ter pelo menos 2 caracteres.");
+        return false;
+      }
+      if (!validateMaxLength(value, 100)) {
+        setFieldError(field, "O nome deve ter no máximo 100 caracteres.");
         return false;
       }
       break;
@@ -114,6 +168,13 @@ function validateField(field) {
       }
       break;
 
+    case "service-type":
+      if (!validateRequired(value)) {
+        setFieldError(field, "Selecione um tipo de serviço.");
+        return false;
+      }
+      break;
+
     case "message":
       if (!validateRequired(value)) {
         setFieldError(field, "Escreva sua mensagem.");
@@ -121,6 +182,10 @@ function validateField(field) {
       }
       if (!validateMinLength(value, 10)) {
         setFieldError(field, "A mensagem deve ter pelo menos 10 caracteres.");
+        return false;
+      }
+      if (!validateMaxLength(value, 500)) {
+        setFieldError(field, "A mensagem deve ter no máximo 500 caracteres.");
         return false;
       }
       break;
@@ -134,7 +199,7 @@ function validateField(field) {
 // --- Form-level Validation ---
 
 function validateForm(form) {
-  const fields = form.querySelectorAll("input, textarea");
+  const fields = form.querySelectorAll("input, textarea, select");
   let firstInvalid = null;
   let allValid = true;
 
@@ -241,6 +306,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitBtn = document.querySelector("[data-submit-btn]");
   const phoneInput = document.querySelector("[data-phone-mask]");
 
+  // Populate UTM hidden fields from the current URL (Req 9.6, 9.7).
+  populateUTMFields();
+
   if (!form) return;
 
   // Phone mask
@@ -253,8 +321,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // Character counter
   setupCharCounter();
 
-  // Blur validation on all fields
-  const fields = form.querySelectorAll("input, textarea");
+  // Fire a single "form start" analytics event on the first interaction with
+  // any form field (Req 5.5). analytics.js guards single-fire per session; we
+  // also guard here so the listener is only wired once.
+  let formStartWired = false;
+  const fireFormStart = () => {
+    if (formStartWired) return;
+    formStartWired = true;
+    if (window.ImperarAnalytics && typeof window.ImperarAnalytics.trackFormStart === "function") {
+      window.ImperarAnalytics.trackFormStart();
+    }
+  };
+  form.addEventListener("input", fireFormStart, { once: true });
+  form.addEventListener("change", fireFormStart, { once: true });
+
+  // Blur validation on all fields (inputs, textarea, and the service-type select)
+  const fields = form.querySelectorAll("input, textarea, select");
   fields.forEach((field) => {
     field.addEventListener("blur", () => {
       // Only validate if user has typed something or field was touched
@@ -264,18 +346,43 @@ document.addEventListener("DOMContentLoaded", () => {
       field.dataset.touched = "true";
     });
 
-    // Clear error on input (real-time correction feedback)
-    field.addEventListener("input", () => {
+    // Clear error on input/change (real-time correction feedback)
+    const revalidate = () => {
       if (field.classList.contains("border-red-600")) {
         validateField(field);
       }
-    });
+    };
+    field.addEventListener("input", revalidate);
+    field.addEventListener("change", revalidate);
   });
+
+  // Helper: reset the form UI after a (real or simulated) successful send.
+  const handleSuccessUI = () => {
+    showFormStatus(
+      statusEl,
+      "success",
+      "Mensagem enviada com sucesso! Em breve entraremos em contato."
+    );
+
+    form.reset();
+    clearAllFields(form);
+
+    const counter = document.querySelector("[data-counter]");
+    if (counter) counter.textContent = "0/500 caracteres";
+  };
 
   // Form submission
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     hideFormStatus(statusEl);
+
+    // Honeypot check (Req 10.3 / Property 7): if filled, this is almost
+    // certainly a bot. Silently discard by simulating success WITHOUT calling
+    // EmailJS and WITHOUT showing any error — never signal bot detection.
+    if (checkHoneypot(form)) {
+      handleSuccessUI();
+      return;
+    }
 
     // Mark all fields as touched
     fields.forEach((f) => (f.dataset.touched = "true"));
@@ -286,12 +393,23 @@ document.addEventListener("DOMContentLoaded", () => {
     // Loading state
     setLoadingState(submitBtn, true);
 
-    // EmailJS submission
+    // Build EmailJS payload. Strip HTML tags + trim from every user-provided
+    // value before sending (Req 10.5). Include service_type and UTM params
+    // (Req 9.6).
+    const getValue = (selector) => {
+      const el = form.querySelector(selector);
+      return el ? stripHtml(el.value) : "";
+    };
+
     const templateParams = {
-      from_name: form.querySelector("#name").value.trim(),
-      from_email: form.querySelector("#email").value.trim(),
-      phone: form.querySelector("#phone").value.trim(),
-      message: form.querySelector("#message").value.trim(),
+      from_name: getValue("#name"),
+      from_email: getValue("#email"),
+      phone: getValue("#phone"),
+      service_type: getValue("#service-type"),
+      message: getValue("#message"),
+      utm_source: getValue('[name="utm_source"]'),
+      utm_medium: getValue('[name="utm_medium"]'),
+      utm_campaign: getValue('[name="utm_campaign"]'),
     };
 
     emailjs
@@ -299,27 +417,54 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(() => {
         setLoadingState(submitBtn, false);
 
-        showFormStatus(
-          statusEl,
-          "success",
-          "Mensagem enviada com sucesso! Em breve entraremos em contato."
-        );
+        handleSuccessUI();
 
-        form.reset();
-        clearAllFields(form);
-
-        const counter = document.querySelector("[data-counter]");
-        if (counter) counter.textContent = "0/500 caracteres";
+        // Track successful submission (Req 5.1, 9.3). trackFormSubmit already
+        // fires the Meta Pixel "Lead" event via analytics.js — prefer it over a
+        // direct fbq call to avoid double-firing. Guard for undefined.
+        if (window.ImperarAnalytics && typeof window.ImperarAnalytics.trackFormSubmit === "function") {
+          window.ImperarAnalytics.trackFormSubmit();
+        } else if (typeof window.fbq === "function") {
+          // Fallback only when the analytics module is unavailable.
+          window.fbq("track", "Lead");
+        }
       })
       .catch((error) => {
         setLoadingState(submitBtn, false);
-        console.error("EmailJS error:", error);
+        // Log a generic message only — never expose service IDs, template IDs,
+        // or API keys (Req 10.6).
+        console.error("Falha ao enviar o formulário de contato.");
 
-        showFormStatus(
-          statusEl,
-          "error",
-          "Erro ao enviar mensagem. Tente novamente ou entre em contato por telefone."
-        );
+        // Error status with WhatsApp fallback link (Req 5.4). No internal IDs
+        // or keys are surfaced to the user.
+        if (statusEl) {
+          showFormStatus(statusEl, "error", "");
+          statusEl.innerHTML =
+            "Não foi possível enviar sua mensagem agora. Tente novamente ou fale conosco pelo " +
+            '<a href="https://wa.me/5511980979915" target="_blank" rel="noopener noreferrer" class="font-semibold underline">WhatsApp</a>.';
+        }
       });
   });
 });
+
+// --- Exports (for property/unit tests; harmless in the browser) ---
+
+const ContactFormAPI = {
+  stripHtml,
+  checkHoneypot,
+  phoneMask,
+  populateUTMFields,
+  validateRequired,
+  validateEmail,
+  validatePhone,
+  validateMinLength,
+  validateMaxLength,
+};
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = ContactFormAPI;
+}
+
+if (typeof window !== "undefined") {
+  window.ContactForm = ContactFormAPI;
+}

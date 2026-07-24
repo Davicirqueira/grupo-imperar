@@ -78,7 +78,8 @@
 
     overlay.addEventListener("click", close);
     closeBtn.addEventListener("click", close);
-    panel.addEventListener("keydown", trapFocus);
+    // Tab trapping is handled at the document level via onKeydown so that
+    // focus is caught even when it has escaped the panel (e.g. on <body>).
   }
 
   function lockScroll() {
@@ -96,6 +97,8 @@
     if (e.key !== "Tab") return;
 
     const focusable = panel.querySelectorAll(FOCUSABLE_SELECTOR);
+    // Keep the close button reachable even if a layout quirk makes
+    // offsetParent null (e.g. certain positioned/overflow contexts).
     const list = Array.from(focusable).filter(
       (el) => el.offsetParent !== null || el === closeBtn
     );
@@ -108,6 +111,14 @@
     const first = list[0];
     const last = list[list.length - 1];
 
+    // Edge case: focus has escaped the panel (e.g. it's on <body> or the
+    // panel wrapper). Pull it back into the modal on the next Tab.
+    if (!panel.contains(document.activeElement)) {
+      e.preventDefault();
+      (e.shiftKey ? last : first).focus();
+      return;
+    }
+
     if (e.shiftKey && document.activeElement === first) {
       e.preventDefault();
       last.focus();
@@ -118,9 +129,12 @@
   }
 
   function onKeydown(e) {
-    if (e.key === "Escape" && isOpen) {
+    if (!isOpen) return;
+    if (e.key === "Escape") {
       e.stopPropagation();
       close();
+    } else if (e.key === "Tab") {
+      trapFocus(e);
     }
   }
 
