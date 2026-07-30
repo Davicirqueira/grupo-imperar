@@ -416,70 +416,134 @@
 
       <!-- Process Timeline Section -->
       <section class="py-16 lg:py-24" id="como-trabalhamos">
+        <style>
+          .process-flow{list-style:none;margin:0;padding:0}
+          .process-rail{position:relative;margin-bottom:1rem}
+          .process-line{display:none}
+          .process-num{position:relative;z-index:1;width:56px;height:56px;font-size:1.375rem;line-height:1;background:#fff;border:2px solid #3AAEDC;box-shadow:0 0 0 6px rgba(58,174,220,.1)}
+          .is-start .process-num{background:#3AAEDC}
+          .is-end .process-num{background:#1A2B5C;border-color:#1A2B5C;color:#fff}
+          .process-card{border:1px solid rgba(26,43,92,.08);transition:transform .2s cubic-bezier(.4,0,.2,1),box-shadow .2s,border-color .2s}
+          .process-step:hover .process-card{transform:translateY(-4px);box-shadow:0 10px 30px rgba(26,43,92,.1);border-color:rgba(26,43,92,.14)}
+          .process-list{list-style:none;border-top:1px solid rgba(26,43,92,.08)}
+          .process-list li{display:flex;gap:.5rem;font-size:.875rem;line-height:1.5}
+          .process-list svg{flex:none;width:1rem;height:1rem;margin-top:.125rem;color:#3AAEDC}
+          .process-cta{flex-wrap:wrap}
+          @media (min-width:1024px){
+            .process-rail{height:64px;margin-bottom:1.5rem;justify-content:center}
+            .process-line{display:block;position:absolute;top:50%;left:-1rem;right:-1rem;height:2px;margin-top:-1px;background:rgba(58,174,220,.45)}
+            .process-step:first-child .process-line{left:50%}
+            .process-step:last-child .process-line{right:50%}
+            .process-num{width:64px;height:64px;font-size:1.5rem}
+          }
+          @media (prefers-reduced-motion:reduce){.process-card{transition:none}.process-step:hover .process-card{transform:none}}
+        </style>
         <div class="container mx-auto px-4">
           <h2 class="text-3xl lg:text-4xl font-bold text-deep text-center mb-4" data-animate>
             Como trabalhamos
           </h2>
           <p class="text-lg text-gray-text text-center mb-12 max-w-2xl mx-auto" data-animate data-animate-delay="100">
-            Processo estruturado do diagnóstico até a entrega final.
+            O mesmo método aplicado em todos os projetos — do diagnóstico técnico à entrega validada.
           </p>
 
-          <div class="grid gap-16 lg:gap-24 relative">
-            <!-- Connecting line for desktop -->
-            <div class="hidden lg:block absolute left-10 top-20 bottom-20 border-l-2 border-primary" aria-hidden="true"></div>
-
+          <ol class="process-flow grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Step 1 -->
-            <div class="grid lg:grid-cols-[80px_1fr] gap-8 items-start" data-animate data-animate-delay="200">
-              <div class="w-20 h-20 rounded-full border-2 border-primary flex items-center justify-center shrink-0 bg-white relative z-10 transition-all duration-200 hover:bg-primary/10 hover:shadow-[0_0_0_4px_rgba(58,174,220,0.15)]">
-                <svg class="w-8 h-8 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
+            <li class="process-step is-start flex flex-col" data-animate data-animate-delay="100">
+              <div class="process-rail flex items-center">
+                <span class="process-line" aria-hidden="true" role="presentation"></span>
+                <span class="process-num flex items-center justify-center rounded-full font-heading font-bold text-deep">1</span>
               </div>
-              <div>
+              <article class="process-card contain-card flex flex-col h-full bg-white rounded-2xl shadow-sm p-6">
+                <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-ice text-primary mb-4" aria-hidden="true">
+                  <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </span>
                 <h3 class="text-2xl font-semibold text-deep mb-2 font-heading">Diagnóstico</h3>
                 <p class="text-gray-text leading-relaxed">Avaliação técnica do ambiente e necessidades, com dimensionamento correto e definição da melhor solução para o seu caso.</p>
-              </div>
-            </div>
+                <ul class="process-list flex flex-col gap-2 mt-6 pt-6 text-gray-text">
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Levantamento das condições do ambiente</span>
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Cálculo de carga térmica e dimensionamento</span>
+                  </li>
+                </ul>
+              </article>
+            </li>
 
             <!-- Step 2 -->
-            <div class="grid lg:grid-cols-[80px_1fr] gap-8 items-start" data-animate data-animate-delay="400">
-              <div class="w-20 h-20 rounded-full border-2 border-primary flex items-center justify-center shrink-0 bg-white relative z-10 transition-all duration-200 hover:bg-primary/10 hover:shadow-[0_0_0_4px_rgba(58,174,220,0.15)]">
-                <svg class="w-8 h-8 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-                  <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-                  <path d="M2 2l7.586 7.586"></path>
-                  <circle cx="11" cy="11" r="2"></circle>
-                </svg>
+            <li class="process-step flex flex-col" data-animate data-animate-delay="250">
+              <div class="process-rail flex items-center">
+                <span class="process-line" aria-hidden="true" role="presentation"></span>
+                <span class="process-num flex items-center justify-center rounded-full font-heading font-bold text-deep">2</span>
               </div>
-              <div>
+              <article class="process-card contain-card flex flex-col h-full bg-white rounded-2xl shadow-sm p-6">
+                <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-ice text-primary mb-4" aria-hidden="true">
+                  <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                    <path d="M2 2l7.586 7.586"></path>
+                    <circle cx="11" cy="11" r="2"></circle>
+                  </svg>
+                </span>
                 <h3 class="text-2xl font-semibold text-deep mb-2 font-heading">Projeto</h3>
                 <p class="text-gray-text leading-relaxed">Planejamento personalizado da solução ideal, com execução técnica, acabamento de qualidade e atenção aos detalhes.</p>
-              </div>
-            </div>
+                <ul class="process-list flex flex-col gap-2 mt-6 pt-6 text-gray-text">
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Escopo, materiais e prazos definidos por escrito</span>
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Aprovação do cliente antes da execução</span>
+                  </li>
+                </ul>
+              </article>
+            </li>
 
             <!-- Step 3 -->
-            <div class="grid lg:grid-cols-[80px_1fr] gap-8 items-start" data-animate data-animate-delay="600">
-              <div class="w-20 h-20 rounded-full border-2 border-primary flex items-center justify-center shrink-0 bg-white relative z-10 transition-all duration-200 hover:bg-primary/10 hover:shadow-[0_0_0_4px_rgba(58,174,220,0.15)]">
-                <svg class="w-8 h-8 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-                </svg>
+            <li class="process-step is-end flex flex-col" data-animate data-animate-delay="400">
+              <div class="process-rail flex items-center">
+                <span class="process-line" aria-hidden="true" role="presentation"></span>
+                <span class="process-num flex items-center justify-center rounded-full font-heading font-bold text-deep">3</span>
               </div>
-              <div>
+              <article class="process-card contain-card flex flex-col h-full bg-white rounded-2xl shadow-sm p-6">
+                <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-ice text-primary mb-4" aria-hidden="true">
+                  <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                  </svg>
+                </span>
                 <h3 class="text-2xl font-semibold text-deep mb-2 font-heading">Execução</h3>
                 <p class="text-gray-text leading-relaxed">Instalação profissional com acompanhamento, validação completa do sistema e garantia de funcionamento estável.</p>
-              </div>
-            </div>
-          </div>
+                <ul class="process-list flex flex-col gap-2 mt-6 pt-6 text-gray-text">
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Testes de funcionamento e ajuste final</span>
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>Orientação de uso e garantia do serviço</span>
+                  </li>
+                </ul>
+              </article>
+            </li>
+          </ol>
 
-          <div class="mt-8 flex flex-col items-center justify-center gap-4" data-animate>
+          <div class="process-cta mt-8 flex items-center justify-center gap-4" data-animate data-animate-delay="100">
             <a class="btn inline-flex items-center justify-center min-h-[44px] px-8 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20iniciar%20um%20diagn%C3%B3stico%20de%20climatiza%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">
-              Falar com um especialista
+              Iniciar meu diagnóstico
             </a>
             <a class="btn inline-flex items-center justify-center min-h-[44px] px-8 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
               Solicitar orçamento
             </a>
           </div>
+          <p class="mt-6 text-sm text-gray-text text-center" data-animate data-animate-delay="250">
+            Resposta em até 24h · Orçamento em até 48h
+          </p>
         </div>
       </section>
 
