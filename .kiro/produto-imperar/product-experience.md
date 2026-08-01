@@ -192,3 +192,16 @@ Caso a resposta seja negativa para qualquer um desses pontos, a proposta deve se
 
 **Principio de resposta imediata**:A qualidade percebida de uma interação é determinada primeiro pela rapidez com que a interface reconhece a ação do usuário e apenas depois pela qualidade visual da animação. A confirmação da interação deve ser instantânea; a animação é uma consequência dessa confirmação, e não seu substituto.
 
+
+## Contextualização:
+
+Antes de apresentar qualquer conteúdo, a página deve contextualizar o visitante sobre onde ele está e o que encontrará a seguir.
+
+O objetivo não é apenas exibir um título, mas criar uma transição clara entre a navegação e o conteúdo principal, preparando cognitivamente o usuário para a próxima etapa da jornada.
+
+Quando essa contextualização existe, a navegação transmite maior organização, maturidade e intencionalidade.
+
+
+**Princípio da Contextualização Progressiva**
+
+Toda página interna deve iniciar contextualizando o visitante antes da apresentação do conteúdo principal. A abertura deve comunicar claramente onde o usuário está, qual assunto será tratado e qual valor encontrará naquela página. Essa introdução reduz a carga cognitiva, fortalece a continuidade da navegação e estabelece uma identidade consistente para todo o produto.
