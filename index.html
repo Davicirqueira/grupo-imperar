@@ -738,27 +738,54 @@
         </div>
       </section>
 
-      <!-- Partner / Client Logos Section -->
-      <!--
-        NOTE: Estes são PLACEHOLDERS textuais dos parceiros/clientes. Substituir pelos
-        logotipos reais (imagens com alt text) assim que os assets estiverem disponíveis.
-      -->
-      <section class="py-12 lg:py-16" aria-labelledby="parceiros-title">
-        <style>
-          .imperar-partners{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1rem 1.5rem}
-          .imperar-partner{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:.75rem 1.5rem;border:1px solid rgba(26,43,92,.12);border-radius:1rem;background:#fff;font-family:Barlow,Inter,system-ui,sans-serif;font-weight:700;color:#1A2B5C;letter-spacing:.03em}
-        </style>
+      <!-- Section: Marcas Parceiras Oficiais -->
+      <section class="py-12 lg:py-16 bg-white/60 border-y border-deep/8" aria-labelledby="marcas-parceiras-title">
         <div class="container mx-auto px-4">
-          <p id="parceiros-title" class="text-center text-sm font-semibold text-gray-text mb-8" data-animate>
-            Parceiros e clientes que confiam no Grupo ImperAR
+          <p id="marcas-parceiras-title" class="text-center text-sm font-semibold uppercase tracking-wider text-gray-text mb-8" data-animate>
+            Trabalhamos com os principais fabricantes do mercado
           </p>
 
-          <ul class="imperar-partners" role="list" data-animate data-animate-delay="100">
-            <li class="imperar-partner">Construtora Aurora</li>
-            <li class="imperar-partner">Incorporadora Vértice</li>
-            <li class="imperar-partner">Condomínio Bosque Real</li>
-            <li class="imperar-partner">Studio Arquitetura Prime</li>
-          </ul>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-4 items-center justify-center" data-animate data-animate-delay="100">
+            <!-- GREE -->
+            <div class="bg-white rounded-xl border border-deep/8 p-4 flex items-center justify-center h-20 shadow-xs transition-all duration-200 hover:border-deep/20 hover:shadow-sm" title="Gree Climatização">
+              <img src="images/marcas-parceiras/Gree.png" alt="Gree Climatização" loading="lazy" width="160" height="60" class="max-h-10 w-auto object-contain" />
+            </div>
+            <!-- TCL -->
+            <div class="bg-white rounded-xl border border-deep/8 p-4 flex items-center justify-center h-20 shadow-xs transition-all duration-200 hover:border-deep/20 hover:shadow-sm" title="TCL Eletrônicos e Ar-Condicionado">
+              <img src="images/marcas-parceiras/TCL.png" alt="TCL Eletrônicos e Ar-Condicionado" loading="lazy" width="160" height="60" class="max-h-10 w-auto object-contain" />
+            </div>
+            <!-- ELGIN -->
+            <div class="bg-white rounded-xl border border-deep/8 p-4 flex items-center justify-center h-20 shadow-xs transition-all duration-200 hover:border-deep/20 hover:shadow-sm" title="Elgin Refrigeração e Climatização">
+              <img src="images/marcas-parceiras/Elgin.png" alt="Elgin Refrigeração e Climatização" loading="lazy" width="160" height="60" class="max-h-10 w-auto object-contain" />
+            </div>
+            <!-- LG -->
+            <div class="bg-white rounded-xl border border-deep/8 p-4 flex items-center justify-center h-20 shadow-xs transition-all duration-200 hover:border-deep/20 hover:shadow-sm" title="LG Air Conditioning">
+              <picture style="display:contents">
+                <source type="image/webp" srcset="images/marcas-parceiras/Lg.webp" />
+                <img src="images/marcas-parceiras/Lg.webp" alt="LG Air Conditioning" loading="lazy" width="160" height="60" class="max-h-10 w-auto object-contain" />
+              </picture>
+            </div>
+            <!-- Daikin -->
+            <div class="bg-white rounded-xl border border-deep/8 p-4 flex items-center justify-center h-20 shadow-xs transition-all duration-200 hover:border-deep/20 hover:shadow-sm" title="Daikin Ar-Condicionado e VRF">
+              <img src="images/marcas-parceiras/Daikin-Emblem.png" alt="Daikin Ar-Condicionado e VRF" loading="lazy" width="160" height="60" class="max-h-10 w-auto object-contain" />
+            </div>
+            <!-- Midea -->
+            <div class="bg-white rounded-xl border border-deep/8 p-4 flex items-center justify-center h-20 shadow-xs transition-all duration-200 hover:border-deep/20 hover:shadow-sm" title="Midea Climatização">
+              <img src="images/marcas-parceiras/Midea.png" alt="Midea Climatização" loading="lazy" width="160" height="60" class="max-h-10 w-auto object-contain" />
+            </div>
+            <!-- Samsung -->
+            <div class="bg-white rounded-xl border border-deep/8 p-4 flex items-center justify-center h-20 shadow-xs transition-all duration-200 hover:border-deep/20 hover:shadow-sm" title="Samsung Ar-Condicionado Inverter">
+              <img src="images/marcas-parceiras/Samsung.png" alt="Samsung Ar-Condicionado Inverter" loading="lazy" width="160" height="60" class="max-h-10 w-auto object-contain" />
+            </div>
+            <!-- Fujitsu -->
+            <div class="bg-white rounded-xl border border-deep/8 p-4 flex items-center justify-center h-20 shadow-xs transition-all duration-200 hover:border-deep/20 hover:shadow-sm" title="Fujitsu General Climatização">
+              <img src="images/marcas-parceiras/Fujitsu.png" alt="Fujitsu General Climatização" loading="lazy" width="160" height="60" class="max-h-10 w-auto object-contain" />
+            </div>
+            <!-- Hitachi -->
+            <div class="bg-white rounded-xl border border-deep/8 p-4 flex items-center justify-center h-20 shadow-xs transition-all duration-200 hover:border-deep/20 hover:shadow-sm" title="Hitachi Ar-Condicionado e Sistemas VRF">
+              <img src="images/marcas-parceiras/Hitachi.png" alt="Hitachi Ar-Condicionado e Sistemas VRF" loading="lazy" width="160" height="60" class="max-h-10 w-auto object-contain" />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -825,7 +852,7 @@
           <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20climatiza%C3%A7%C3%A3o%20comercial." target="_blank" rel="noopener noreferrer">
             Solicitar orçamento
           </a>
-          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html?service=residencia">
             Falar com a equipe
           </a>
         </div>
@@ -876,7 +903,7 @@
           <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20climatiza%C3%A7%C3%A3o%20residencial." target="_blank" rel="noopener noreferrer">
             Solicitar orçamento
           </a>
-          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html?service=residencia">
             Falar com a equipe
           </a>
         </div>
@@ -927,7 +954,7 @@
           <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20sobre%20o%20plano%20de%20manuten%C3%A7%C3%A3o%20preventiva." target="_blank" rel="noopener noreferrer">
             Contratar plano
           </a>
-          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html?service=manutencao">
             Falar com a equipe
           </a>
         </div>
@@ -978,7 +1005,7 @@
           <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20refrigera%C3%A7%C3%A3o%20industrial." target="_blank" rel="noopener noreferrer">
             Solicitar orçamento
           </a>
-          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html?service=vrf">
             Falar com a equipe
           </a>
         </div>

@@ -71,6 +71,41 @@ function populateUTMFields() {
   });
 }
 
+/**
+ * Parse 'service' or 'servico' query parameter from the current URL and
+ * select the matching option in the service-type dropdown (OP-04).
+ */
+function populateServiceSelection() {
+  if (typeof window === "undefined" || typeof document === "undefined") return;
+  const params = new URLSearchParams(window.location.search);
+  const rawService = params.get("service") || params.get("servico") || "";
+  if (!rawService) return;
+
+  const select = document.querySelector("#service-type");
+  if (!select) return;
+
+  const val = rawService.toLowerCase().trim();
+  const serviceMap = {
+    "apartamentos": "Apartamentos na planta",
+    "condominios": "Condomínios residenciais",
+    "infra": "Infraestrutura e pré-instalação",
+    "residencia": "Residencial e comercial",
+    "residencial": "Residencial e comercial",
+    "vrf": "Sistemas VRF / VRV",
+    "manutencao": "Manutenção e suporte técnico",
+    "outro": "Outro assunto"
+  };
+
+  const targetOptionValue = serviceMap[val] || Array.from(select.options).find((opt) => 
+    opt.value.toLowerCase().includes(val) || val.includes(opt.value.toLowerCase())
+  )?.value;
+
+  if (targetOptionValue) {
+    select.value = targetOptionValue;
+    select.dispatchEvent(new Event("change"));
+  }
+}
+
 // --- Field Error Management ---
 
 function setFieldError(field, message) {
@@ -309,6 +344,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Populate UTM hidden fields from the current URL (Req 9.6, 9.7).
   populateUTMFields();
 
+  // Populate Service selection from URL query parameters (OP-04).
+  populateServiceSelection();
+
   if (!form) return;
 
   // Phone mask
@@ -454,6 +492,7 @@ const ContactFormAPI = {
   checkHoneypot,
   phoneMask,
   populateUTMFields,
+  populateServiceSelection,
   validateRequired,
   validateEmail,
   validatePhone,

@@ -78,10 +78,6 @@
       /* Header (shared component) */
       [data-header]{position:fixed;top:0;left:0;right:0;z-index:50;background-color:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,43,92,.08);transition:background-color .3s ease,border-color .3s ease,box-shadow .3s ease,backdrop-filter .3s ease}
       [data-header].is-scrolled{box-shadow:0 6px 22px rgba(26,43,92,.12)}
-      [data-page="home"] [data-header]{position:absolute;background-color:transparent;border-bottom-color:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
-      [data-page="home"] [data-header] a[aria-label="Ir para a página inicial"] span{color:#fff}
-      [data-page="home"] [data-header] .nav-link{color:#fff}
-      [data-page="home"] [data-header] [data-nav-toggle] span{background-color:#fff}
       /* Above-the-fold utilities */
       .container{width:100%}
       .relative{position:relative}.absolute{position:absolute}.fixed{position:fixed}
@@ -236,18 +232,39 @@
     </aside>
 
     <main id="conteudo">
-      <!-- Section 1: Page Header -->
-      <section class="pt-28 lg:pt-32 pb-16 lg:pb-20">
-        <div class="container mx-auto px-4 text-center max-w-3xl">
-          <h1 class="text-4xl lg:text-5xl font-bold text-deep font-heading mb-4" data-animate>
-            Serviços
+      <!-- Section 1: Page Header Contextualizado -->
+      <section class="pt-28 lg:pt-36 pb-12 lg:pb-16 bg-gradient-to-b from-ice/60 to-transparent border-b border-deep/6">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+          <!-- Breadcrumbs Semânticos -->
+          <nav aria-label="Navegação estrutural" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 border border-deep/8 shadow-xs mb-6 text-xs text-gray-text font-medium" data-animate>
+            <a href="index.html" class="hover:text-primary transition-colors">Início</a>
+            <span class="text-gray-400">/</span>
+            <span class="text-deep font-semibold" aria-current="page">Serviços</span>
+          </nav>
+
+          <!-- Badge de Categoria -->
+          <div class="mb-4" data-animate data-animate-delay="50">
+            <span class="inline-block px-3 py-1 rounded-md bg-primary/10 text-primary font-bold text-xs uppercase tracking-wider">
+              Soluções &amp; Engenharia de Climatização
+            </span>
+          </div>
+
+          <!-- Título Principal -->
+          <h1 class="text-4xl lg:text-5xl font-bold text-deep font-heading mb-4 leading-tight" data-animate data-animate-delay="100">
+            Soluções completas para seu conforto térmico
           </h1>
-          <p class="text-lg lg:text-xl text-gray-text leading-relaxed mb-8" data-animate data-animate-delay="100">
-            Uma lista objetiva do que fazemos — com foco em consistência técnica, segurança e melhor desempenho do seu sistema.
+
+          <!-- Parágrafo Preparatório -->
+          <p class="text-lg lg:text-xl text-gray-text leading-relaxed mb-8 max-w-2xl mx-auto" data-animate data-animate-delay="150">
+            Do dimensionamento à instalação e manutenção técnica: soluções desenvolvidas sob medida para residências, condomínios e estabelecimentos comerciais.
           </p>
-          <a class="btn inline-flex items-center justify-center min-h-[44px] px-8 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="contact.html" data-animate data-animate-delay="200">
-            Solicitar orçamento
-          </a>
+
+          <!-- CTA Contextual -->
+          <div class="flex items-center justify-center gap-4 flex-wrap" data-animate data-animate-delay="200">
+            <a class="btn inline-flex items-center justify-center min-h-[44px] px-8 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="contact.html">
+              Solicitar orçamento personalizado
+            </a>
+          </div>
         </div>
       </section>
 
@@ -641,7 +658,7 @@
           <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20climatiza%C3%A7%C3%A3o%20para%20Apartamentos%20na%20planta." target="_blank" rel="noopener noreferrer">
             Solicitar orçamento
           </a>
-          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html?service=apartamentos">
             Falar com a equipe
           </a>
         </div>
@@ -692,7 +709,7 @@
           <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20climatiza%C3%A7%C3%A3o%20para%20Condom%C3%ADnios%20residenciais." target="_blank" rel="noopener noreferrer">
             Solicitar orçamento
           </a>
-          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html?service=condominios">
             Falar com a equipe
           </a>
         </div>
@@ -743,7 +760,7 @@
           <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20climatiza%C3%A7%C3%A3o%20para%20Obras%20de%20alto%20padr%C3%A3o." target="_blank" rel="noopener noreferrer">
             Solicitar orçamento
           </a>
-          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html?service=residencia">
             Falar com a equipe
           </a>
         </div>
@@ -794,7 +811,7 @@
           <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20Infraestrutura%20de%20climatiza%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">
             Solicitar orçamento
           </a>
-          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html?service=infra">
             Falar com a equipe
           </a>
         </div>
@@ -845,7 +862,7 @@
           <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold bg-primary text-white transition-all duration-200 hover:bg-primary-dark hover:scale-102 active:scale-98" href="https://wa.me/5511980979915?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20climatiza%C3%A7%C3%A3o%20para%20Projetos%20VRF." target="_blank" rel="noopener noreferrer">
             Solicitar orçamento
           </a>
-          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html">
+          <a class="btn inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-2xl font-bold border-2 border-deep/15 text-deep transition-all duration-200 hover:bg-ice hover:scale-102 active:scale-98" href="contact.html?service=vrf">
             Falar com a equipe
           </a>
         </div>

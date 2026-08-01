@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -78,10 +78,6 @@
       /* Header (shared component) */
       [data-header]{position:fixed;top:0;left:0;right:0;z-index:50;background-color:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,43,92,.08);transition:background-color .3s ease,border-color .3s ease,box-shadow .3s ease,backdrop-filter .3s ease}
       [data-header].is-scrolled{box-shadow:0 6px 22px rgba(26,43,92,.12)}
-      [data-page="home"] [data-header]{position:absolute;background-color:transparent;border-bottom-color:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
-      [data-page="home"] [data-header] a[aria-label="Ir para a página inicial"] span{color:#fff}
-      [data-page="home"] [data-header] .nav-link{color:#fff}
-      [data-page="home"] [data-header] [data-nav-toggle] span{background-color:#fff}
       /* Above-the-fold utilities */
       .container{width:100%}
       .relative{position:relative}.absolute{position:absolute}.fixed{position:fixed}
@@ -196,10 +192,30 @@
     <main id="conteudo">
       <section class="py-16 lg:py-24 pt-28 lg:pt-32">
         <div class="container mx-auto px-4">
+          <!-- Section 1: Page Header Contextualizado -->
           <div class="text-center mb-12" data-animate>
-            <h1 class="text-3xl lg:text-4xl font-bold text-deep font-heading mb-4">Contato</h1>
-            <p class="text-lg text-gray-text max-w-2xl mx-auto">
-              Envie uma mensagem e retornamos o quanto antes. Se preferir, use telefone ou e-mail direto.
+            <!-- Breadcrumbs Semânticos -->
+            <nav aria-label="Navegação estrutural" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 border border-deep/8 shadow-xs mb-6 text-xs text-gray-text font-medium">
+              <a href="index.html" class="hover:text-primary transition-colors">Início</a>
+              <span class="text-gray-400">/</span>
+              <span class="text-deep font-semibold" aria-current="page">Contato</span>
+            </nav>
+
+            <!-- Badge de Categoria -->
+            <div class="mb-3">
+              <span class="inline-block px-3 py-1 rounded-md bg-primary/10 text-primary font-bold text-xs uppercase tracking-wider">
+                Canais Oficiais de Atendimento
+              </span>
+            </div>
+
+            <!-- Título Principal -->
+            <h1 class="text-3xl lg:text-5xl font-bold text-deep font-heading mb-4 leading-tight">
+              Inicie seu atendimento com o Grupo ImperAR
+            </h1>
+
+            <!-- Parágrafo Preparatório -->
+            <p class="text-lg text-gray-text max-w-2xl mx-auto leading-relaxed">
+              Preencha os campos abaixo ou entre em contato direto pelo WhatsApp. Nossa equipe responderá em até 24 horas.
             </p>
           </div>
 
