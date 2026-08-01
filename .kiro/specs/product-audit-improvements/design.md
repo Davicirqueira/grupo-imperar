@@ -18,7 +18,7 @@ A estratégia geral é incremental — cada área é implementada como um módul
 | WebP com `<picture>` fallback | Suportado por todos os browsers target; conversão via script existente |
 | Security headers em `netlify.toml` | Único ponto de configuração para headers HTTP |
 | Honeypot field no formulário | Anti-spam sem dependência de serviços terceiros (reCAPTCHA) |
-| GA4 via gtag.js async | Padrão oficial do Google, sem impacto em LCP |
+| GA4 via gtag.js async, injetado condicionalmente | Padrão oficial do Google, sem impacto em LCP. O snippet só carrega se `GA4_MEASUREMENT_ID` estiver preenchido, evitando requests com ID inválido enquanto a propriedade GA4 não existir |
 
 ## Architecture
 
@@ -247,8 +247,13 @@ Cada página recebe um bloco `<script type="application/ld+json">` no `<head>`.
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "SAMEORIGIN"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://connect.facebook.net https://www.googletagmanager.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.facebook.com https://www.google-analytics.com; connect-src 'self' https://api.emailjs.com https://www.google-analytics.com https://connect.facebook.net"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://connect.facebook.net https://www.googletagmanager.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.facebook.com https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.emailjs.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://connect.facebook.net; frame-src 'self' https://www.google.com https://maps.google.com; base-uri 'self'; form-action 'self'; object-src 'none'"
 ```
+
+> `frame-src` é necessário para o iframe do Google Maps em `contact.html`. Sem ele, o `default-src 'self'` bloqueia o embed.
+>
+> O GA4 não envia apenas para `www.google-analytics.com`: usa endpoints regionais (`region1.google-analytics.com`, etc.) e `*.analytics.google.com`. Os wildcards em `connect-src` cobrem isso.
+
 
 ### 6. Performance Optimizations
 

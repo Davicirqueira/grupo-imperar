@@ -22,16 +22,24 @@
     </noscript>
     <!-- End Meta Pixel Code -->
 
-    <!-- Google Analytics 4 (gtag.js) — async, non-render-blocking -->
-    <!-- NOTE: Replace G-XXXXXXXXXX with the site owner's real GA4 Measurement ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- Google Analytics 4 (gtag.js) — inativo: propriedade GA4 ainda não criada.
+         PARA ATIVAR: troque null pelo Measurement ID real, ex.: "G-AB12CD34EF".
+         Enquanto null, nenhum request é feito e js/analytics.js ignora o GA4. -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+      var GA4_MEASUREMENT_ID = null;
+      if (GA4_MEASUREMENT_ID) {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () {
+          window.dataLayer.push(arguments);
+        };
+        var ga4Script = document.createElement("script");
+        ga4Script.async = true;
+        ga4Script.src =
+          "https://www.googletagmanager.com/gtag/js?id=" + GA4_MEASUREMENT_ID;
+        document.head.appendChild(ga4Script);
+        gtag("js", new Date());
+        gtag("config", GA4_MEASUREMENT_ID);
       }
-      gtag("js", new Date());
-      gtag("config", "G-XXXXXXXXXX");
     </script>
     <!-- End Google Analytics 4 -->
 
