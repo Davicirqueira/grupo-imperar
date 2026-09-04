@@ -70,8 +70,9 @@
     <!-- Critical CSS: header + hero above-the-fold (inlined for first paint) -->
     <style>
       *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid}
-      html{-webkit-text-size-adjust:100%;line-height:1.5;font-family:Inter,system-ui,sans-serif;scroll-behavior:smooth}
-      body{margin:0;line-height:1.625;font-family:Inter,system-ui,sans-serif;color:#4A4A4A;background:linear-gradient(to bottom right,#ffffff 0%,#b2def0 55%,rgba(58,174,220,.15) 100%);background-attachment:fixed;min-height:100vh}
+      html{-webkit-text-size-adjust:100%;line-height:1.5;font-family:Inter,system-ui,sans-serif;scroll-behavior:smooth;background:linear-gradient(to bottom right,#ffffff 0%,#b2def0 55%,rgba(58,174,220,.15) 100%);background-attachment:fixed;min-height:100%}
+      body{margin:0;line-height:1.625;font-family:Inter,system-ui,sans-serif;color:#4A4A4A;background:linear-gradient(to bottom right,#ffffff 0%,#b2def0 55%,rgba(58,174,220,.15) 100%);background-attachment:fixed;min-height:100vh;display:flex;flex-direction:column}
+      body>main{flex:1 0 auto}
       h1,h2,h3,h4,h5,h6{margin:0;font-family:Barlow,Inter,system-ui,sans-serif;font-weight:700;color:#1A2B5C}
       p{margin:0}
       a{color:inherit;text-decoration:inherit}
@@ -371,9 +372,11 @@
           </p>
 
           <!--
-            NOTA: Os números abaixo (500+ projetos, 15+ profissionais, 24h/48h de resposta,
-            12 meses de garantia) são valores ILUSTRATIVOS para reforçar a proposta de valor.
-            O cliente deve confirmar/ajustar os dados reais antes da publicação.
+            NOTA: Os números de equipe/projetos (+15 profissionais, +300 projetos) refletem
+            os dados reais da seção "Números que comprovam nossa experiência" (#numeros).
+            Já os itens de resposta (24h/48h) e garantia (12 meses) permanecem ILUSTRATIVOS —
+            o cliente deve confirmar/ajustar antes da publicação. Mantenha estes valores em
+            sincronia com a seção #numeros para evitar divergências no mesmo site.
           -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
             <article class="group contain-card bg-white rounded-2xl border border-deep/8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-deep/12 hover:shadow-md p-6 text-center" data-animate data-animate-delay="100">
@@ -384,8 +387,8 @@
               </div>
               <h3 class="text-2xl font-semibold text-deep mb-2 font-heading">Equipe Especializada</h3>
               <p class="text-gray-text leading-relaxed">Profissionais certificados com experiência em projetos residenciais e comerciais de diferentes portes.</p>
-              <span class="block mt-6 text-2xl font-bold text-primary font-heading">+15 profissionais certificados</span>
-              <span class="block mt-1 text-sm text-gray-text">e +500 projetos entregues</span>
+              <span class="block mt-6 text-2xl font-bold text-primary font-heading">+15 profissionais na equipe</span>
+              <span class="block mt-1 text-sm text-gray-text">e +300 projetos realizados</span>
             </article>
 
             <article class="group contain-card bg-white rounded-2xl border border-deep/8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-deep/12 hover:shadow-md p-6 text-center" data-animate data-animate-delay="200">
@@ -1067,6 +1070,51 @@
               </span>
             </li>
           </ul>
+        </div>
+      </div>
+
+      <!-- SEO: Bairros e Marcas atendidas -->
+      <!--
+        NOTA: A lista de bairros abaixo é uma sugestão inicial focada na região de
+        atuação do Grupo ImperAR (zona sul de São Paulo e adjacências). O cliente
+        deve confirmar/ajustar os bairros realmente atendidos antes da publicação.
+        Os links apontam para contact.html enquanto páginas dedicadas de bairro
+        (ex.: /bairros/interlagos) não existirem.
+      -->
+      <div class="container mx-auto mt-10 pt-8 border-t border-white/10 grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div>
+          <p class="text-white/60 text-xs font-semibold uppercase tracking-wider mb-3">Bairros atendidos em São Paulo</p>
+          <p class="text-white/70 text-sm leading-relaxed">
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Interlagos</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Socorro</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Campo Grande</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Cidade Dutra</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Grajaú</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Santo Amaro</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Campo Belo</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Moema</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Brooklin</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Vila Mariana</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Jabaquara</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Saúde</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Morumbi</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Capão Redondo</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Vila Andrade</a>
+          </p>
+        </div>
+        <div>
+          <p class="text-white/60 text-xs font-semibold uppercase tracking-wider mb-3">Marcas atendidas</p>
+          <p class="text-white/70 text-sm leading-relaxed">
+            Ar-condicionado Daikin ·
+            Ar-condicionado LG ·
+            Ar-condicionado Samsung ·
+            Ar-condicionado Fujitsu ·
+            Ar-condicionado Hitachi ·
+            Ar-condicionado Gree ·
+            Ar-condicionado Midea ·
+            Ar-condicionado Elgin ·
+            Ar-condicionado TCL
+          </p>
         </div>
       </div>
 

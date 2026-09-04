@@ -10,6 +10,10 @@
  *     button (bottom-right, z-40) by lifting the floating button group while
  *     the bar is visible, so both remain fully visible and independently
  *     tappable. The bar itself sits at z-index 35 (below the floating button).
+ *     The bar is also suppressed once the footer reaches the band the bar
+ *     occupies at the bottom of the viewport (a per-frame geometric check on
+ *     the footer's top position), so it never overlaps the footer at the end
+ *     of the page — the footer already exposes the contact CTAs.
  *  3. Delegate clicks on any [href*="wa.me"] link to the analytics layer,
  *     firing the WhatsApp/Contact event before navigation without ever
  *     blocking or throwing when analytics globals are unavailable.
@@ -283,6 +287,32 @@
     var floatGroup = getFloatGroup();
     var state = { isVisible: false };
 
+    // Minimum breathing room (px) between the bottom of the sticky bar's
+    // "reserved" band and the top of the footer before we hide the bar.
+    var FOOTER_GAP_PX = 8;
+
+    var footer = document.querySelector("footer, [role='contentinfo']");
+
+    /**
+     * Would the sticky bar (fixed at bottom:0) collide with the footer at the
+     * current scroll position? True once the footer's top has risen into the
+     * band the bar occupies at the bottom of the viewport.
+     *
+     * This geometric check is evaluated on every scroll frame, so it stays
+     * correct even at the absolute bottom of the page — unlike observing the
+     * whole footer for intersection, which stops matching once a tall footer's
+     * top scrolls off-screen. When the footer is on screen it already surfaces
+     * the contact CTAs, so hiding the redundant bar is also the right UX.
+     */
+    function footerWouldCollide() {
+      if (!footer) return false;
+      var vh = window.innerHeight || document.documentElement.clientHeight || 0;
+      var barH = bar.offsetHeight || 68;
+      var footerTop = footer.getBoundingClientRect().top;
+      // Bar occupies [vh - barH, vh]. Hide as soon as the footer top reaches it.
+      return footerTop <= vh - barH - FOOTER_GAP_PX;
+    }
+
     function setVisible(visible) {
       if (visible === state.isVisible) return;
       state.isVisible = visible;
@@ -292,6 +322,11 @@
     }
 
     function evaluate() {
+      // Footer collision always wins: hide the bar so it never covers the footer.
+      if (footerWouldCollide()) {
+        setVisible(false);
+        return;
+      }
       var ratio = getScrollRatio();
       setVisible(ctaShouldShow(ratio, state.isVisible));
     }

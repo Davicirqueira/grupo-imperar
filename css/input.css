@@ -5,13 +5,33 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Same fixed gradient on the root so any area below the body (e.g. when the
+       browser zoom is under ~50% and CSS `zoom` leaves the body shorter than
+       the real viewport) shows the site background instead of the browser's
+       default white. Belt-and-suspenders with the sticky footer below. */
+    background: linear-gradient(to bottom right, #ffffff 0%, #b2def0 55%, rgba(58, 174, 220, 0.15) 100%);
+    background-attachment: fixed;
+    min-height: 100%;
   }
 
   body {
     @apply font-sans text-gray-text leading-relaxed;
     background: linear-gradient(to bottom right, #ffffff 0%, #b2def0 55%, rgba(58, 174, 220, 0.15) 100%);
     background-attachment: fixed;
+    /* Sticky footer: column flex + a growing <main> keep the footer pinned to
+       the bottom even when the page content is shorter than the viewport
+       (e.g. the contact page at <50% zoom). Prevents body-background
+       whitespace appearing below the footer. */
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
+  }
+
+  /* The main content region absorbs any extra vertical space so the footer
+     always sits at (or below) the bottom of the viewport, never leaving a gap.
+     flex-basis:auto keeps natural content height when the page is tall. */
+  body > main {
+    flex: 1 0 auto;
   }
 
   /* ============================================================

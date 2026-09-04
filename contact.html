@@ -67,8 +67,9 @@
     <!-- Critical CSS: header + hero above-the-fold (inlined for first paint) -->
     <style>
       *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid}
-      html{-webkit-text-size-adjust:100%;line-height:1.5;font-family:Inter,system-ui,sans-serif;scroll-behavior:smooth}
-      body{margin:0;line-height:1.625;font-family:Inter,system-ui,sans-serif;color:#4A4A4A;background:linear-gradient(to bottom right,#ffffff 0%,#b2def0 55%,rgba(58,174,220,.15) 100%);background-attachment:fixed;min-height:100vh}
+      html{-webkit-text-size-adjust:100%;line-height:1.5;font-family:Inter,system-ui,sans-serif;scroll-behavior:smooth;background:linear-gradient(to bottom right,#ffffff 0%,#b2def0 55%,rgba(58,174,220,.15) 100%);background-attachment:fixed;min-height:100%}
+      body{margin:0;line-height:1.625;font-family:Inter,system-ui,sans-serif;color:#4A4A4A;background:linear-gradient(to bottom right,#ffffff 0%,#b2def0 55%,rgba(58,174,220,.15) 100%);background-attachment:fixed;min-height:100vh;display:flex;flex-direction:column}
+      body>main{flex:1 0 auto}
       h1,h2,h3,h4,h5,h6{margin:0;font-family:Barlow,Inter,system-ui,sans-serif;font-weight:700;color:#1A2B5C}
       p{margin:0}
       a{color:inherit;text-decoration:inherit}
@@ -190,38 +191,45 @@
     </aside>
 
     <main id="conteudo">
-      <section class="py-16 lg:py-24 pt-28 lg:pt-32">
+      <!-- Section 1: Page Header (dark) -->
+      <section class="pt-28 lg:pt-36 pb-12 lg:pb-16 bg-deep bg-gradient-to-br from-deep to-[#12204a]">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <!-- Breadcrumbs Semânticos -->
+          <nav aria-label="Navegação estrutural" class="inline-flex items-center gap-2 mb-5 text-xs text-white/60 font-medium" data-animate>
+            <a href="index.html" class="hover:text-primary transition-colors">Início</a>
+            <span class="text-white/30">/</span>
+            <span class="text-white font-semibold" aria-current="page">Contato</span>
+          </nav>
+
+          <!-- Kicker -->
+          <p class="text-primary font-bold text-xs uppercase tracking-wider mb-3" data-animate data-animate-delay="50">
+            Canais Oficiais de Atendimento
+          </p>
+
+          <!-- Título Principal -->
+          <h1 class="text-4xl lg:text-5xl font-bold text-white font-heading mb-4 leading-tight" data-animate data-animate-delay="100">
+            Inicie seu atendimento com o Grupo ImperAR
+          </h1>
+
+          <!-- Parágrafo Preparatório -->
+          <p class="text-lg lg:text-xl text-white/70 leading-relaxed max-w-2xl" data-animate data-animate-delay="150">
+            Preencha os campos abaixo ou entre em contato direto pelo WhatsApp. Nossa equipe responderá em até 24 horas.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 2: Formulário + canais -->
+      <section class="py-16 lg:py-24">
         <div class="container mx-auto px-4">
-          <!-- Section 1: Page Header Contextualizado -->
-          <div class="text-center mb-12" data-animate>
-            <!-- Breadcrumbs Semânticos -->
-            <nav aria-label="Navegação estrutural" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 border border-deep/8 shadow-xs mb-6 text-xs text-gray-text font-medium">
-              <a href="index.html" class="hover:text-primary transition-colors">Início</a>
-              <span class="text-gray-400">/</span>
-              <span class="text-deep font-semibold" aria-current="page">Contato</span>
-            </nav>
+          <div class="grid lg:grid-cols-[1fr_380px] gap-12 max-w-5xl mx-auto items-start">
+            <!-- Contact Form (card) -->
+            <form class="bg-white rounded-2xl border border-deep/8 shadow-sm p-6 lg:p-8 space-y-6" data-contact-form novalidate>
+              <!-- Card header -->
+              <div class="mb-2">
+                <h2 class="text-2xl font-bold text-deep font-heading">Solicite um orçamento</h2>
+                <p class="text-gray-text text-sm mt-1">Preencha o formulário e nossa equipe responderá em até 24 horas.</p>
+              </div>
 
-            <!-- Badge de Categoria -->
-            <div class="mb-3">
-              <span class="inline-block px-3 py-1 rounded-md bg-primary/10 text-primary font-bold text-xs uppercase tracking-wider">
-                Canais Oficiais de Atendimento
-              </span>
-            </div>
-
-            <!-- Título Principal -->
-            <h1 class="text-3xl lg:text-5xl font-bold text-deep font-heading mb-4 leading-tight">
-              Inicie seu atendimento com o Grupo ImperAR
-            </h1>
-
-            <!-- Parágrafo Preparatório -->
-            <p class="text-lg text-gray-text max-w-2xl mx-auto leading-relaxed">
-              Preencha os campos abaixo ou entre em contato direto pelo WhatsApp. Nossa equipe responderá em até 24 horas.
-            </p>
-          </div>
-
-          <div class="grid lg:grid-cols-[1fr_380px] gap-12 max-w-5xl mx-auto">
-            <!-- Contact Form -->
-            <form class="space-y-6" data-contact-form novalidate>
               <!-- Name Field -->
               <div class="flex flex-col gap-1.5" data-field>
                 <label for="name" class="flex items-center gap-2 text-sm font-semibold text-deep">
@@ -516,6 +524,51 @@
               </span>
             </li>
           </ul>
+        </div>
+      </div>
+
+      <!-- SEO: Bairros e Marcas atendidas -->
+      <!--
+        NOTA: A lista de bairros abaixo é uma sugestão inicial focada na região de
+        atuação do Grupo ImperAR (zona sul de São Paulo e adjacências). O cliente
+        deve confirmar/ajustar os bairros realmente atendidos antes da publicação.
+        Os links apontam para contact.html enquanto páginas dedicadas de bairro
+        (ex.: /bairros/interlagos) não existirem.
+      -->
+      <div class="container mx-auto mt-10 pt-8 border-t border-white/10 grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div>
+          <p class="text-white/60 text-xs font-semibold uppercase tracking-wider mb-3">Bairros atendidos em São Paulo</p>
+          <p class="text-white/70 text-sm leading-relaxed">
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Interlagos</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Socorro</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Campo Grande</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Cidade Dutra</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Grajaú</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Santo Amaro</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Campo Belo</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Moema</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Brooklin</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Vila Mariana</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Jabaquara</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Saúde</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Morumbi</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Capão Redondo</a> ·
+            <a href="contact.html" class="transition-colors duration-200 hover:text-primary">Vila Andrade</a>
+          </p>
+        </div>
+        <div>
+          <p class="text-white/60 text-xs font-semibold uppercase tracking-wider mb-3">Marcas atendidas</p>
+          <p class="text-white/70 text-sm leading-relaxed">
+            Ar-condicionado Daikin ·
+            Ar-condicionado LG ·
+            Ar-condicionado Samsung ·
+            Ar-condicionado Fujitsu ·
+            Ar-condicionado Hitachi ·
+            Ar-condicionado Gree ·
+            Ar-condicionado Midea ·
+            Ar-condicionado Elgin ·
+            Ar-condicionado TCL
+          </p>
         </div>
       </div>
 
